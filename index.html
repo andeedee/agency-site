@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{overflow-x:hidden;font-family:'Plus Jakarta Sans',sans-serif;background:#fafaf9}
@@ -451,5 +452,6 @@ function calcUpdate() {
 ['calcLeads','calcDeal','calcRate','calcConv'].forEach(id => document.getElementById(id).addEventListener('input', calcUpdate));
 calcUpdate();
 </script>
+<script src="shared.js"></script>
 </body>
 </html>

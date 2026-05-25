@@ -1,0 +1,115 @@
+/* ── SMOOTH SCROLL ── */
+html { scroll-behavior: smooth; }
+
+/* ── CURSOR GLOW ── */
+.cursor-glow {
+  width: 520px; height: 520px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(108,61,232,0.07), transparent 65%);
+  position: fixed; top: -260px; left: -260px;
+  pointer-events: none; z-index: 0; will-change: transform;
+  transition: opacity 0.3s;
+}
+
+/* ── GRAIN TEXTURE ── */
+.grain-overlay { position: relative; isolation: isolate; }
+.grain-overlay::before {
+  content: ''; position: absolute; inset: 0; z-index: 2;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 220px 220px;
+  opacity: 0.038; pointer-events: none; mix-blend-mode: screen;
+}
+
+/* ── GRADIENT MESH (injected into heroes) ── */
+.gradient-mesh {
+  position: absolute; inset: 0; overflow: hidden;
+  pointer-events: none; z-index: 0;
+}
+.gradient-mesh ~ * { position: relative; z-index: 1; }
+.mesh-blob {
+  position: absolute; border-radius: 50%;
+  filter: blur(80px); will-change: transform;
+}
+.mesh-blob:nth-child(1) {
+  width: 520px; height: 520px; background: rgba(108,61,232,0.22);
+  top: -160px; left: -100px;
+  animation: meshFloat 11s ease-in-out infinite;
+}
+.mesh-blob:nth-child(2) {
+  width: 360px; height: 360px; background: rgba(236,72,153,0.16);
+  top: 20px; right: -80px;
+  animation: meshFloat 14s ease-in-out infinite reverse;
+}
+.mesh-blob:nth-child(3) {
+  width: 290px; height: 290px; background: rgba(92,47,214,0.18);
+  bottom: -80px; left: 38%;
+  animation: meshFloat 9s ease-in-out infinite 4s;
+}
+@keyframes meshFloat {
+  0%,100% { transform: translate(0,0) scale(1); }
+  33%      { transform: translate(26px,-20px) scale(1.07); }
+  66%      { transform: translate(-20px,16px) scale(0.95); }
+}
+
+/* ── SCROLL REVEAL ── */
+.reveal, .reveal-left, .reveal-right, .reveal-scale {
+  opacity: 0;
+  transition: opacity 0.65s cubic-bezier(0.16,1,0.3,1),
+              transform 0.65s cubic-bezier(0.16,1,0.3,1);
+  will-change: opacity, transform;
+}
+.reveal        { transform: translateY(26px); }
+.reveal-left   { transform: translateX(-30px); }
+.reveal-right  { transform: translateX(30px); }
+.reveal-scale  { transform: scale(0.94) translateY(14px); }
+.revealed      { opacity: 1 !important; transform: none !important; }
+.reveal-delay-1 { transition-delay: 0.08s; }
+.reveal-delay-2 { transition-delay: 0.16s; }
+.reveal-delay-3 { transition-delay: 0.24s; }
+.reveal-delay-4 { transition-delay: 0.32s; }
+.reveal-delay-5 { transition-delay: 0.40s; }
+/* Never hide nav items */
+.site-nav .reveal, .nav-mobile .reveal { opacity:1; transform:none; }
+
+/* ── GLASSMORPHISM ── */
+.glass-dark {
+  background: rgba(13,10,26,0.6) !important;
+  backdrop-filter: blur(20px) saturate(1.4) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(1.4) !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+}
+
+/* ── PAGE TRANSITIONS (View Transitions API) ── */
+@keyframes pg-fade-in  { from { opacity:0; transform:translateY(7px); } }
+@keyframes pg-fade-out { to   { opacity:0; transform:translateY(-7px); } }
+::view-transition-old(root) { animation: 180ms ease-in  pg-fade-out both; }
+::view-transition-new(root) { animation: 300ms ease-out pg-fade-in  both; }
+
+/* ── VARIABLE FONT WEIGHT ── */
+.weight-hover { transition: font-variation-settings 0.3s ease; }
+.weight-hover:hover { font-variation-settings: 'wght' 800; }
+
+/* ── HORIZONTAL SCROLL (mobile case studies) ── */
+@media (max-width: 768px) {
+  .h-scroll {
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory;
+    gap: 14px !important;
+    padding-bottom: 20px !important;
+    grid-template-columns: unset !important;
+    -webkit-overflow-scrolling: touch;
+  }
+  .h-scroll > * { flex: 0 0 83vw !important; scroll-snap-align: start; }
+  .h-scroll::-webkit-scrollbar { display: none; }
+}
+
+/* ── PARALLAX SMOOTH ── */
+.hero-phone, .hero-float-card, .story-timeline { will-change: transform; }
+
+/* ── SVG PATH DRAW (timeline) ── */
+.draw-path {
+  stroke-dasharray: var(--path-len, 200);
+  stroke-dashoffset: var(--path-len, 200);
+  transition: stroke-dashoffset 1.2s cubic-bezier(0.4,0,0.2,1);
+}
+.draw-path.drawn { stroke-dashoffset: 0; }
