@@ -1,6 +1,16 @@
 (() => {
   'use strict';
 
+  // ── LOGO INJECTION ───────────────────────────────────────────────────────
+  const boltSVG = `<svg width="22" height="30" viewBox="0 0 22 30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="flex-shrink:0;display:block">
+    <path d="M13.5 0L2 17h9.5L8 30 22 13h-9.5L16 0z" fill="#4ADE80"/>
+  </svg>`;
+  const logoInner = `${boltSVG}<span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:17px;letter-spacing:-0.01em;color:#fff;line-height:1">AMPLO LABS</span>`;
+  document.querySelectorAll('.nav-logo, .footer-brand-logo').forEach(el => {
+    el.style.cssText += ';display:flex;align-items:center;gap:9px;';
+    el.innerHTML = logoInner;
+  });
+
   // ── CURSOR GLOW ──────────────────────────────────────────────────────────
   const glow = document.createElement('div');
   glow.className = 'cursor-glow';
