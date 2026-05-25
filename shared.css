@@ -21,12 +21,12 @@ html { scroll-behavior: smooth; }
 .calc-wrap .cta-micro,
 .home-svc-wrap .cta-micro,
 .stats-wrap .cta-micro,
-.story-wrap .cta-micro { color: rgba(74,69,96,0.65) !important; }
+.story-wrap .cta-micro { color: rgba(61,74,86,0.65) !important; }
 
 /* Pulse glow around primary CTAs (subtle, idle attention) */
 @keyframes ctaIdle {
-  0%, 65%   { box-shadow: 0 0 0 0    rgba(108,61,232,0.45); }
-  100%      { box-shadow: 0 0 0 18px rgba(108,61,232,0); }
+  0%, 65%   { box-shadow: 0 0 0 0    rgba(217,119,6,0.45); }
+  100%      { box-shadow: 0 0 0 18px rgba(217,119,6,0); }
 }
 .cta-pulse {
   animation: ctaIdle 2.6s ease-out infinite;
@@ -40,7 +40,7 @@ html { scroll-behavior: smooth; }
   bottom: 0; left: 0; right: 0;
   z-index: 90;
   padding: 12px 14px calc(12px + env(safe-area-inset-bottom));
-  background: rgba(13,10,26,0.92);
+  background: rgba(12,26,46,0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-top: 1px solid rgba(255,255,255,0.08);
@@ -53,13 +53,13 @@ html { scroll-behavior: smooth; }
   width: 100%;
   padding: 15px 20px;
   border-radius: 10px;
-  background: linear-gradient(135deg, #6c3de8, #ec4899);
+  background: linear-gradient(135deg, #d97706, #15803d);
   color: #fff;
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 15px; font-weight: 700;
   text-decoration: none;
   letter-spacing: -0.01em;
-  box-shadow: 0 8px 32px rgba(108,61,232,0.4);
+  box-shadow: 0 8px 32px rgba(217,119,6,0.4);
 }
 .sticky-cta-btn .arrow {
   display: inline-block;
@@ -110,18 +110,18 @@ html { scroll-behavior: smooth; }
 /* 3 ── FIX: case study card image areas — richer visual */
 .cs-card-img {
   font-size: 42px !important;
-  background: linear-gradient(145deg, #19102e, #0d0a1a) !important;
+  background: linear-gradient(145deg, #0a1628, #0c1a2e) !important;
   position: relative;
 }
 .cs-card:nth-child(1) .cs-card-img::before,
-.cs-card:nth-child(4) .cs-card-img::before { background: rgba(108,61,232,0.35) !important; }
+.cs-card:nth-child(4) .cs-card-img::before { background: rgba(217,119,6,0.35) !important; }
 .cs-card:nth-child(2) .cs-card-img::before,
 .cs-card:nth-child(5) .cs-card-img::before { background: rgba(14,165,233,0.2) !important; }
 .cs-card:nth-child(3) .cs-card-img::before,
-.cs-card:nth-child(6) .cs-card-img::before { background: rgba(236,72,153,0.25) !important; }
+.cs-card:nth-child(6) .cs-card-img::before { background: rgba(21,128,61,0.25) !important; }
 .cs-card-img .cs-emoji {
   position: relative; z-index: 2;
-  filter: drop-shadow(0 0 18px rgba(167,139,250,0.6));
+  filter: drop-shadow(0 0 18px rgba(251,191,36,0.6));
 }
 /* subtle decorative ring behind emoji */
 .cs-card-img::before {
@@ -222,7 +222,7 @@ html { scroll-behavior: smooth; }
 /* ── CURSOR GLOW ── */
 .cursor-glow {
   width: 520px; height: 520px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(108,61,232,0.07), transparent 65%);
+  background: radial-gradient(circle, rgba(217,119,6,0.07), transparent 65%);
   position: fixed; top: -260px; left: -260px;
   pointer-events: none; z-index: 0; will-change: transform;
   transition: opacity 0.3s;
@@ -248,17 +248,17 @@ html { scroll-behavior: smooth; }
   filter: blur(80px); will-change: transform;
 }
 .mesh-blob:nth-child(1) {
-  width: 520px; height: 520px; background: rgba(108,61,232,0.22);
+  width: 520px; height: 520px; background: rgba(217,119,6,0.22);
   top: -160px; left: -100px;
   animation: meshFloat 11s ease-in-out infinite;
 }
 .mesh-blob:nth-child(2) {
-  width: 360px; height: 360px; background: rgba(236,72,153,0.16);
+  width: 360px; height: 360px; background: rgba(21,128,61,0.16);
   top: 20px; right: -80px;
   animation: meshFloat 14s ease-in-out infinite reverse;
 }
 .mesh-blob:nth-child(3) {
-  width: 290px; height: 290px; background: rgba(92,47,214,0.18);
+  width: 290px; height: 290px; background: rgba(180,83,9,0.18);
   bottom: -80px; left: 38%;
   animation: meshFloat 9s ease-in-out infinite 4s;
 }
@@ -290,7 +290,7 @@ html { scroll-behavior: smooth; }
 
 /* ── GLASSMORPHISM ── */
 .glass-dark {
-  background: rgba(13,10,26,0.6) !important;
+  background: rgba(12,26,46,0.6) !important;
   backdrop-filter: blur(20px) saturate(1.4) !important;
   -webkit-backdrop-filter: blur(20px) saturate(1.4) !important;
   border: 1px solid rgba(255,255,255,0.1) !important;
