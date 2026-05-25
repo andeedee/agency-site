@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Studies — Amplo Labs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{overflow-x:hidden;font-family:'Plus Jakarta Sans',sans-serif;background:#fafaf9}
+.site-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 24px;background:#0d0a1a;box-shadow:0 1px 0 rgba(255,255,255,.08)}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:68px}
+.nav-logo{font-size:18px;font-weight:800;color:#fff;text-decoration:none;letter-spacing:-.02em}
+.nav-logo span{background:linear-gradient(135deg,#a78bfa,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+.nav-links a{font-size:14px;font-weight:500;color:rgba(255,255,255,.75);text-decoration:none;position:relative;padding-bottom:2px;transition:color .2s}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1.5px;background:linear-gradient(90deg,#6c3de8,#ec4899);transition:width .25s}
+.nav-links a:hover{color:#fff}
+.nav-links a:hover::after{width:100%}
+.nav-cta{position:relative;overflow:hidden;font-size:14px;font-weight:600;padding:10px 22px;border-radius:8px;color:#fff;background:#1a1030;text-decoration:none;transition:transform .2s;display:inline-block}
+.nav-cta::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#6c3de8,#ec4899);opacity:0;transition:opacity .25s}
+.nav-cta span{position:relative;z-index:1}
+.nav-cta:hover::before{opacity:1}
+.nav-cta:hover{transform:translateY(-1px)}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.nav-hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:transform .3s,opacity .3s}
+.nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-hamburger.open span:nth-child(2){opacity:0}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.nav-mobile{display:none;position:fixed;top:68px;left:0;right:0;bottom:0;background:#0d0a1a;padding:24px;z-index:99;flex-direction:column;gap:8px}
+.nav-mobile.open{display:flex}
+.nav-mobile a{font-size:18px;font-weight:600;color:rgba(255,255,255,.8);text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.nav-mobile-cta{margin-top:16px;text-align:center;padding:16px 24px;border-radius:10px;font-weight:700;background:linear-gradient(135deg,#6c3de8,#ec4899);color:#fff;font-size:16px;text-decoration:none}
+@media(max-width:768px){.nav-links,.nav-cta{display:none}.nav-hamburger{display:flex}}
+
+/* CASE STUDIES */
+.cs-wrap{width:100vw;position:relative;left:50%;margin-left:-50vw;box-sizing:border-box;background:#fafaf9}
+.cs-hero{background:#0d0a1a;padding:130px 24px 80px;text-align:center}
+.cs-hero-inner{max-width:720px;margin:0 auto}
+.cs-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#a78bfa;margin-bottom:20px}
+.cs-eyebrow::before{content:'';display:block;width:18px;height:2px;background:linear-gradient(90deg,#6c3de8,#ec4899);border-radius:2px}
+.cs-hero h1{font-size:clamp(32px,5vw,52px);font-weight:700;line-height:1.15;color:#fff;margin:0 0 16px}
+.cs-hero h1 span{background:linear-gradient(135deg,#a78bfa,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.cs-hero p{font-size:17px;line-height:1.7;color:rgba(255,255,255,.6);margin:0}
+.cs-filters{background:#fff;border-bottom:1px solid #e8e4f0;padding:20px 24px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.cs-filter-btn{font-size:13px;font-weight:600;padding:8px 18px;border-radius:100px;border:1.5px solid #e0d9f5;background:#fff;color:#4a4560;cursor:pointer;transition:all .2s;font-family:'Plus Jakarta Sans',sans-serif}
+.cs-filter-btn:hover,.cs-filter-btn.active{background:#6c3de8;border-color:#6c3de8;color:#fff}
+.cs-grid-section{padding:72px 24px}
+.cs-grid-inner{max-width:1100px;margin:0 auto}
+.cs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.cs-card{background:#fff;border-radius:14px;border:1px solid #e8e4f0;overflow:hidden;transition:box-shadow .25s,transform .25s;display:flex;flex-direction:column}
+.cs-card:hover{box-shadow:0 12px 40px rgba(108,61,232,.12);transform:translateY(-4px)}
+.cs-card-img{height:180px;background:linear-gradient(145deg,#19102e,#0d0a1a);display:flex;align-items:center;justify-content:center;font-size:36px;position:relative;overflow:hidden}
+.cs-card-img::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(108,61,232,.3),rgba(236,72,153,.2))}
+.cs-card-tag{position:absolute;top:14px;left:14px;z-index:1;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;background:rgba(108,61,232,.9);color:#fff;padding:4px 10px;border-radius:100px}
+.cs-card-body{padding:28px;flex:1;display:flex;flex-direction:column}
+.cs-card-industry{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#6c3de8;margin-bottom:8px}
+.cs-card-body h3{font-size:18px;font-weight:700;color:#0d0a1a;line-height:1.3;margin:0 0 12px}
+.cs-card-body p{font-size:14px;line-height:1.7;color:#4a4560;margin:0 0 24px;flex:1}
+.cs-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;border-top:1px solid #f0edfb;padding-top:20px;margin-top:auto}
+.cs-stat{text-align:center}
+.cs-stat-val{font-size:20px;font-weight:700;background:linear-gradient(135deg,#6c3de8,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;margin-bottom:2px}
+.cs-stat-label{font-size:11px;color:#8b85a0;line-height:1.3}
+.cs-card-link{display:inline-flex;align-items:center;gap:6px;margin-top:20px;font-size:14px;font-weight:600;color:#6c3de8;text-decoration:none;transition:gap .2s}
+.cs-card-link:hover{gap:10px}
+.cs-card-link::after{content:'→'}
+.cs-cta{background:#f0edfb;padding:80px 24px;text-align:center}
+.cs-cta-inner{max-width:600px;margin:0 auto}
+.cs-cta h2{font-size:clamp(26px,3.5vw,38px);font-weight:700;color:#0d0a1a;margin:0 0 14px}
+.cs-cta h2 span{background:linear-gradient(135deg,#6c3de8,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.cs-cta p{font-size:16px;line-height:1.7;color:#4a4560;margin:0 0 32px}
+.cs-cta-btn{position:relative;overflow:hidden;font-size:15px;font-weight:600;padding:14px 36px;border-radius:8px;color:#fff;background:#0d0a1a;text-decoration:none;display:inline-block;transition:transform .2s}
+.cs-cta-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#6c3de8,#ec4899);opacity:0;transition:opacity .25s}
+.cs-cta-btn span{position:relative;z-index:1}
+.cs-cta-btn:hover::before{opacity:1}
+.cs-cta-btn:hover{transform:translateY(-2px)}
+@media(max-width:768px){.cs-grid{grid-template-columns:1fr}}
+@media(min-width:769px) and (max-width:1024px){.cs-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* FOOTER */
+.footer-wrap{width:100vw;position:relative;left:50%;margin-left:-50vw;box-sizing:border-box;background:#080613;padding:72px 24px 0}
+.footer-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:64px;padding-bottom:64px}
+.footer-brand-logo{font-size:18px;font-weight:800;color:#fff;letter-spacing:-.02em;margin-bottom:14px;display:block;text-decoration:none}
+.footer-brand-logo span{background:linear-gradient(135deg,#a78bfa,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.footer-brand p{font-size:14px;line-height:1.7;color:rgba(255,255,255,.4);margin:0 0 20px;max-width:280px}
+.footer-brand-link{font-size:14px;font-weight:600;color:#a78bfa;text-decoration:none;position:relative;padding-bottom:1px}
+.footer-brand-link::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:#a78bfa;transition:width .25s}
+.footer-brand-link:hover::after{width:100%}
+.footer-col h4{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:20px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-col ul a{font-size:14px;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
+.footer-col ul a:hover{color:#fff}
+.footer-bar{max-width:1100px;margin:0 auto;padding:24px 0;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-bar p{font-size:13px;color:rgba(255,255,255,.25)}
+.footer-bar a{font-size:13px;color:rgba(255,255,255,.25);text-decoration:none;transition:color .2s}
+.footer-bar a:hover{color:rgba(255,255,255,.5)}
+@media(max-width:768px){.footer-grid{grid-template-columns:1fr;gap:40px}.footer-bar{flex-direction:column;text-align:center}}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Amplo <span>Labs</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="case-studies.html">Case Studies</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="calendar.html" class="nav-cta"><span>Book a Call</span></a>
+    <button class="nav-hamburger" id="navHamburger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav-mobile" id="navMobile">
+  <a href="index.html">Home</a><a href="services.html">Services</a><a href="about.html">About</a>
+  <a href="case-studies.html">Case Studies</a><a href="contact.html">Contact</a>
+  <a href="calendar.html" class="nav-mobile-cta">Book a Call</a>
+</div>
+
+<div class="cs-wrap">
+  <div class="cs-hero">
+    <div class="cs-hero-inner">
+      <div class="cs-eyebrow">Case Studies</div>
+      <h1>Real businesses.<br><span>Real revenue recovered.</span></h1>
+      <p>See how businesses like yours are using AI automation to capture leads faster, protect their reputation, and grow without adding headcount.</p>
+    </div>
+  </div>
+  <div class="cs-filters">
+    <button class="cs-filter-btn active">All Industries</button>
+    <button class="cs-filter-btn">Home Services</button>
+    <button class="cs-filter-btn">Healthcare</button>
+    <button class="cs-filter-btn">E-commerce</button>
+    <button class="cs-filter-btn">Professional Services</button>
+  </div>
+  <div class="cs-grid-section">
+    <div class="cs-grid-inner">
+      <div class="cs-grid">
+        <div class="cs-card">
+          <div class="cs-card-img">🏠<span class="cs-card-tag">DBR</span></div>
+          <div class="cs-card-body">
+            <div class="cs-card-industry">Home Services — HVAC</div>
+            <h3>How an HVAC company tripled contacted leads in 30 days</h3>
+            <p>A regional HVAC provider was losing jobs to competitors simply because their team couldn't call back fast enough. We deployed Done-By-Rob AI — response time dropped from 4 hours to 47 seconds.</p>
+            <div class="cs-stats">
+              <div class="cs-stat"><span class="cs-stat-val">3.2×</span><span class="cs-stat-label">Leads contacted</span></div>
+              <div class="cs-stat"><span class="cs-stat-val">47s</span><span class="cs-stat-label">Avg response time</span></div>
+              <div class="cs-stat"><span class="cs-stat-val">+£14k</span><span class="cs-stat-label">Month 1 revenue</span></div>
+            </div>
+            <a href="#" class="cs-card-link">Read case study</a>
+          </div>
+        </div>
+        <div class="cs-card">
+          <div class="cs-card-img">🦷<span class="cs-card-tag">S2L</span></div>
+          <div class="cs-card-body">
+            <div class="cs-card-industry">Healthcare — Dental</div>
+            <h3>Dental practice fills 94% of last-minute cancellation slots</h3>
+            <p>Empty appointment slots were costing this multi-location dental group thousands per week. Speed-to-Lead AI now fills cancellations automatically — before the gap even shows on the calendar.</p>
+            <div class="cs-stats">
+              <div class="cs-stat"><span class="cs-stat-val">94%</span><span class="cs-stat-label">Slots filled</span></div>
+              <div class="cs-stat"><span class="cs-stat-val">£8.4k</span><span class="cs-stat-label">Recovered/mo</span></div>
+              <div class="cs-stat"><span class="cs-stat-val">2 wks</span><span class="cs-stat-label">Break-even</span></div>
+            </div>
+            <a href="#" class="cs-card-link">Read case study</a>
+          </div>
+        </div>
+        <div class="cs-card">
+          <div class="cs-card-img">🛒<span class="cs-card-tag">Cart</span></div>
+          <div class="cs-card-body">
+            <div class="cs-card-industry">E-commerce — Homewares</div>
+            <h3>E-commerce brand recovers 23% of abandoned carts automatically</h3>
+            <p>A homewares brand watched 70% of carts go unpurchased every day. Abandoned Cart AI now sends personalised follow-up sequences — recovering nearly a quarter of what would have been lost.</p>
+            <div class="cs-stats">
+              <div class="cs-stat"><span class="cs-stat-val">23%</span><span class="cs-stat-label">Carts recovered</span></div>
+              <div class="cs-stat"><span class="cs-stat-val">4.1×</span><span class="cs-stat-label">ROI</span></div>
+              <div class="cs-stat"><span class="cs-stat-val">£0</span><span class="cs-stat-label">Extra staff cost</span></div>
+            </div>
+            <a href="#" class="cs-card-link">Read case study</a>
+          </div>
+        </div>
+        <div class="cs-card">
+          <div class="cs-card-img">⭐<span class="cs-card-tag">Reviews</span></div>
+          <div class="cs-card-body">
+            <div class="cs-card-industry">Professional Services — Law</div>
+            <h3>Law firm goes from 3.8 to 4.7 stars in under 90 days</h3>
+            <p>Negative reviews were suppressing enquiries despite excellent client outcomes. Google Review AI began capturing positive sentiment at the right moment — silently transforming their online reputation.</p>
+            <div class="cs-stats">
+              <div class="cs-stat"><span class="cs-stat-val">+0.9</span><span class="cs-stat-label">Star rating</span></div>
+              <div class="cs-stat"><span class="cs-stat-val">68</span><span class="cs-stat-label">New 5★ reviews</span></div>
+              <div class="cs-stat"><span class="cs-stat-val">+31%</span><span class="cs-stat-label">Organic enquiries</span></div>
+            </div>
+            <a href="#" class="cs-card-link">Read case study</a>
+          </div>
+        </div>
+        <div class="cs-card">
+          <div class="cs-card-img">🌙<span class="cs-card-tag">OOH</span></div>
+          <div class="cs-card-body">
+            <div class="cs-card-industry">Home Services — Plumbing</div>
+            <h3>Plumber captures £6k/month in after-hours emergency jobs</h3>
+            <p>Emergency calls arriving after 6pm were going to voicemail — and straight to competitors. Out-of-Hours AI now qualifies and books these enquiries through the night, seven days a week.</p>
+            <div class="cs-stats">
+              <div class="cs-stat"><span class="cs-stat-val">£6k</span><span class="cs-stat-label">Added revenue/mo</span></div>
+              <div class="cs-stat"><span class="cs-stat-val">100%</span><span class="cs-stat-label">Hours covered</span></div>
+              <div class="cs-stat"><span class="cs-stat-val">0</span><span class="cs-stat-label">Missed nights</span></div>
+            </div>
+            <a href="#" class="cs-card-link">Read case study</a>
+          </div>
+        </div>
+        <div class="cs-card">
+          <div class="cs-card-img">💼<span class="cs-card-tag">Full Stack</span></div>
+          <div class="cs-card-body">
+            <div class="cs-card-industry">Professional Services — Accounting</div>
+            <h3>Accounting firm adds £22k MRR with full automation stack</h3>
+            <p>A mid-size accountancy practice deployed all five AI systems simultaneously. The compound effect of lead response, reputation, and after-hours coverage created their best quarter on record.</p>
+            <div class="cs-stats">
+              <div class="cs-stat"><span class="cs-stat-val">£22k</span><span class="cs-stat-label">New MRR</span></div>
+              <div class="cs-stat"><span class="cs-stat-val">5×</span><span class="cs-stat-label">ROI</span></div>
+              <div class="cs-stat"><span class="cs-stat-val">Q1</span><span class="cs-stat-label">Best quarter ever</span></div>
+            </div>
+            <a href="#" class="cs-card-link">Read case study</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="cs-cta">
+    <div class="cs-cta-inner">
+      <h2>Want results like <span>these for your business?</span></h2>
+      <p>Book a free 30-minute strategy call. We'll identify exactly which automations apply to your situation and show you a realistic projection — before you spend a penny.</p>
+      <a href="calendar.html" class="cs-cta-btn"><span>Get Your Free Strategy Call</span></a>
+    </div>
+  </div>
+</div>
+
+<footer class="footer-wrap">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="footer-brand-logo">Amplo <span>Labs</span></a>
+      <p>AI automation systems that recover lost revenue, protect your reputation, and keep your pipeline full — without adding headcount.</p>
+      <a href="calendar.html" class="footer-brand-link">Book a strategy call →</a>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="services.html#dbr">Done-By-Rob AI</a></li>
+        <li><a href="services.html#s2l">Speed-to-Lead AI</a></li>
+        <li><a href="services.html#ooh">Out-of-Hours AI</a></li>
+        <li><a href="services.html#reviews">Google Review AI</a></li>
+        <li><a href="services.html#cart">Abandoned Cart AI</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="case-studies.html">Case Studies</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="calendar.html">Book a Call</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bar">
+    <p>© 2025 Amplo Labs. All rights reserved.</p>
+    <div style="display:flex;gap:24px"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+  </div>
+</footer>
+
+<script>
+const ham = document.getElementById('navHamburger');
+const mob = document.getElementById('navMobile');
+ham.addEventListener('click', () => { ham.classList.toggle('open'); mob.classList.toggle('open'); });
+// Filter buttons (visual only for preview)
+document.querySelectorAll('.cs-filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => { document.querySelectorAll('.cs-filter-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); });
+});
+</script>
+</body>
+</html>
