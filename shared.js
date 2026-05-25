@@ -1,6 +1,95 @@
 (() => {
   'use strict';
 
+  // ── CRE: CTA TEXT REPLACEMENTS ───────────────────────────────────────────
+  const ctaTextMap = {
+    'Book a Call': 'Get My Free Call',
+    'Book a Free Strategy Call': 'Get My Free Strategy Call',
+    'Book a Free 30-Min Session': 'Get My Free 30-Min Session',
+    'Get Your Free Strategy Call': 'Get My Free Strategy Call',
+    'Book a free 30-min session →': 'Get my free 30-min session →',
+    'Book a strategy call →': 'Get a free strategy call →',
+    'Book a Free Strategy Call': 'Get My Free Strategy Call',
+  };
+  const textTargets = [
+    '.nav-cta span', '.nav-mobile-cta',
+    '.hero-btn-primary span', '.cta-fin-primary span',
+    '.about-cta-primary span', '.about-hero-btn-p span',
+    '.svc-hero-btn span', '.cs-cta-btn span',
+    '.about-cta-btn span', '.footer-brand-link',
+  ];
+  document.querySelectorAll(textTargets.join(',')).forEach(el => {
+    const t = el.textContent.trim();
+    if (ctaTextMap[t]) el.textContent = ctaTextMap[t];
+  });
+
+  // ── CRE: MICRO-COPY UNDER PRIMARY CTAs ───────────────────────────────────
+  const microTargets = [
+    {sel:'.hero-btns',            txt:'No pitch · No pressure · 30 mins'},
+    {sel:'.cta-finale-btns',      txt:'⭐ 4.9 from 247 calls · £50 time guarantee · 30 mins'},
+    {sel:'.about-hero-btns',      txt:'No pitch · No pressure · 30 mins'},
+    {sel:'.about-cta-btns',       txt:'⭐ 4.9 from 247 calls · £50 time guarantee'},
+  ];
+  microTargets.forEach(({sel,txt}) => {
+    document.querySelectorAll(sel).forEach(c => {
+      if (c.nextElementSibling?.classList.contains('cta-micro')) return;
+      const m = document.createElement('p');
+      m.className = 'cta-micro';
+      m.textContent = txt;
+      c.parentNode.insertBefore(m, c.nextSibling);
+    });
+  });
+  // Calculator card CTA
+  document.querySelectorAll('.calc-cta-btn').forEach(b => {
+    if (b.nextElementSibling?.classList.contains('cta-micro')) return;
+    const m = document.createElement('p');
+    m.className = 'cta-micro';
+    m.style.color = 'rgba(255,255,255,0.75)';
+    m.textContent = 'No pitch · 30 mins · £50 time guarantee';
+    b.parentNode.insertBefore(m, b.nextSibling);
+  });
+  // Case studies CTA
+  document.querySelectorAll('.cs-cta-btn').forEach(b => {
+    if (b.nextElementSibling?.classList.contains('cta-micro')) return;
+    const m = document.createElement('p');
+    m.className = 'cta-micro';
+    m.style.color = 'rgba(74,69,96,0.65)';
+    m.textContent = 'No pitch · 30 mins · £50 time guarantee if not a fit';
+    b.parentNode.insertBefore(m, b.nextSibling);
+  });
+
+  // ── CRE: PULSE ON PRIMARY CTAs ───────────────────────────────────────────
+  document.querySelectorAll('.hero-btn-primary, .cta-fin-primary, .about-cta-primary, .cs-cta-btn').forEach(el => {
+    el.classList.add('cta-pulse');
+  });
+
+  // ── CRE: STICKY MOBILE BOTTOM CTA ────────────────────────────────────────
+  if (!document.body.dataset.page) {
+    // Tag pages based on URL so the CSS selector works on every page
+    const path = location.pathname.split('/').pop().replace('.html','') || 'index';
+    document.body.dataset.page = path;
+  }
+  if (document.body.dataset.page !== 'calendar') {
+    const sticky = document.createElement('div');
+    sticky.className = 'sticky-cta';
+    sticky.innerHTML = `
+      <a href="calendar.html" class="sticky-cta-btn">
+        <span>Get my free 30-min strategy call</span>
+        <span class="arrow">→</span>
+      </a>
+      <div class="sticky-cta-sub">⭐ 4.9 · £50 time guarantee · No pitch</div>
+    `;
+    document.body.appendChild(sticky);
+    // Reveal after first scroll
+    const reveal = () => {
+      if (window.scrollY > 600) {
+        sticky.classList.add('visible');
+        window.removeEventListener('scroll', reveal);
+      }
+    };
+    window.addEventListener('scroll', reveal, { passive: true });
+  }
+
   // ── LOGO INJECTION ───────────────────────────────────────────────────────
   const boltSVG = `<svg width="22" height="30" viewBox="0 0 22 30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="flex-shrink:0;display:block">
     <path d="M13.5 0L2 17h9.5L8 30 22 13h-9.5L16 0z" fill="#4ADE80"/>

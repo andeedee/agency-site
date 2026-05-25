@@ -2,6 +2,87 @@
 html { scroll-behavior: smooth; }
 
 /* ══════════════════════════════════════════
+   CRE CONVERSION ELEMENTS
+══════════════════════════════════════════ */
+
+/* Micro-copy under primary CTAs */
+.cta-micro {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  margin-top: 14px;
+  letter-spacing: 0.01em;
+  color: rgba(255,255,255,0.45);
+  text-align: center;
+}
+.svc-light .cta-micro,
+.svc-lav .cta-micro,
+.cs-cta .cta-micro,
+.calc-wrap .cta-micro,
+.home-svc-wrap .cta-micro,
+.stats-wrap .cta-micro,
+.story-wrap .cta-micro { color: rgba(74,69,96,0.65) !important; }
+
+/* Pulse glow around primary CTAs (subtle, idle attention) */
+@keyframes ctaIdle {
+  0%, 65%   { box-shadow: 0 0 0 0    rgba(108,61,232,0.45); }
+  100%      { box-shadow: 0 0 0 18px rgba(108,61,232,0); }
+}
+.cta-pulse {
+  animation: ctaIdle 2.6s ease-out infinite;
+  animation-delay: 3s;
+}
+
+/* Sticky mobile bottom CTA */
+.sticky-cta {
+  display: none;
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 90;
+  padding: 12px 14px calc(12px + env(safe-area-inset-bottom));
+  background: rgba(13,10,26,0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  transform: translateY(110%);
+  transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+}
+.sticky-cta.visible { transform: translateY(0); }
+.sticky-cta-btn {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  width: 100%;
+  padding: 15px 20px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #6c3de8, #ec4899);
+  color: #fff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 15px; font-weight: 700;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  box-shadow: 0 8px 32px rgba(108,61,232,0.4);
+}
+.sticky-cta-btn .arrow {
+  display: inline-block;
+  transition: transform 0.2s;
+}
+.sticky-cta-btn:active .arrow { transform: translateX(4px); }
+.sticky-cta-sub {
+  text-align: center;
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);
+  margin-top: 6px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+@media (max-width: 768px) {
+  body[data-page]:not([data-page="calendar"]) .sticky-cta { display: block; }
+  /* Prevent footer overlap */
+  body[data-page]:not([data-page="calendar"]) .footer-wrap { padding-bottom: 96px; }
+}
+
+
+
+/* ══════════════════════════════════════════
    TARGETED FIXES
 ══════════════════════════════════════════ */
 
