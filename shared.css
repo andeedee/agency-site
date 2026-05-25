@@ -1,6 +1,143 @@
 /* ── SMOOTH SCROLL ── */
 html { scroll-behavior: smooth; }
 
+/* ══════════════════════════════════════════
+   TARGETED FIXES
+══════════════════════════════════════════ */
+
+/* 1 ── FIX: mobile stats bar horizontal scroll */
+@media (max-width: 768px) {
+  .stats-inner {
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    justify-content: flex-start !important;
+    padding: 4px 0 12px !important;
+    gap: 8px !important;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+  }
+  .stats-inner::-webkit-scrollbar { display: none; }
+  .stat-pill { flex-shrink: 0; scroll-snap-align: start; }
+}
+
+/* 2 ── FIX: services page flip on mobile — remove direction:rtl */
+@media (max-width: 768px) {
+  .svc-inner.flip { direction: ltr !important; }
+  .svc-inner.flip > * { direction: ltr !important; }
+}
+
+/* 3 ── FIX: case study card image areas — richer visual */
+.cs-card-img {
+  font-size: 42px !important;
+  background: linear-gradient(145deg, #19102e, #0d0a1a) !important;
+  position: relative;
+}
+.cs-card:nth-child(1) .cs-card-img::before,
+.cs-card:nth-child(4) .cs-card-img::before { background: rgba(108,61,232,0.35) !important; }
+.cs-card:nth-child(2) .cs-card-img::before,
+.cs-card:nth-child(5) .cs-card-img::before { background: rgba(14,165,233,0.2) !important; }
+.cs-card:nth-child(3) .cs-card-img::before,
+.cs-card:nth-child(6) .cs-card-img::before { background: rgba(236,72,153,0.25) !important; }
+.cs-card-img .cs-emoji {
+  position: relative; z-index: 2;
+  filter: drop-shadow(0 0 18px rgba(167,139,250,0.6));
+}
+/* subtle decorative ring behind emoji */
+.cs-card-img::before {
+  content: '';
+  position: absolute;
+  width: 90px; height: 90px;
+  border-radius: 50%;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* 4 ── FIX: case study filter bar mobile — horizontal scroll */
+@media (max-width: 768px) {
+  .cs-filters {
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    justify-content: flex-start !important;
+    padding: 16px 20px !important;
+    gap: 6px !important;
+    -webkit-overflow-scrolling: touch;
+  }
+  .cs-filters::-webkit-scrollbar { display: none; }
+  .cs-filter-btn { flex-shrink: 0; }
+}
+
+/* 5 ── FIX: about mobile hero — reduce top padding */
+@media (max-width: 768px) {
+  .about-hero-wrap { padding-top: 100px !important; }
+  .svc-hero { padding-top: 100px !important; }
+  .cs-hero { padding-top: 100px !important; }
+  .cal-hero { padding-top: 100px !important; }
+  .demo-hero { padding-top: 100px !important; }
+}
+
+/* 6 ── FIX: hero h1 line-break control */
+.hero-text h1 { text-wrap: balance; }
+
+/* 7 ── FIX: comparison table mobile — compact two-column instead of hiding */
+@media (max-width: 768px) {
+  .cmp-table { font-size: 12px; }
+  .cmp-table thead tr th,
+  .cmp-table tbody td { padding: 12px 10px; }
+  .cmp-table thead tr th:nth-child(2),
+  .cmp-table tbody td:nth-child(2) { display: none; }
+}
+
+/* 8 ── FIX: footer mobile — two-column grid for nav cols */
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 32px 24px !important;
+  }
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+}
+
+/* 9 ── FIX: calculator heading word spacing */
+.calc-left h2 { text-wrap: balance; }
+
+/* 10 ── FIX: service card icon sizing — larger hit area */
+.svc-icon {
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 12px !important;
+}
+
+/* 11 ── POLISH: smooth hover on all cards */
+.svc-card, .cs-card, .demo-info-card, .cal-step-card {
+  transition: box-shadow 0.25s ease, transform 0.25s ease !important;
+}
+
+/* 12 ── POLISH: home hero mobile — tighten */
+@media (max-width: 768px) {
+  .hero-wrap { padding: 100px 20px 60px !important; }
+  .hero-text h1 { font-size: clamp(32px, 8vw, 44px) !important; }
+  .hero-text p { font-size: 15px !important; margin-bottom: 28px !important; }
+}
+
+/* 13 ── POLISH: service section mobile spacing */
+@media (max-width: 768px) {
+  .svc-light, .svc-lav, .svc-dark { padding: 64px 20px !important; }
+  .svc-inner { gap: 36px !important; }
+}
+
+/* 14 ── POLISH: case studies grid — 2 col on tablet */
+@media (min-width: 600px) and (max-width: 900px) {
+  .cs-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+/* 15 ── POLISH: stats bar pill alignment on desktop */
+.stats-wrap { padding: 32px 24px !important; }
+.stat-pill { padding: 10px 20px !important; gap: 10px !important; }
+
+
 /* ── CURSOR GLOW ── */
 .cursor-glow {
   width: 520px; height: 520px; border-radius: 50%;
