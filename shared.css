@@ -196,11 +196,19 @@ html { scroll-behavior: smooth; }
   transition: box-shadow 0.25s ease, transform 0.25s ease !important;
 }
 
-/* 12 ── POLISH: home hero mobile — tighten */
+/* 12 ── POLISH: home hero mobile — tighten + CTA fix */
 @media (max-width: 768px) {
   .hero-wrap { padding: 100px 20px 60px !important; }
   .hero-text h1 { font-size: clamp(32px, 8vw, 44px) !important; }
-  .hero-text p { font-size: 15px !important; margin-bottom: 28px !important; }
+  .hero-text p { font-size: 15px !important; margin-bottom: 36px !important; }
+  /* Stack buttons full-width */
+  .hero-btns { flex-direction: column !important; gap: 10px !important; }
+  .hero-btn-primary,
+  .hero-btn-secondary { width: 100% !important; text-align: center !important; box-sizing: border-box !important; }
+  /* Amber gradient always visible on touch (no hover state on mobile) */
+  .hero-btn-primary::before { opacity: 1 !important; }
+  /* Give secondary more contrast on dark bg */
+  .hero-btn-secondary { border-color: rgba(255,255,255,0.28) !important; }
 }
 
 /* 13 ── POLISH: service section mobile spacing */
