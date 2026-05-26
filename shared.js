@@ -196,7 +196,7 @@
     entries.forEach(e => {
       if (e.isIntersecting) { e.target.classList.add('revealed'); ro.unobserve(e.target); }
     });
-  }, { threshold: 0.07, rootMargin: '0px 0px -24px 0px' });
+  }, { threshold: 0, rootMargin: '0px 0px 160px 0px' });
   document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
 
   // ── NUMBER COUNTERS ──────────────────────────────────────────────────────

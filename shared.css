@@ -283,7 +283,7 @@ html { scroll-behavior: smooth; }
               transform 0.65s cubic-bezier(0.16,1,0.3,1);
   will-change: opacity, transform;
 }
-.reveal        { transform: translateY(26px); }
+.reveal        { transform: translateY(16px); }
 .reveal-left   { transform: translateX(-30px); }
 .reveal-right  { transform: translateX(30px); }
 .reveal-scale  { transform: scale(0.94) translateY(14px); }
