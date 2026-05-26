@@ -136,6 +136,9 @@ html,body{overflow-x:hidden;font-family:'Plus Jakarta Sans',sans-serif;backgroun
 .calc-cta-btn{display:block;text-align:center;background:#fff;color:#b45309;font-size:15px;font-weight:700;padding:14px 24px;border-radius:8px;text-decoration:none;transition:transform .2s,box-shadow .2s}
 .calc-cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.2)}
 @media(max-width:768px){.calc-inner{grid-template-columns:1fr}.calc-right-card{position:static}}
+.calc-tabs{display:flex;gap:6px;margin-bottom:28px;background:#edf2ec;border-radius:10px;padding:4px}
+.calc-tab{flex:1;padding:10px 14px;border-radius:7px;border:none;background:transparent;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:600;color:#637280;cursor:pointer;transition:all .2s}
+.calc-tab.active{background:#fff;color:#d97706;box-shadow:0 2px 8px rgba(0,0,0,.08)}
 
 /* ── CTA FINALE ── */
 .cta-finale-wrap{width:100vw;position:relative;left:50%;margin-left:-50vw;box-sizing:border-box;background:#0c1a2e;padding:96px 24px}
@@ -329,35 +332,39 @@ html,body{overflow-x:hidden;font-family:'Plus Jakarta Sans',sans-serif;backgroun
     <div class="calc-left">
       <div class="eyebrow">Revenue calculator</div>
       <h2>How much are you <span>leaving on the table?</span></h2>
-      <p>Most businesses are losing 30–40% of potential revenue to slow follow-up, missed hours, and unrecovered carts. Find out your number.</p>
+      <p id="calcIntro">Most businesses have hundreds of dormant leads already in their pipeline — enquired, gone quiet, written off. Find out what yours are worth.</p>
+      <div class="calc-tabs">
+        <button class="calc-tab active" data-tab="rr">Revenue Recovery</button>
+        <button class="calc-tab" data-tab="fr">First Response</button>
+      </div>
       <div class="calc-field">
-        <label>Monthly leads / enquiries</label>
-        <input type="number" id="calcLeads" value="100" min="1" max="10000">
+        <label id="calcLeadsLabel">Dormant leads in your pipeline</label>
+        <input type="number" id="calcLeads" value="500" min="1" max="100000">
       </div>
       <div class="calc-field">
         <label>Average deal value (£)</label>
         <input type="number" id="calcDeal" value="500" min="1">
       </div>
       <div class="calc-field">
-        <label>Current contact rate: <span id="calcRateLabel">40%</span></label>
-        <input type="range" id="calcRate" min="10" max="90" value="40">
-        <div class="calc-slider-labels"><span>10%</span><span>90%</span></div>
+        <label><span id="calcRateText">Current reactivation rate</span>: <span id="calcRateLabel">4%</span></label>
+        <input type="range" id="calcRate" min="1" max="30" value="4">
+        <div class="calc-slider-labels"><span id="calcRateMin">1%</span><span id="calcRateMax">30%</span></div>
       </div>
       <div class="calc-field">
-        <label>Conversion rate (contacted → sale): <span id="calcConvLabel">20%</span></label>
+        <label><span id="calcConvText">Close rate on reactivated leads</span>: <span id="calcConvLabel">20%</span></label>
         <input type="range" id="calcConv" min="5" max="60" value="20">
         <div class="calc-slider-labels"><span>5%</span><span>60%</span></div>
       </div>
     </div>
     <div class="calc-right-card">
-      <div class="calc-result-label">Monthly revenue being lost</div>
-      <div class="calc-result-val" id="calcResult">£6,000</div>
-      <div class="calc-result-sub" id="calcResultSub">Based on the gap between your current contact rate and the AI-assisted 85% benchmark.</div>
+      <div class="calc-result-label" id="calcResultLabel">Monthly revenue in your dormant pipeline</div>
+      <div class="calc-result-val" id="calcResult">£0</div>
+      <div class="calc-result-sub" id="calcResultSub">Based on the gap between your current reactivation rate and the AI-assisted 34% benchmark.</div>
       <div class="calc-result-breakdown">
-        <div class="calc-breakdown-row"><span>Current monthly revenue</span><span id="calcCurrent">£4,000</span></div>
-        <div class="calc-breakdown-row"><span>Potential with AI (85% contact)</span><span id="calcPotential">£8,500</span></div>
-        <div class="calc-breakdown-row"><span>Revenue gap per month</span><span id="calcGap">£4,500</span></div>
-        <div class="calc-breakdown-row"><span>Annualised opportunity</span><span id="calcAnnual">£54,000</span></div>
+        <div class="calc-breakdown-row"><span id="calcCurrentLabel">Currently recovering</span><span id="calcCurrent">£0</span></div>
+        <div class="calc-breakdown-row"><span id="calcPotentialLabel">Potential with AI (34% reactivation)</span><span id="calcPotential">£0</span></div>
+        <div class="calc-breakdown-row"><span>Revenue gap per month</span><span id="calcGap">£0</span></div>
+        <div class="calc-breakdown-row"><span>Annualised opportunity</span><span id="calcAnnual">£0</span></div>
       </div>
       <a href="calendar.html" class="calc-cta-btn">Book a free call to reclaim this</a>
     </div>
@@ -432,6 +439,49 @@ const mob = document.getElementById('navMobile');
 ham.addEventListener('click', () => { ham.classList.toggle('open'); mob.classList.toggle('open'); });
 
 // Calculator
+const calcModes = {
+  rr: {
+    intro: 'Most businesses have hundreds of dormant leads already in their pipeline — enquired, gone quiet, written off. Find out what yours are worth.',
+    leadsLabel: 'Dormant leads in your pipeline', leadsDefault: 500,
+    rateText: 'Current reactivation rate', rateMin: 1, rateMax: 30, rateDefault: 4,
+    convText: 'Close rate on reactivated leads',
+    resultLabel: 'Monthly revenue in your dormant pipeline',
+    resultSub: 'Based on the gap between your current reactivation rate and the AI-assisted 34% benchmark.',
+    currentLabel: 'Currently recovering', potentialLabel: 'Potential with AI (34% reactivation)',
+    benchmark: 0.34
+  },
+  fr: {
+    intro: 'Every minute a new lead waits without a response, the chance of conversion drops. Find out how much slow follow-up is costing you each month.',
+    leadsLabel: 'Monthly new inbound leads', leadsDefault: 100,
+    rateText: 'Current contact rate', rateMin: 10, rateMax: 90, rateDefault: 40,
+    convText: 'Conversion rate (contacted → sale)',
+    resultLabel: 'Monthly revenue lost to slow response',
+    resultSub: 'Based on the gap between your current contact rate and the AI-assisted 85% benchmark.',
+    currentLabel: 'Current monthly revenue', potentialLabel: 'Potential with AI (85% contact)',
+    benchmark: 0.85
+  }
+};
+let calcMode = 'rr';
+
+function setCalcMode(mode) {
+  calcMode = mode;
+  const m = calcModes[mode];
+  document.getElementById('calcIntro').textContent = m.intro;
+  document.getElementById('calcLeadsLabel').textContent = m.leadsLabel;
+  document.getElementById('calcLeads').value = m.leadsDefault;
+  document.getElementById('calcRateText').textContent = m.rateText;
+  const rateEl = document.getElementById('calcRate');
+  rateEl.min = m.rateMin; rateEl.max = m.rateMax; rateEl.value = m.rateDefault;
+  document.getElementById('calcRateMin').textContent = m.rateMin + '%';
+  document.getElementById('calcRateMax').textContent = m.rateMax + '%';
+  document.getElementById('calcConvText').textContent = m.convText;
+  document.getElementById('calcResultLabel').textContent = m.resultLabel;
+  document.getElementById('calcResultSub').textContent = m.resultSub;
+  document.getElementById('calcCurrentLabel').textContent = m.currentLabel;
+  document.getElementById('calcPotentialLabel').textContent = m.potentialLabel;
+  calcUpdate();
+}
+
 function calcUpdate() {
   const leads = parseInt(document.getElementById('calcLeads').value) || 0;
   const deal = parseInt(document.getElementById('calcDeal').value) || 0;
@@ -439,18 +489,26 @@ function calcUpdate() {
   const conv = parseInt(document.getElementById('calcConv').value);
   document.getElementById('calcRateLabel').textContent = rate + '%';
   document.getElementById('calcConvLabel').textContent = conv + '%';
-  const current = Math.round(leads * (rate/100) * (conv/100) * deal);
-  const potential = Math.round(leads * 0.85 * (conv/100) * deal);
-  const gap = Math.max(0, potential - current);
-  const annual = gap * 12;
-  document.getElementById('calcCurrent').textContent = '£' + current.toLocaleString();
+  const m = calcModes[calcMode];
+  const current   = Math.round(leads * (rate/100) * (conv/100) * deal);
+  const potential = Math.round(leads * m.benchmark * (conv/100) * deal);
+  const gap       = Math.max(0, potential - current);
+  document.getElementById('calcCurrent').textContent   = '£' + current.toLocaleString();
   document.getElementById('calcPotential').textContent = '£' + potential.toLocaleString();
-  document.getElementById('calcGap').textContent = '£' + gap.toLocaleString();
-  document.getElementById('calcAnnual').textContent = '£' + annual.toLocaleString();
-  document.getElementById('calcResult').textContent = '£' + gap.toLocaleString();
+  document.getElementById('calcGap').textContent       = '£' + gap.toLocaleString();
+  document.getElementById('calcAnnual').textContent    = '£' + (gap * 12).toLocaleString();
+  document.getElementById('calcResult').textContent    = '£' + gap.toLocaleString();
 }
+
+document.querySelectorAll('.calc-tab').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.calc-tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    setCalcMode(btn.dataset.tab);
+  });
+});
 ['calcLeads','calcDeal','calcRate','calcConv'].forEach(id => document.getElementById(id).addEventListener('input', calcUpdate));
-calcUpdate();
+setCalcMode('rr');
 </script>
 <script src="shared.js"></script>
 </body>
