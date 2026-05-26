@@ -87,13 +87,13 @@ html,body{overflow-x:hidden;font-family:'Plus Jakarta Sans',sans-serif;backgroun
 .svc-graphic-card{background:linear-gradient(145deg,#0a1628,#0c1a2e);border-radius:16px;padding:36px;position:relative;overflow:hidden;min-height:320px;display:flex;flex-direction:column;justify-content:space-between}
 .svc-light .svc-graphic-card,.svc-lav .svc-graphic-card{box-shadow:0 24px 64px rgba(217,119,6,.15)}
 .svc-graphic-card::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(217,119,6,.2),transparent 70%)}
-.svc-graphic-label{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:20px}
+.svc-graphic-label{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:20px}
 .svc-graphic-stat{font-size:clamp(36px,5vw,56px);font-weight:800;color:#fff;line-height:1;margin-bottom:6px}
 .svc-graphic-stat span{background:linear-gradient(135deg,#fbbf24,#15803d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.svc-graphic-sub{font-size:14px;color:rgba(255,255,255,.4);margin-bottom:28px}
-.svc-graphic-bar-track{height:6px;background:rgba(255,255,255,.08);border-radius:3px;margin-bottom:8px}
+.svc-graphic-sub{font-size:14px;color:rgba(255,255,255,.7);margin-bottom:28px}
+.svc-graphic-bar-track{height:6px;background:rgba(255,255,255,.12);border-radius:3px;margin-bottom:8px}
 .svc-graphic-bar-fill{height:6px;border-radius:3px;background:linear-gradient(90deg,#d97706,#15803d)}
-.svc-graphic-bar-label{font-size:12px;color:rgba(255,255,255,.3);display:flex;justify-content:space-between}
+.svc-graphic-bar-label{font-size:12px;color:rgba(255,255,255,.6);display:flex;justify-content:space-between}
 @media(max-width:768px){.svc-inner{grid-template-columns:1fr;gap:40px}.svc-inner.flip{direction:ltr}}
 
 /* ── COMPARISON TABLE ── */
@@ -270,11 +270,11 @@ html,body{overflow-x:hidden;font-family:'Plus Jakarta Sans',sans-serif;backgroun
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px">
         <div style="background:rgba(217,119,6,.15);border:1px solid rgba(217,119,6,.3);border-radius:10px;padding:16px;text-align:center">
           <div style="font-size:22px;font-weight:800;color:#fbbf24">£6k</div>
-          <div style="font-size:12px;color:rgba(255,255,255,.4);margin-top:4px">Avg added MRR</div>
+          <div style="font-size:12px;color:rgba(255,255,255,.65);margin-top:4px">Avg added MRR</div>
         </div>
         <div style="background:rgba(217,119,6,.15);border:1px solid rgba(217,119,6,.3);border-radius:10px;padding:16px;text-align:center">
           <div style="font-size:22px;font-weight:800;color:#fbbf24">0</div>
-          <div style="font-size:12px;color:rgba(255,255,255,.4);margin-top:4px">Missed evenings</div>
+          <div style="font-size:12px;color:rgba(255,255,255,.65);margin-top:4px">Missed evenings</div>
         </div>
       </div>
     </div>
@@ -302,9 +302,9 @@ html,body{overflow-x:hidden;font-family:'Plus Jakarta Sans',sans-serif;backgroun
       <div class="svc-graphic-sub">Average star rating increase in 90 days</div>
       <div style="display:flex;flex-direction:column;gap:10px;margin-top:8px">
         <div style="display:flex;align-items:center;justify-content:space-between">
-          <span style="font-size:13px;color:rgba(255,255,255,.5)">Before</span>
+          <span style="font-size:13px;color:rgba(255,255,255,.75)">Before</span>
           <div style="display:flex;gap:3px">★★★★<span style="opacity:.3">★</span></div>
-          <span style="font-size:13px;color:rgba(255,255,255,.5)">3.8</span>
+          <span style="font-size:13px;color:rgba(255,255,255,.75)">3.8</span>
         </div>
         <div style="height:1px;background:rgba(255,255,255,.08)"></div>
         <div style="display:flex;align-items:center;justify-content:space-between">
@@ -313,7 +313,7 @@ html,body{overflow-x:hidden;font-family:'Plus Jakarta Sans',sans-serif;backgroun
           <span style="font-size:13px;color:#fbbf24;font-weight:600">4.7</span>
         </div>
       </div>
-      <div style="margin-top:12px;padding-top:10px;border-top:1px solid rgba(255,255,255,.08);font-size:11px;color:rgba(255,255,255,.35);line-height:1.5">Example figures for illustration only. Individual results vary by industry, starting rating, and review volume.</div>
+      <div style="margin-top:12px;padding-top:10px;border-top:1px solid rgba(255,255,255,.08);font-size:11px;color:rgba(255,255,255,.6);line-height:1.5">Example figures for illustration only. Individual results vary by industry, starting rating, and review volume.</div>
     </div>
   </div>
 </div>
@@ -343,10 +343,10 @@ html,body{overflow-x:hidden;font-family:'Plus Jakarta Sans',sans-serif;backgroun
       <div style="margin-top:12px">
         <div style="background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:14px;text-align:center">
           <div style="font-size:20px;font-weight:800;color:#22c55e">4.1× ROI</div>
-          <div style="font-size:12px;color:rgba(255,255,255,.4);margin-top:4px">on average, month one</div>
+          <div style="font-size:12px;color:rgba(255,255,255,.65);margin-top:4px">on average, month one</div>
         </div>
       </div>
-      <div style="margin-top:12px;padding-top:10px;border-top:1px solid rgba(255,255,255,.08);font-size:11px;color:rgba(255,255,255,.35);line-height:1.5">Example figures for illustration only. Individual results vary by sector, cart value, and audience.</div>
+      <div style="margin-top:12px;padding-top:10px;border-top:1px solid rgba(255,255,255,.08);font-size:11px;color:rgba(255,255,255,.6);line-height:1.5">Example figures for illustration only. Individual results vary by sector, cart value, and audience.</div>
     </div>
   </div>
 </div>
