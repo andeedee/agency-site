@@ -357,14 +357,14 @@ html,body{overflow-x:hidden;font-family:'Plus Jakarta Sans',sans-serif;backgroun
       </div>
     </div>
     <div class="calc-right-card">
-      <div class="calc-result-label" id="calcResultLabel">Monthly revenue in your dormant pipeline</div>
+      <div class="calc-result-label" id="calcResultLabel">Revenue in your dormant pipeline</div>
       <div class="calc-result-val" id="calcResult">£0</div>
       <div class="calc-result-sub" id="calcResultSub">Based on the gap between your current reactivation rate and the AI-assisted 34% benchmark.</div>
       <div class="calc-result-breakdown">
         <div class="calc-breakdown-row"><span id="calcCurrentLabel">Currently recovering</span><span id="calcCurrent">£0</span></div>
         <div class="calc-breakdown-row"><span id="calcPotentialLabel">Potential with AI (34% reactivation)</span><span id="calcPotential">£0</span></div>
-        <div class="calc-breakdown-row"><span>Revenue gap per month</span><span id="calcGap">£0</span></div>
-        <div class="calc-breakdown-row"><span>Annualised opportunity</span><span id="calcAnnual">£0</span></div>
+        <div class="calc-breakdown-row"><span id="calcGapLabel">Total revenue gap</span><span id="calcGap">£0</span></div>
+        <div class="calc-breakdown-row" id="calcAnnualRow" style="display:none"><span>Annualised opportunity</span><span id="calcAnnual">£0</span></div>
       </div>
       <a href="calendar.html" class="calc-cta-btn">Book a free call to reclaim this</a>
     </div>
@@ -441,23 +441,25 @@ ham.addEventListener('click', () => { ham.classList.toggle('open'); mob.classLis
 // Calculator
 const calcModes = {
   rr: {
-    intro: 'Most businesses have hundreds of dormant leads already in their pipeline — enquired, gone quiet, written off. Find out what yours are worth.',
-    leadsLabel: 'Dormant leads in your pipeline', leadsDefault: 500,
+    intro: 'Most businesses have thousands of dormant leads already in their pipeline — enquired, gone quiet, written off. Find out what yours are worth.',
+    leadsLabel: 'Dormant leads in your pipeline', leadsDefault: 10000,
     rateText: 'Current reactivation rate', rateMin: 1, rateMax: 30, rateDefault: 4,
     convText: 'Close rate on reactivated leads',
-    resultLabel: 'Monthly revenue in your dormant pipeline',
+    resultLabel: 'Revenue in your dormant pipeline',
     resultSub: 'Based on the gap between your current reactivation rate and the AI-assisted 34% benchmark.',
     currentLabel: 'Currently recovering', potentialLabel: 'Potential with AI (34% reactivation)',
+    gapLabel: 'Total revenue gap', showAnnual: false,
     benchmark: 0.34
   },
   fr: {
     intro: 'Every minute a new lead waits without a response, the chance of conversion drops. Find out how much slow follow-up is costing you each month.',
-    leadsLabel: 'Monthly new inbound leads', leadsDefault: 100,
+    leadsLabel: 'Monthly new inbound leads', leadsDefault: 1000,
     rateText: 'Current contact rate', rateMin: 10, rateMax: 90, rateDefault: 40,
     convText: 'Conversion rate (contacted → sale)',
     resultLabel: 'Monthly revenue lost to slow response',
     resultSub: 'Based on the gap between your current contact rate and the AI-assisted 85% benchmark.',
     currentLabel: 'Current monthly revenue', potentialLabel: 'Potential with AI (85% contact)',
+    gapLabel: 'Revenue gap per month', showAnnual: true,
     benchmark: 0.85
   }
 };
@@ -479,6 +481,8 @@ function setCalcMode(mode) {
   document.getElementById('calcResultSub').textContent = m.resultSub;
   document.getElementById('calcCurrentLabel').textContent = m.currentLabel;
   document.getElementById('calcPotentialLabel').textContent = m.potentialLabel;
+  document.getElementById('calcGapLabel').textContent = m.gapLabel;
+  document.getElementById('calcAnnualRow').style.display = m.showAnnual ? '' : 'none';
   calcUpdate();
 }
 
