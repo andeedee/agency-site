@@ -43,7 +43,7 @@ html,body{overflow-x:hidden;font-family:'Plus Jakarta Sans',sans-serif;backgroun
 .svc-eyebrow::before{content:'';display:block;width:18px;height:2px;background:linear-gradient(90deg,#d97706,#15803d);border-radius:2px;flex-shrink:0}
 .svc-hero h1{font-size:clamp(32px,5vw,52px);font-weight:700;line-height:1.15;color:#fff;margin:0 0 16px}
 .svc-hero h1 span{background:linear-gradient(135deg,#fbbf24,#15803d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.svc-hero p{font-size:17px;line-height:1.7;color:rgba(255,255,255,.6);margin:0 0 36px}
+.svc-hero p{font-size:17px;line-height:1.7;color:rgba(255,255,255,.82);margin:0 0 36px}
 .svc-hero-btn{position:relative;overflow:hidden;font-size:15px;font-weight:600;padding:14px 32px;border-radius:8px;color:#0c1a2e;background:#fff;text-decoration:none;display:inline-block;transition:transform .2s}
 .svc-hero-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#d97706,#15803d);opacity:0;transition:opacity .25s}
 .svc-hero-btn span{position:relative;z-index:1;color:#0c1a2e;transition:color .25s}
@@ -68,13 +68,13 @@ html,body{overflow-x:hidden;font-family:'Plus Jakarta Sans',sans-serif;backgroun
 .svc-dark .svc-text h2{color:#fff}
 .svc-text h2 span{background:linear-gradient(135deg,#d97706,#15803d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .svc-text p{font-size:16px;line-height:1.75;color:#3d4a56;margin:0 0 28px}
-.svc-dark .svc-text p{color:rgba(255,255,255,.6)}
+.svc-dark .svc-text p{color:rgba(255,255,255,.85)}
 .svc-steps{display:flex;flex-direction:column;gap:16px;margin-bottom:32px}
 .svc-step{display:flex;align-items:flex-start;gap:16px}
 .step-num{width:32px;height:32px;border-radius:50%;flex-shrink:0;border:1.5px solid rgba(217,119,6,.3);color:#d97706;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
 .svc-dark .step-num{border-color:rgba(251,191,36,.3);color:#fbbf24}
 .step-text{font-size:15px;line-height:1.6;color:#3d4a56;padding-top:6px}
-.svc-dark .step-text{color:rgba(255,255,255,.6)}
+.svc-dark .step-text{color:rgba(255,255,255,.85)}
 .step-text strong{color:#0c1a2e;font-weight:600}
 .svc-dark .step-text strong{color:#fff}
 .svc-btn{position:relative;overflow:hidden;font-size:15px;font-weight:600;padding:13px 28px;border-radius:8px;color:#fff;text-decoration:none;display:inline-block;transition:transform .2s;background:#0c1a2e;border:none}
@@ -87,13 +87,13 @@ html,body{overflow-x:hidden;font-family:'Plus Jakarta Sans',sans-serif;backgroun
 .svc-graphic-card{background:linear-gradient(145deg,#0a1628,#0c1a2e);border-radius:16px;padding:36px;position:relative;overflow:hidden;min-height:320px;display:flex;flex-direction:column;justify-content:space-between}
 .svc-light .svc-graphic-card,.svc-lav .svc-graphic-card{box-shadow:0 24px 64px rgba(217,119,6,.15)}
 .svc-graphic-card::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(217,119,6,.2),transparent 70%)}
-.svc-graphic-label{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:20px}
+.svc-graphic-label{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.78);margin-bottom:20px}
 .svc-graphic-stat{font-size:clamp(36px,5vw,56px);font-weight:800;color:#fff;line-height:1;margin-bottom:6px}
 .svc-graphic-stat span{background:linear-gradient(135deg,#fbbf24,#15803d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.svc-graphic-sub{font-size:14px;color:rgba(255,255,255,.7);margin-bottom:28px}
+.svc-graphic-sub{font-size:14px;color:rgba(255,255,255,.85);margin-bottom:28px}
 .svc-graphic-bar-track{height:6px;background:rgba(255,255,255,.12);border-radius:3px;margin-bottom:8px}
 .svc-graphic-bar-fill{height:6px;border-radius:3px;background:linear-gradient(90deg,#d97706,#15803d)}
-.svc-graphic-bar-label{font-size:12px;color:rgba(255,255,255,.6);display:flex;justify-content:space-between}
+.svc-graphic-bar-label{font-size:12px;color:rgba(255,255,255,.78);display:flex;justify-content:space-between}
 @media(max-width:768px){.svc-inner{grid-template-columns:1fr;gap:40px}.svc-inner.flip{direction:ltr}}
 
 /* ── COMPARISON TABLE ── */
@@ -104,7 +104,7 @@ html,body{overflow-x:hidden;font-family:'Plus Jakarta Sans',sans-serif;backgroun
 .cmp-eyebrow::before{content:'';display:block;width:18px;height:2px;background:linear-gradient(90deg,#d97706,#15803d);border-radius:2px}
 .cmp-head h2{font-size:clamp(26px,3.5vw,38px);font-weight:700;color:#fff;margin:0 0 12px}
 .cmp-head h2 span{background:linear-gradient(135deg,#fbbf24,#15803d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.cmp-head p{font-size:16px;color:rgba(255,255,255,.72);line-height:1.7}
+.cmp-head p{font-size:16px;color:rgba(255,255,255,.88);line-height:1.7}
 .cmp-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:14px}
 .cmp-scroll::-webkit-scrollbar{height:4px}
 .cmp-scroll::-webkit-scrollbar-track{background:rgba(255,255,255,.05);border-radius:2px}
@@ -116,15 +116,15 @@ html,body{overflow-x:hidden;font-family:'Plus Jakarta Sans',sans-serif;backgroun
 .cmp-table thead tr th:last-child{background:linear-gradient(135deg,#b45309,#166534);color:#fff;text-align:center;border-radius:0 14px 0 0;min-width:130px}
 .cmp-table tbody tr{border-bottom:1px solid rgba(255,255,255,.05)}
 .cmp-table tbody tr:last-child{border:none}
-.cmp-table tbody td{padding:16px 24px;font-size:14px;color:rgba(255,255,255,.7);vertical-align:middle}
+.cmp-table tbody td{padding:16px 24px;font-size:14px;color:rgba(255,255,255,.85);vertical-align:middle}
 .cmp-table tbody td:first-child{font-weight:500;color:#fff}
 .cmp-table tbody td:nth-child(2){background:rgba(255,255,255,.03);text-align:center}
 .cmp-table tbody td:last-child{background:rgba(217,119,6,.08);text-align:center}
 .cmp-table tbody tr:last-child td:first-child{border-radius:0 0 0 14px}
 .cmp-table tbody tr:last-child td:last-child{border-radius:0 0 14px 0}
 .check{color:#22c55e;font-size:18px}
-.cross{color:rgba(255,255,255,.35);font-size:18px}
-.cmp-swipe-hint{display:none;text-align:center;font-size:12px;color:rgba(255,255,255,.4);margin-bottom:12px;letter-spacing:.04em}
+.cross{color:rgba(255,255,255,.55);font-size:18px}
+.cmp-swipe-hint{display:none;text-align:center;font-size:12px;color:rgba(255,255,255,.68);margin-bottom:12px;letter-spacing:.04em}
 .cmp-cta{text-align:center;margin-top:40px}
 .cmp-btn{position:relative;overflow:hidden;font-size:15px;font-weight:600;padding:14px 36px;border-radius:8px;color:#fff;text-decoration:none;display:inline-block;transition:transform .2s;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12)}
 .cmp-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#d97706,#15803d);opacity:0;transition:opacity .25s}
@@ -145,18 +145,18 @@ html,body{overflow-x:hidden;font-family:'Plus Jakarta Sans',sans-serif;backgroun
 .footer-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:64px;padding-bottom:64px}
 .footer-brand-logo{font-size:18px;font-weight:800;color:#fff;letter-spacing:-.02em;margin-bottom:14px;display:block;text-decoration:none}
 .footer-brand-logo span{background:linear-gradient(135deg,#fbbf24,#15803d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.footer-brand p{font-size:14px;line-height:1.7;color:rgba(255,255,255,.65);margin:0 0 20px;max-width:280px}
+.footer-brand p{font-size:14px;line-height:1.7;color:rgba(255,255,255,.82);margin:0 0 20px;max-width:280px}
 .footer-brand-link{font-size:14px;font-weight:600;color:#fbbf24;text-decoration:none;position:relative;padding-bottom:1px}
 .footer-brand-link::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:#fbbf24;transition:width .25s}
 .footer-brand-link:hover::after{width:100%}
-.footer-col h4{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:20px}
+.footer-col h4{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.72);margin-bottom:20px}
 .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
-.footer-col ul a{font-size:14px;color:rgba(255,255,255,.72);text-decoration:none;transition:color .2s}
+.footer-col ul a{font-size:14px;color:rgba(255,255,255,.88);text-decoration:none;transition:color .2s}
 .footer-col ul a:hover{color:#fff}
 .footer-bar{max-width:1100px;margin:0 auto;padding:24px 0;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-.footer-bar p{font-size:13px;color:rgba(255,255,255,.45)}
-.footer-bar a{font-size:13px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .2s}
-.footer-bar a:hover{color:rgba(255,255,255,.5)}
+.footer-bar p{font-size:13px;color:rgba(255,255,255,.65)}
+.footer-bar a{font-size:13px;color:rgba(255,255,255,.65);text-decoration:none;transition:color .2s}
+.footer-bar a:hover{color:rgba(255,255,255,.75)}
 @media(max-width:768px){.footer-grid{grid-template-columns:1fr;gap:40px}.footer-bar{flex-direction:column;text-align:center}}
 </style>
 </head>
@@ -282,11 +282,11 @@ html,body{overflow-x:hidden;font-family:'Plus Jakarta Sans',sans-serif;backgroun
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px">
         <div style="background:rgba(217,119,6,.15);border:1px solid rgba(217,119,6,.3);border-radius:10px;padding:16px;text-align:center">
           <div style="font-size:22px;font-weight:800;color:#fbbf24">£6k</div>
-          <div style="font-size:12px;color:rgba(255,255,255,.65);margin-top:4px">Avg added MRR</div>
+          <div style="font-size:12px;color:rgba(255,255,255,.82);margin-top:6px">Avg added MRR</div>
         </div>
         <div style="background:rgba(217,119,6,.15);border:1px solid rgba(217,119,6,.3);border-radius:10px;padding:16px;text-align:center">
           <div style="font-size:22px;font-weight:800;color:#fbbf24">0</div>
-          <div style="font-size:12px;color:rgba(255,255,255,.65);margin-top:4px">Missed evenings</div>
+          <div style="font-size:12px;color:rgba(255,255,255,.82);margin-top:6px">Missed evenings</div>
         </div>
       </div>
     </div>
@@ -314,9 +314,9 @@ html,body{overflow-x:hidden;font-family:'Plus Jakarta Sans',sans-serif;backgroun
       <div class="svc-graphic-sub">Average star rating increase in 90 days</div>
       <div style="display:flex;flex-direction:column;gap:10px;margin-top:8px">
         <div style="display:flex;align-items:center;justify-content:space-between">
-          <span style="font-size:13px;color:rgba(255,255,255,.75)">Before</span>
+          <span style="font-size:13px;color:rgba(255,255,255,.90)">Before</span>
           <div style="display:flex;gap:3px">★★★★<span style="opacity:.3">★</span></div>
-          <span style="font-size:13px;color:rgba(255,255,255,.75)">3.8</span>
+          <span style="font-size:13px;color:rgba(255,255,255,.90)">3.8</span>
         </div>
         <div style="height:1px;background:rgba(255,255,255,.08)"></div>
         <div style="display:flex;align-items:center;justify-content:space-between">
@@ -355,7 +355,7 @@ html,body{overflow-x:hidden;font-family:'Plus Jakarta Sans',sans-serif;backgroun
       <div style="margin-top:12px">
         <div style="background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:14px;text-align:center">
           <div style="font-size:20px;font-weight:800;color:#22c55e">4.1× ROI</div>
-          <div style="font-size:12px;color:rgba(255,255,255,.65);margin-top:4px">on average, month one</div>
+          <div style="font-size:12px;color:rgba(255,255,255,.82);margin-top:6px">on average, month one</div>
         </div>
       </div>
       <div style="margin-top:12px;padding-top:10px;border-top:1px solid rgba(255,255,255,.08);font-size:11px;color:rgba(255,255,255,.6);line-height:1.5">Example figures for illustration only. Individual results vary by sector, cart value, and audience.</div>
