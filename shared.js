@@ -100,19 +100,21 @@
     el.innerHTML = logoInner;
   });
 
-  // ── CURSOR GLOW ──────────────────────────────────────────────────────────
-  const glow = document.createElement('div');
-  glow.className = 'cursor-glow';
-  document.body.appendChild(glow);
-  let mx = window.innerWidth/2, my = window.innerHeight/2, cx = mx, cy = my;
-  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; }, {passive:true});
-  document.addEventListener('mouseleave', () => { glow.style.opacity='0'; });
-  document.addEventListener('mouseenter', () => { glow.style.opacity='1'; });
-  (function tick() {
-    cx += (mx-cx)*0.075; cy += (my-cy)*0.075;
-    glow.style.transform = `translate(${cx}px,${cy}px)`;
-    requestAnimationFrame(tick);
-  })();
+  // ── CURSOR GLOW (desktop pointer devices only) ──────────────────────────
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    const glow = document.createElement('div');
+    glow.className = 'cursor-glow';
+    document.body.appendChild(glow);
+    let mx = window.innerWidth/2, my = window.innerHeight/2, cx = mx, cy = my;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; }, {passive:true});
+    document.addEventListener('mouseleave', () => { glow.style.opacity='0'; });
+    document.addEventListener('mouseenter', () => { glow.style.opacity='1'; });
+    (function tick() {
+      cx += (mx-cx)*0.075; cy += (my-cy)*0.075;
+      glow.style.transform = `translate(${cx}px,${cy}px)`;
+      requestAnimationFrame(tick);
+    })();
+  }
 
   // ── GRAIN ON DARK SECTIONS ───────────────────────────────────────────────
   const grainSelectors = [
@@ -138,26 +140,28 @@
   // ── GLASSMORPHISM ON FLOAT CARD ──────────────────────────────────────────
   document.querySelectorAll('.hero-float-card').forEach(el => el.classList.add('glass-dark'));
 
-  // ── MAGNETIC BUTTONS ─────────────────────────────────────────────────────
-  const magneticSel = [
-    '.nav-cta','.hero-btn-primary','.cta-fin-primary','.about-cta-primary',
-    '.about-hero-btn-p','.svc-hero-btn','.calc-cta-btn','.cs-cta-btn',
-    '.cmp-btn','.svc-btn','.about-cta-btn',
-  ].join(',');
+  // ── MAGNETIC BUTTONS (desktop pointer devices only) ─────────────────────
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    const magneticSel = [
+      '.nav-cta','.hero-btn-primary','.cta-fin-primary','.about-cta-primary',
+      '.about-hero-btn-p','.svc-hero-btn','.calc-cta-btn','.cs-cta-btn',
+      '.cmp-btn','.svc-btn','.about-cta-btn',
+    ].join(',');
 
-  document.querySelectorAll(magneticSel).forEach(btn => {
-    btn.addEventListener('mousemove', e => {
-      const r = btn.getBoundingClientRect();
-      const x = (e.clientX - r.left - r.width/2) * 0.22;
-      const y = (e.clientY - r.top  - r.height/2) * 0.3;
-      btn.style.transform = `translate(${x}px,${y}px) translateY(-2px)`;
+    document.querySelectorAll(magneticSel).forEach(btn => {
+      btn.addEventListener('mousemove', e => {
+        const r = btn.getBoundingClientRect();
+        const x = (e.clientX - r.left - r.width/2) * 0.22;
+        const y = (e.clientY - r.top  - r.height/2) * 0.3;
+        btn.style.transform = `translate(${x}px,${y}px) translateY(-2px)`;
+      });
+      btn.addEventListener('mouseleave', () => {
+        btn.style.transition = 'transform 0.5s cubic-bezier(0.34,1.56,0.64,1)';
+        btn.style.transform = '';
+        setTimeout(() => { btn.style.transition = ''; }, 500);
+      });
     });
-    btn.addEventListener('mouseleave', () => {
-      btn.style.transition = 'transform 0.5s cubic-bezier(0.34,1.56,0.64,1)';
-      btn.style.transform = '';
-      setTimeout(() => { btn.style.transition = ''; }, 500);
-    });
-  });
+  }
 
   // ── SCROLL REVEAL ────────────────────────────────────────────────────────
   const revealGroups = [
@@ -239,30 +243,34 @@
   }, { threshold: 0.5 });
   document.querySelectorAll('.count-up').forEach(el => co.observe(el));
 
-  // ── PARALLAX ────────────────────────────────────────────────────────────
-  const phone = document.querySelector('.hero-phone');
-  const floatCard = document.querySelector('.hero-float-card');
-  const storyTl = document.querySelector('.story-timeline');
+  // ── PARALLAX (desktop only — getBoundingClientRect causes reflow on scroll)
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    const phone = document.querySelector('.hero-phone');
+    const floatCard = document.querySelector('.hero-float-card');
+    const storyTl = document.querySelector('.story-timeline');
 
-  function onScroll() {
-    const y = window.scrollY;
-    if (phone)    phone.style.transform    = `translateY(${y * 0.1}px)`;
-    if (floatCard) floatCard.style.transform = `translateY(${y * 0.18}px)`;
-    if (storyTl)  storyTl.style.transform  = `translateY(${-y * 0.04}px)`;
+    function onScroll() {
+      const y = window.scrollY;
+      if (phone)     phone.style.transform     = `translateY(${y * 0.1}px)`;
+      if (floatCard) floatCard.style.transform  = `translateY(${y * 0.18}px)`;
+      if (storyTl)   storyTl.style.transform   = `translateY(${-y * 0.04}px)`;
 
-    document.querySelectorAll('[data-parallax]').forEach(el => {
-      const speed  = parseFloat(el.dataset.parallax);
-      const rect   = el.getBoundingClientRect();
-      const center = rect.top + rect.height / 2 - window.innerHeight / 2;
-      el.style.transform = `translateY(${center * speed}px)`;
+      document.querySelectorAll('[data-parallax]').forEach(el => {
+        const speed  = parseFloat(el.dataset.parallax);
+        const rect   = el.getBoundingClientRect();
+        const center = rect.top + rect.height / 2 - window.innerHeight / 2;
+        el.style.transform = `translateY(${center * speed}px)`;
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
+  // ── VARIABLE FONT WEIGHT (desktop only) ─────────────────────────────────
+  if (window.matchMedia('(hover: hover)').matches) {
+    document.querySelectorAll('.svc-graphic-stat,.hero-float-val,.result-val,.cs-stat-val').forEach(el => {
+      el.classList.add('weight-hover');
     });
   }
-  window.addEventListener('scroll', onScroll, { passive: true });
-
-  // ── VARIABLE FONT WEIGHT ─────────────────────────────────────────────────
-  document.querySelectorAll('.svc-graphic-stat,.hero-float-val,.result-val,.cs-stat-val').forEach(el => {
-    el.classList.add('weight-hover');
-  });
 
   // ── HORIZONTAL SCROLL (mobile case studies) ──────────────────────────────
   if (window.innerWidth <= 768) {

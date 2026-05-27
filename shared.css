@@ -255,6 +255,9 @@ html { scroll-behavior: smooth; }
   position: absolute; border-radius: 50%;
   filter: blur(80px); will-change: transform;
 }
+@media (max-width: 768px) {
+  .mesh-blob { filter: blur(40px); will-change: auto; }
+}
 .mesh-blob:nth-child(1) {
   width: 520px; height: 520px; background: rgba(217,119,6,0.22);
   top: -160px; left: -100px;
@@ -281,7 +284,6 @@ html { scroll-behavior: smooth; }
   opacity: 0;
   transition: opacity 0.65s cubic-bezier(0.16,1,0.3,1),
               transform 0.65s cubic-bezier(0.16,1,0.3,1);
-  will-change: opacity, transform;
 }
 .reveal        { transform: translateY(16px); }
 .reveal-left   { transform: translateX(-30px); }
