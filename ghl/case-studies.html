@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Studies — Amplo Labs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{overflow-x:hidden;font-family:'Plus Jakarta Sans',sans-serif;background:#f5f0e8}
+.site-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 24px;background:#0c1a2e;box-shadow:0 1px 0 rgba(255,255,255,.08)}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:68px}
+.nav-logo{font-size:18px;font-weight:800;color:#fff;text-decoration:none;letter-spacing:-.02em}
+.nav-logo span{background:linear-gradient(135deg,#fbbf24,#15803d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+.nav-links a{font-size:14px;font-weight:500;color:rgba(255,255,255,.75);text-decoration:none;position:relative;padding-bottom:2px;transition:color .2s}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1.5px;background:linear-gradient(90deg,#d97706,#15803d);transition:width .25s}
+.nav-links a:hover{color:#fff}
+.nav-links a:hover::after{width:100%}
+.nav-cta{position:relative;overflow:hidden;font-size:14px;font-weight:600;padding:10px 22px;border-radius:8px;color:#fff;background:#0f2040;text-decoration:none;transition:transform .2s;display:inline-block}
+.nav-cta::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#d97706,#15803d);opacity:0;transition:opacity .25s}
+.nav-cta span{position:relative;z-index:1}
+.nav-cta:hover::before{opacity:1}
+.nav-cta:hover{transform:translateY(-1px)}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.nav-hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:transform .3s,opacity .3s}
+.nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-hamburger.open span:nth-child(2){opacity:0}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.nav-mobile{display:none;position:fixed;top:68px;left:0;right:0;bottom:0;background:#0c1a2e;padding:24px;z-index:99;flex-direction:column;gap:8px}
+.nav-mobile.open{display:flex}
+.nav-mobile a{font-size:18px;font-weight:600;color:rgba(255,255,255,.8);text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.nav-mobile-cta{margin-top:16px;text-align:center;padding:16px 24px;border-radius:10px;font-weight:700;background:linear-gradient(135deg,#d97706,#15803d);color:#fff;font-size:16px;text-decoration:none}
+@media(max-width:768px){.nav-links,.nav-cta{display:none}.nav-hamburger{display:flex}.cs-hero{padding-top:100px!important}}
+
+/* CASE STUDIES */
+.cs-wrap{width:100vw;position:relative;left:50%;margin-left:-50vw;box-sizing:border-box;background:#f5f0e8}
+.cs-hero{background:#0c1a2e;padding:130px 24px 80px;text-align:center}
+.cs-hero-inner{max-width:720px;margin:0 auto}
+.cs-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#fbbf24;margin-bottom:20px}
+.cs-eyebrow::before{content:'';display:block;width:18px;height:2px;background:linear-gradient(90deg,#d97706,#15803d);border-radius:2px}
+.cs-hero h1{font-size:clamp(32px,5vw,52px);font-weight:700;line-height:1.15;color:#fff;margin:0 0 16px}
+.cs-hero h1 span{background:linear-gradient(135deg,#fbbf24,#15803d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.cs-hero p{font-size:17px;line-height:1.7;color:rgba(255,255,255,.6);margin:0}
+.cs-filters{background:#fff;border-bottom:1px solid #d4e0d4;padding:20px 24px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.cs-filter-btn{font-size:13px;font-weight:600;padding:8px 18px;border-radius:100px;border:1.5px solid #d0e4cf;background:#fff;color:#3d4a56;cursor:pointer;transition:all .2s;font-family:'Plus Jakarta Sans',sans-serif}
+.cs-filter-btn:hover,.cs-filter-btn.active{background:#d97706;border-color:#d97706;color:#fff}
+.cs-grid-section{padding:72px 24px}
+.cs-grid-inner{max-width:1100px;margin:0 auto}
+.cs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.cs-card{background:#fff;border-radius:14px;border:1px solid #d4e0d4;overflow:hidden;transition:box-shadow .25s,transform .25s;display:flex;flex-direction:column}
+.cs-card:hover{box-shadow:0 12px 40px rgba(217,119,6,.12);transform:translateY(-4px)}
+.cs-card-img{height:180px;background:linear-gradient(145deg,#0a1628,#0c1a2e);display:flex;align-items:center;justify-content:center;font-size:36px;position:relative;overflow:hidden}
+.cs-card-img::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(217,119,6,.3),rgba(21,128,61,.2))}
+.cs-card-tag{position:absolute;top:14px;left:14px;z-index:1;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;background:rgba(217,119,6,.9);color:#fff;padding:4px 10px;border-radius:100px}
+.cs-card-body{padding:28px;flex:1;display:flex;flex-direction:column}
+.cs-card-industry{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#d97706;margin-bottom:8px}
+.cs-card-body h3{font-size:18px;font-weight:700;color:#0c1a2e;line-height:1.3;margin:0 0 12px}
+.cs-card-body p{font-size:14px;line-height:1.7;color:#3d4a56;margin:0 0 24px;flex:1}
+.cs-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;border-top:1px solid #edf2ec;padding-top:20px;margin-top:auto}
+.cs-stat{text-align:center}
+.cs-stat-val{font-size:20px;font-weight:700;background:linear-gradient(135deg,#d97706,#15803d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;margin-bottom:2px}
+.cs-stat-label{font-size:11px;color:#637280;line-height:1.3}
+.cs-card-link{display:inline-flex;align-items:center;gap:6px;margin-top:20px;font-size:14px;font-weight:600;color:#d97706;text-decoration:none;transition:gap .2s}
+.cs-card-link:hover{gap:10px}
+.cs-card-link::after{content:'→'}
+.cs-cta{background:#edf2ec;padding:80px 24px;text-align:center}
+.cs-cta-inner{max-width:600px;margin:0 auto}
+.cs-cta h2{font-size:clamp(26px,3.5vw,38px);font-weight:700;color:#0c1a2e;margin:0 0 14px}
+.cs-cta h2 span{background:linear-gradient(135deg,#d97706,#15803d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.cs-cta p{font-size:16px;line-height:1.7;color:#3d4a56;margin:0 0 32px}
+.cs-cta-btn{position:relative;overflow:hidden;font-size:15px;font-weight:600;padding:14px 36px;border-radius:8px;color:#fff;background:#0c1a2e;text-decoration:none;display:inline-block;transition:transform .2s}
+.cs-cta-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#d97706,#15803d);opacity:0;transition:opacity .25s}
+.cs-cta-btn span{position:relative;z-index:1}
+.cs-cta-btn:hover::before{opacity:1}
+.cs-cta-btn:hover{transform:translateY(-2px)}
+@media(max-width:768px){.cs-grid{grid-template-columns:1fr}}
+@media(min-width:769px) and (max-width:1024px){.cs-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* FOOTER */
+.footer-wrap{width:100vw;position:relative;left:50%;margin-left:-50vw;box-sizing:border-box;background:#060f1e;padding:72px 24px 0}
+.footer-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:64px;padding-bottom:64px}
+.footer-brand-logo{font-size:18px;font-weight:800;color:#fff;letter-spacing:-.02em;margin-bottom:14px;display:block;text-decoration:none}
+.footer-brand-logo span{background:linear-gradient(135deg,#fbbf24,#15803d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.footer-brand p{font-size:14px;line-height:1.7;color:rgba(255,255,255,.65);margin:0 0 20px;max-width:280px}
+.footer-brand-link{font-size:14px;font-weight:600;color:#fbbf24;text-decoration:none;position:relative;padding-bottom:1px}
+.footer-brand-link::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:#fbbf24;transition:width .25s}
+.footer-brand-link:hover::after{width:100%}
+.footer-col h4{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:20px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-col ul a{font-size:14px;color:rgba(255,255,255,.72);text-decoration:none;transition:color .2s}
+.footer-col ul a:hover{color:#fff}
+.footer-bar{max-width:1100px;margin:0 auto;padding:24px 0;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-bar p{font-size:13px;color:rgba(255,255,255,.45)}
+.footer-bar a{font-size:13px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .2s}
+.footer-bar a:hover{color:rgba(255,255,255,.5)}
+@media(max-width:768px){.footer-grid{grid-template-columns:1fr;gap:40px}.footer-bar{flex-direction:column;text-align:center}}
+
+/* ── GHL INLINE: shared critical CSS ── */
+html{scroll-behavior:smooth}
+.cta-micro{font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:500;margin-top:14px;letter-spacing:.01em;color:rgba(255,255,255,.45);text-align:center}
+.svc-light .cta-micro,.svc-lav .cta-micro,.cs-cta .cta-micro,.calc-wrap .cta-micro,.home-svc-wrap .cta-micro,.stats-wrap .cta-micro,.story-wrap .cta-micro{color:rgba(61,74,86,.65)!important}
+@keyframes ctaIdle{0%,65%{box-shadow:0 0 0 0 rgba(217,119,6,.45)}100%{box-shadow:0 0 0 18px rgba(217,119,6,0)}}
+.cta-pulse{animation:ctaIdle 2.6s ease-out infinite;animation-delay:3s}
+.sticky-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:90;padding:12px 14px calc(12px + env(safe-area-inset-bottom));background:rgba(12,26,46,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-top:1px solid rgba(255,255,255,.08);transform:translateY(110%);transition:transform .4s cubic-bezier(.16,1,.3,1)}
+.sticky-cta.visible{transform:translateY(0)}
+.sticky-cta-btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:15px 20px;border-radius:10px;background:linear-gradient(135deg,#d97706,#15803d);color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:700;text-decoration:none;letter-spacing:-.01em;box-shadow:0 8px 32px rgba(217,119,6,.4)}
+.sticky-cta-btn .arrow{display:inline-block;transition:transform .2s}
+.sticky-cta-btn:active .arrow{transform:translateX(4px)}
+.sticky-cta-sub{text-align:center;font-size:11px;color:rgba(255,255,255,.5);margin-top:6px;font-weight:500;letter-spacing:.02em}
+@media(max-width:768px){body[data-page]:not([data-page="calendar"]) .sticky-cta{display:block}body[data-page]:not([data-page="calendar"]) .footer-wrap{padding-bottom:96px}}
+@media(max-width:768px){.stats-inner{flex-wrap:nowrap!important;overflow-x:auto!important;justify-content:flex-start!important;padding:4px 0 12px!important;gap:8px!important;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity}.stats-inner::-webkit-scrollbar{display:none}.stat-pill{flex-shrink:0;scroll-snap-align:start}}
+@media(max-width:768px){.svc-inner.flip{direction:ltr!important}.svc-inner.flip>*{direction:ltr!important}}
+.cs-card-img{font-size:42px!important;background:linear-gradient(145deg,#0a1628,#0c1a2e)!important;position:relative}
+.cs-card:nth-child(1) .cs-card-img::before,.cs-card:nth-child(4) .cs-card-img::before{background:rgba(217,119,6,.35)!important}
+.cs-card:nth-child(2) .cs-card-img::before,.cs-card:nth-child(5) .cs-card-img::before{background:rgba(14,165,233,.2)!important}
+.cs-card:nth-child(3) .cs-card-img::before,.cs-card:nth-child(6) .cs-card-img::before{background:rgba(21,128,61,.25)!important}
+.cs-card-img .cs-emoji{position:relative;z-index:2;filter:drop-shadow(0 0 18px rgba(251,191,36,.6))}
+.cs-card-img::before{content:'';position:absolute;width:90px;height:90px;border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);z-index:1;border:1px solid rgba(255,255,255,.08)}
+@media(max-width:768px){.cs-filters{flex-wrap:nowrap!important;overflow-x:auto!important;justify-content:flex-start!important;padding:16px 20px!important;gap:6px!important;-webkit-overflow-scrolling:touch}.cs-filters::-webkit-scrollbar{display:none}.cs-filter-btn{flex-shrink:0}}
+@media(max-width:768px){.about-hero-wrap{padding-top:100px!important}.svc-hero{padding-top:100px!important}.cs-hero{padding-top:100px!important}.cal-hero{padding-top:100px!important}.demo-hero{padding-top:100px!important}}
+.hero-text h1{text-wrap:balance}
+@media(max-width:768px){.cmp-table{font-size:12px}.cmp-table thead tr th,.cmp-table tbody td{padding:12px 10px}.cmp-table thead tr th:nth-child(2),.cmp-table tbody td:nth-child(2){display:none}}
+@media(max-width:768px){.footer-grid{grid-template-columns:1fr 1fr!important;gap:32px 24px!important}.footer-brand{grid-column:1/-1}}
+.calc-left h2{text-wrap:balance}
+.svc-icon{width:48px!important;height:48px!important;border-radius:12px!important}
+.svc-card,.cs-card,.demo-info-card,.cal-step-card{transition:box-shadow .25s ease,transform .25s ease!important}
+@media(max-width:768px){.hero-wrap{padding:100px 20px 60px!important}.hero-text h1{font-size:clamp(32px,8vw,44px)!important}.hero-text p{font-size:15px!important;margin-bottom:36px!important}.hero-btns{flex-direction:column!important;gap:10px!important}.hero-btn-primary,.hero-btn-secondary{width:100%!important;text-align:center!important;box-sizing:border-box!important}.hero-btn-primary::before{opacity:1!important}.hero-btn-secondary{border-color:rgba(255,255,255,.28)!important}}
+@media(max-width:768px){.svc-light,.svc-lav,.svc-dark{padding:64px 20px!important}.svc-inner{gap:36px!important}}
+@media(min-width:600px) and (max-width:900px){.cs-grid{grid-template-columns:repeat(2,1fr)!important}}
+.stats-wrap{padding:32px 24px!important}.stat-pill{padding:10px 20px!important;gap:10px!important}
+@media(max-width:768px){.h-scroll{display:flex!important;overflow-x:auto!important;scroll-snap-type:x mandatory;gap:14px!important;padding-bottom:20px!important;grid-template-columns:unset!important;-webkit-overflow-scrolling:touch}.h-scroll>*{flex:0 0 83vw!important;scroll-snap-align:start}.h-scroll::-webkit-scrollbar{display:none}}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Amplo <span>Labs</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="case-studies.html">Case Studies</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="calendar.html" class="nav-cta"><span>Book a Call</span></a>
+    <button class="nav-hamburger" id="navHamburger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav-mobile" id="navMobile">
+  <a href="index.html">Home</a><a href="services.html">Services</a><a href="about.html">About</a>
+  <a href="case-studies.html">Case Studies</a><a href="contact.html">Contact</a>
+  <a href="calendar.html" class="nav-mobile-cta">Book a Call</a>
+</div>
+
+<div class="cs-wrap">
+  <div class="cs-hero">
+    <div class="cs-hero-inner">
+      <div class="cs-eyebrow">Case Studies</div>
+      <h1>Real businesses.<br><span>Real revenue recovered.</span></h1>
+      <p>See how businesses like yours are using AI automation to capture leads faster, protect their reputation, and grow without adding headcount.</p>
+    </div>
+  </div>
+  <div class="cs-filters">
+    <button class="cs-filter-btn active">All Industries</button>
+    <button class="cs-filter-btn">Home Services</button>
+    <button class="cs-filter-btn">Healthcare</button>
+    <button class="cs-filter-btn">E-commerce</button>
+    <button class="cs-filter-btn">Professional Services</button>
+  </div>
+  <div class="cs-grid-section">
+    <div class="cs-grid-inner">
+      <div class="cs-grid">
+        <div class="cs-card">
+          <div class="cs-card-img">🏠<span class="cs-card-tag">Revenue Recovery</span></div>
+          <div class="cs-card-body">
+            <div class="cs-card-industry">Home Services — HVAC</div>
+            <h3>How an HVAC company tripled contacted leads in 30 days</h3>
+            <p>A regional HVAC provider was losing jobs to competitors simply because their team couldn't call back fast enough. We deployed Revenue Recovery — response time dropped from 4 hours to 47 seconds.</p>
+            <div class="cs-stats">
+              <div class="cs-stat"><span class="cs-stat-val">3.2×</span><span class="cs-stat-label">Leads contacted</span></div>
+              <div class="cs-stat"><span class="cs-stat-val">47s</span><span class="cs-stat-label">Avg response time</span></div>
+              <div class="cs-stat"><span class="cs-stat-val">+£14k</span><span class="cs-stat-label">Month 1 revenue</span></div>
+            </div>
+            <a href="#" class="cs-card-link">Read case study</a>
+          </div>
+        </div>
+        <div class="cs-card">
+          <div class="cs-card-img">🦷<span class="cs-card-tag">First Response</span></div>
+          <div class="cs-card-body">
+            <div class="cs-card-industry">Healthcare — Dental</div>
+            <h3>Dental practice fills 94% of last-minute cancellation slots</h3>
+            <p>Empty appointment slots were costing this multi-location dental group thousands per week. First Response now fills cancellations automatically — before the gap even shows on the calendar.</p>
+            <div class="cs-stats">
+              <div class="cs-stat"><span class="cs-stat-val">94%</span><span class="cs-stat-label">Slots filled</span></div>
+              <div class="cs-stat"><span class="cs-stat-val">£8.4k</span><span class="cs-stat-label">Recovered/mo</span></div>
+              <div class="cs-stat"><span class="cs-stat-val">2 wks</span><span class="cs-stat-label">Break-even</span></div>
+            </div>
+            <a href="#" class="cs-card-link">Read case study</a>
+          </div>
+        </div>
+        <div class="cs-card">
+          <div class="cs-card-img">🛒<span class="cs-card-tag">Cart Recovery</span></div>
+          <div class="cs-card-body">
+            <div class="cs-card-industry">E-commerce — Homewares</div>
+            <h3>E-commerce brand recovers 23% of abandoned carts automatically</h3>
+            <p>A homewares brand watched 70% of carts go unpurchased every day. Cart Recovery now sends personalised follow-up sequences — recovering nearly a quarter of what would have been lost.</p>
+            <div class="cs-stats">
+              <div class="cs-stat"><span class="cs-stat-val">23%</span><span class="cs-stat-label">Carts recovered</span></div>
+              <div class="cs-stat"><span class="cs-stat-val">4.1×</span><span class="cs-stat-label">ROI</span></div>
+              <div class="cs-stat"><span class="cs-stat-val">£0</span><span class="cs-stat-label">Extra staff cost</span></div>
+            </div>
+            <a href="#" class="cs-card-link">Read case study</a>
+          </div>
+        </div>
+        <div class="cs-card">
+          <div class="cs-card-img">⭐<span class="cs-card-tag">Reputation Builder</span></div>
+          <div class="cs-card-body">
+            <div class="cs-card-industry">Professional Services — Law</div>
+            <h3>Law firm goes from 3.8 to 4.7 stars in under 90 days</h3>
+            <p>Negative reviews were suppressing enquiries despite excellent client outcomes. Reputation Builder began capturing positive sentiment at the right moment — silently transforming their online reputation.</p>
+            <div class="cs-stats">
+              <div class="cs-stat"><span class="cs-stat-val">+0.9</span><span class="cs-stat-label">Star rating</span></div>
+              <div class="cs-stat"><span class="cs-stat-val">68</span><span class="cs-stat-label">New 5★ reviews</span></div>
+              <div class="cs-stat"><span class="cs-stat-val">+31%</span><span class="cs-stat-label">Organic enquiries</span></div>
+            </div>
+            <a href="#" class="cs-card-link">Read case study</a>
+          </div>
+        </div>
+        <div class="cs-card">
+          <div class="cs-card-img">🌙<span class="cs-card-tag">Night Shift</span></div>
+          <div class="cs-card-body">
+            <div class="cs-card-industry">Home Services — Plumbing</div>
+            <h3>Plumber captures £6k/month in after-hours emergency jobs</h3>
+            <p>Emergency calls arriving after 6pm were going to voicemail — and straight to competitors. Night Shift now qualifies and books these enquiries through the night, seven days a week.</p>
+            <div class="cs-stats">
+              <div class="cs-stat"><span class="cs-stat-val">£6k</span><span class="cs-stat-label">Added revenue/mo</span></div>
+              <div class="cs-stat"><span class="cs-stat-val">100%</span><span class="cs-stat-label">Hours covered</span></div>
+              <div class="cs-stat"><span class="cs-stat-val">0</span><span class="cs-stat-label">Missed nights</span></div>
+            </div>
+            <a href="#" class="cs-card-link">Read case study</a>
+          </div>
+        </div>
+        <div class="cs-card">
+          <div class="cs-card-img">💼<span class="cs-card-tag">Full Stack</span></div>
+          <div class="cs-card-body">
+            <div class="cs-card-industry">Professional Services — Accounting</div>
+            <h3>Accounting firm adds £22k MRR with full automation stack</h3>
+            <p>A mid-size accountancy practice deployed all five AI systems simultaneously. The compound effect of lead response, reputation, and after-hours coverage created their best quarter on record.</p>
+            <div class="cs-stats">
+              <div class="cs-stat"><span class="cs-stat-val">£22k</span><span class="cs-stat-label">New MRR</span></div>
+              <div class="cs-stat"><span class="cs-stat-val">5×</span><span class="cs-stat-label">ROI</span></div>
+              <div class="cs-stat"><span class="cs-stat-val">Q1</span><span class="cs-stat-label">Best quarter ever</span></div>
+            </div>
+            <a href="#" class="cs-card-link">Read case study</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="cs-cta">
+    <div class="cs-cta-inner">
+      <h2>Want results like <span>these for your business?</span></h2>
+      <p>Book a free 30-minute strategy call. We'll identify exactly which automations apply to your situation and show you a realistic projection — before you spend a penny.</p>
+      <a href="calendar.html" class="cs-cta-btn"><span>Get Your Free Strategy Call</span></a>
+    </div>
+  </div>
+</div>
+
+<footer class="footer-wrap">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="footer-brand-logo">Amplo <span>Labs</span></a>
+      <p>AI automation systems that recover lost revenue, protect your reputation, and keep your pipeline full — without adding headcount.</p>
+      <a href="calendar.html" class="footer-brand-link">Book a strategy call →</a>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="services.html#revenue-recovery">Revenue Recovery</a></li>
+        <li><a href="services.html#first-response">First Response</a></li>
+        <li><a href="services.html#night-shift">Night Shift</a></li>
+        <li><a href="services.html#reputation-builder">Reputation Builder</a></li>
+        <li><a href="services.html#cart-recovery">Cart Recovery</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="case-studies.html">Case Studies</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="calendar.html">Book a Call</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bar">
+    <p>© 2025 Amplo Labs. All rights reserved.</p>
+    <div style="display:flex;gap:24px"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+  </div>
+</footer>
+
+<script>
+const ham = document.getElementById('navHamburger');
+const mob = document.getElementById('navMobile');
+ham.addEventListener('click', () => { ham.classList.toggle('open'); mob.classList.toggle('open'); });
+// Filter buttons (visual only for preview)
+document.querySelectorAll('.cs-filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => { document.querySelectorAll('.cs-filter-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); });
+});
+</script>
+
+<script>
+(()=>{'use strict';
+const cm={'Book a Call':'Get My Free Call','Book a Free Strategy Call':'Get My Free Strategy Call','Book a Free 30-Min Session':'Get My Free 30-Min Session','Get Your Free Strategy Call':'Get My Free Strategy Call','Book a free 30-min session →':'Get my free 30-min session →','Book a strategy call →':'Get a free strategy call →'};
+document.querySelectorAll('.nav-cta span,.nav-mobile-cta,.hero-btn-primary span,.cta-fin-primary span,.about-cta-primary span,.about-hero-btn-p span,.svc-hero-btn span,.cs-cta-btn span,.about-cta-btn span,.footer-brand-link').forEach(el=>{const t=el.textContent.trim();if(cm[t])el.textContent=cm[t];});
+[{sel:'.hero-btns',txt:'No pitch · No pressure · 30 mins'},{sel:'.cta-finale-btns',txt:'⭐ 4.9 from 247 calls · £50 time guarantee · 30 mins'},{sel:'.about-hero-btns',txt:'No pitch · No pressure · 30 mins'},{sel:'.about-cta-btns',txt:'⭐ 4.9 from 247 calls · £50 time guarantee'}].forEach(({sel,txt})=>{document.querySelectorAll(sel).forEach(c=>{if(c.nextElementSibling?.classList.contains('cta-micro'))return;const m=document.createElement('p');m.className='cta-micro';m.textContent=txt;c.parentNode.insertBefore(m,c.nextSibling);});});
+document.querySelectorAll('.calc-cta-btn').forEach(b=>{if(b.nextElementSibling?.classList.contains('cta-micro'))return;const m=document.createElement('p');m.className='cta-micro';m.style.color='rgba(255,255,255,.75)';m.textContent='No pitch · 30 mins · £50 time guarantee';b.parentNode.insertBefore(m,b.nextSibling);});
+document.querySelectorAll('.cs-cta-btn').forEach(b=>{if(b.nextElementSibling?.classList.contains('cta-micro'))return;const m=document.createElement('p');m.className='cta-micro';m.style.color='rgba(61,74,86,.65)';m.textContent='No pitch · 30 mins · £50 time guarantee if not a fit';b.parentNode.insertBefore(m,b.nextSibling);});
+document.querySelectorAll('.hero-btn-primary,.cta-fin-primary,.about-cta-primary,.cs-cta-btn').forEach(el=>el.classList.add('cta-pulse'));
+if(!document.body.dataset.page){const p=location.pathname.split('/').pop().replace('.html','')||'index';document.body.dataset.page=p;}
+if(document.body.dataset.page!=='calendar'){const s=document.createElement('div');s.className='sticky-cta';s.innerHTML=`<a href="calendar.html" class="sticky-cta-btn"><span>Get my free 30-min strategy call</span><span class="arrow">→</span></a><div class="sticky-cta-sub">⭐ 4.9 · £50 time guarantee · No pitch</div>`;document.body.appendChild(s);const r=()=>{if(window.scrollY>600){s.classList.add('visible');window.removeEventListener('scroll',r);}};window.addEventListener('scroll',r,{passive:true});}
+const bolt=`<svg width="22" height="30" viewBox="0 0 22 30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M13.5 0L2 17h9.5L8 30 22 13h-9.5L16 0z" fill="#4ADE80"/></svg>`;
+const li=`${bolt}<span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:17px;letter-spacing:-.01em;color:#fff;line-height:1">AMPLO LABS</span>`;
+document.querySelectorAll('.nav-logo,.footer-brand-logo').forEach(el=>{el.style.cssText+=';display:flex;align-items:center;gap:9px;';el.innerHTML=li;});
+if(window.innerWidth<=768){const g=document.querySelector('.cs-grid');if(g)g.classList.add('h-scroll');}
+const sv=[`<svg viewBox="0 0 24 24" width="22" height="22" fill="none"><path d="M13 2L4 14h8.5L9 22l11-13h-8.5L13 2z" fill="#d97706"/></svg>`,`<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#d97706" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 9h18M8 2v4M16 2v4M8 13h.01M12 13h.01M16 13h.01M8 17h.01M12 17h.01"/></svg>`,`<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#d97706" stroke-width="1.5" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>`,`<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#d97706" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`,`<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#d97706" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6L18 2z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>`,`<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#d97706" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>`];
+document.querySelectorAll('.home-svc-grid .svc-icon').forEach((el,i)=>{if(sv[i])el.innerHTML=sv[i];});
+})();
+</script>
+</body>
+</html>

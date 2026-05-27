@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amplo Labs — AI Automation for Growing Businesses</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{overflow-x:hidden;font-family:'Plus Jakarta Sans',sans-serif;background:#f5f0e8}
+
+/* ── NAV ── */
+.site-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 24px;transition:background .3s,box-shadow .3s;background:transparent}
+.site-nav.is-scrolled{background:#0c1a2e;box-shadow:0 1px 0 rgba(255,255,255,.08)}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:68px}
+.nav-logo{font-size:18px;font-weight:800;color:#fff;text-decoration:none;letter-spacing:-.02em}
+.nav-logo span{background:linear-gradient(135deg,#fbbf24,#15803d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+.nav-links a{font-size:14px;font-weight:500;color:rgba(255,255,255,.75);text-decoration:none;position:relative;padding-bottom:2px;transition:color .2s}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1.5px;background:linear-gradient(90deg,#d97706,#15803d);transition:width .25s}
+.nav-links a:hover{color:#fff}
+.nav-links a:hover::after{width:100%}
+.nav-cta{position:relative;overflow:hidden;font-size:14px;font-weight:600;padding:10px 22px;border-radius:8px;border:none;cursor:pointer;color:#fff;background:#0f2040;text-decoration:none;transition:transform .2s;display:inline-block}
+.nav-cta::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#d97706,#15803d);opacity:0;transition:opacity .25s}
+.nav-cta span{position:relative;z-index:1}
+.nav-cta:hover::before{opacity:1}
+.nav-cta:hover{transform:translateY(-1px)}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.nav-hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:transform .3s,opacity .3s}
+.nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-hamburger.open span:nth-child(2){opacity:0}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.nav-mobile{display:none;position:fixed;top:68px;left:0;right:0;bottom:0;background:#0c1a2e;padding:24px;z-index:99;flex-direction:column;gap:8px}
+.nav-mobile.open{display:flex;animation:menuIn .2s ease}
+.nav-mobile a{font-size:18px;font-weight:600;color:rgba(255,255,255,.8);text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.nav-mobile-cta{margin-top:16px;text-align:center;padding:16px 24px;border-radius:10px;font-weight:700;background:linear-gradient(135deg,#d97706,#15803d);color:#fff;font-size:16px;text-decoration:none}
+@keyframes menuIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:768px){.nav-links,.nav-cta{display:none}.nav-hamburger{display:flex}}
+
+/* ── HERO ── */
+.hero-wrap{width:100vw;position:relative;left:50%;margin-left:-50vw;box-sizing:border-box;background:#0c1a2e;padding:140px 24px 96px}
+.hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:rgba(255,255,255,.7);margin-bottom:24px;letter-spacing:.02em}
+.hero-badge-dot{width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,#d97706,#15803d);flex-shrink:0}
+.hero-text h1{font-size:clamp(36px,5vw,58px);font-weight:800;line-height:1.1;color:#fff;margin:0 0 20px;letter-spacing:-.02em}
+.hero-text h1 span{background:linear-gradient(135deg,#fbbf24,#15803d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-text p{font-size:18px;line-height:1.7;color:rgba(255,255,255,.6);margin:0 0 40px;max-width:480px}
+.hero-btns{display:flex;flex-wrap:wrap;gap:12px}
+.hero-btn-primary{position:relative;overflow:hidden;font-size:15px;font-weight:700;padding:15px 32px;border-radius:8px;border:none;cursor:pointer;color:#fff;background:#0c1a2e;text-decoration:none;display:inline-block;transition:transform .2s;border:1.5px solid rgba(255,255,255,.15)}
+.hero-btn-primary::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#d97706,#15803d);opacity:0;transition:opacity .25s}
+.hero-btn-primary span{position:relative;z-index:1}
+.hero-btn-primary:hover::before{opacity:1}
+.hero-btn-primary:hover{transform:translateY(-2px)}
+.hero-btn-secondary{font-size:15px;font-weight:600;padding:15px 32px;border-radius:8px;border:1.5px solid rgba(255,255,255,.15);color:rgba(255,255,255,.8);background:transparent;text-decoration:none;display:inline-block;transition:border-color .2s,color .2s}
+.hero-btn-secondary:hover{border-color:rgba(255,255,255,.4);color:#fff}
+.hero-visual{position:relative;display:flex;justify-content:center;align-items:center}
+.hero-phone{width:200px;height:360px;border-radius:28px;background:linear-gradient(145deg,#0f2040,#0c1a2e);border:1.5px solid rgba(255,255,255,.12);position:relative;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,.5)}
+.hero-phone::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#d97706,#15803d)}
+.hero-phone-notch{width:60px;height:6px;border-radius:3px;background:rgba(255,255,255,.1);margin:16px auto 20px}
+.hero-phone-screen{padding:0 16px}
+.hero-phone-row{height:10px;border-radius:5px;background:rgba(255,255,255,.08);margin-bottom:10px}
+.hero-phone-row.w75{width:75%}
+.hero-phone-row.w55{width:55%}
+.hero-phone-row.w90{width:90%}
+.hero-phone-row.accent{background:linear-gradient(90deg,rgba(217,119,6,.5),rgba(21,128,61,.3))}
+.hero-float-card{position:absolute;bottom:24px;right:-32px;background:rgba(15,32,64,.9);border:1px solid rgba(217,119,6,.3);border-radius:12px;padding:14px 18px;backdrop-filter:blur(12px);min-width:180px;box-shadow:0 16px 48px rgba(0,0,0,.4)}
+.hero-float-label{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:6px}
+.hero-float-val{font-size:22px;font-weight:800;color:#fff}
+.hero-float-val span{background:linear-gradient(135deg,#fbbf24,#15803d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-float-sub{font-size:12px;color:rgba(255,255,255,.72);margin-top:2px}
+@media(max-width:768px){.hero-inner{grid-template-columns:1fr;gap:48px}.hero-visual{display:none}.hero-wrap{padding-top:100px!important}}
+
+/* ── STATS BAR ── */
+.stats-wrap{width:100vw;position:relative;left:50%;margin-left:-50vw;box-sizing:border-box;background:#fff;padding:40px 24px;border-top:1px solid #edf2ec;border-bottom:1px solid #edf2ec}
+.stats-inner{max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.stat-pill{display:flex;align-items:center;gap:10px;background:#f5f0e8;border:1px solid #d4e0d4;border-radius:100px;padding:10px 20px}
+.stat-pill-val{font-size:16px;font-weight:800;background:linear-gradient(135deg,#d97706,#15803d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.stat-pill-label{font-size:13px;font-weight:500;color:#3d4a56}
+
+/* ── HOME SERVICES ── */
+.home-svc-wrap{width:100vw;position:relative;left:50%;margin-left:-50vw;box-sizing:border-box;background:#edf2ec;padding:96px 24px}
+.home-svc-inner{max-width:1100px;margin:0 auto}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#d97706;margin-bottom:20px}
+.eyebrow::before{content:'';display:block;width:18px;height:2px;background:linear-gradient(90deg,#d97706,#15803d);border-radius:2px;flex-shrink:0}
+.section-head{text-align:center;margin-bottom:56px}
+.section-head h2{font-size:clamp(28px,4vw,42px);font-weight:700;line-height:1.2;color:#0c1a2e;margin:0 0 16px}
+.section-head h2 span{background:linear-gradient(135deg,#d97706,#15803d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.section-head p{font-size:17px;line-height:1.7;color:#3d4a56;max-width:560px;margin:0 auto}
+.home-svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.svc-card{background:#fff;border-radius:14px;border:1px solid #d4e0d4;padding:32px 28px;position:relative;overflow:hidden;transition:box-shadow .25s,transform .25s}
+.svc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#d97706,#15803d);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.svc-card:hover{box-shadow:0 12px 40px rgba(217,119,6,.1);transform:translateY(-4px)}
+.svc-card:hover::before{transform:scaleX(1)}
+.svc-icon{width:44px;height:44px;border-radius:10px;background:rgba(217,119,6,.08);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:20px}
+.svc-card h3{font-size:17px;font-weight:700;color:#0c1a2e;margin:0 0 10px}
+.svc-card p{font-size:14px;line-height:1.7;color:#3d4a56;margin:0 0 20px}
+.svc-card-link{font-size:13px;font-weight:600;color:#d97706;text-decoration:none;display:inline-flex;align-items:center;gap:4px;transition:gap .2s}
+.svc-card-link:hover{gap:8px}
+.svc-card-link::after{content:'→'}
+@media(max-width:768px){.home-svc-grid{grid-template-columns:1fr}}
+@media(min-width:769px) and (max-width:1024px){.home-svc-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* ── RESULTS BANNER ── */
+.results-wrap{width:100vw;position:relative;left:50%;margin-left:-50vw;box-sizing:border-box;background:linear-gradient(135deg,#b45309,#166534);padding:80px 24px}
+.results-inner{max-width:1000px;margin:0 auto;text-align:center}
+.results-inner h2{font-size:clamp(24px,3.5vw,38px);font-weight:700;color:#fff;margin:0 0 12px}
+.results-inner p{font-size:16px;color:rgba(255,255,255,.75);margin:0 0 48px}
+.results-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.result-item{text-align:center}
+.result-val{font-size:clamp(32px,4vw,48px);font-weight:800;color:#fff;line-height:1;margin-bottom:8px}
+.result-label{font-size:14px;color:rgba(255,255,255,.7);line-height:1.4}
+@media(max-width:768px){.results-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* ── CALCULATOR ── */
+.calc-wrap{width:100vw;position:relative;left:50%;margin-left:-50vw;box-sizing:border-box;background:#f5f0e8;padding:96px 24px}
+.calc-inner{max-width:1060px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.calc-left h2{font-size:clamp(26px,3.5vw,38px);font-weight:700;color:#0c1a2e;margin:0 0 12px}
+.calc-left h2 span{background:linear-gradient(135deg,#d97706,#15803d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.calc-left p{font-size:15px;line-height:1.7;color:#3d4a56;margin:0 0 32px}
+.calc-field{margin-bottom:24px}
+.calc-field label{display:block;font-size:13px;font-weight:600;color:#0c1a2e;margin-bottom:8px;letter-spacing:.02em}
+.calc-field input[type=number]{width:100%;padding:12px 16px;border:1.5px solid #d0e4cf;border-radius:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;color:#0c1a2e;background:#fff;outline:none;transition:border-color .2s}
+.calc-field input[type=number]:focus{border-color:#d97706}
+.calc-field input[type=range]{width:100%;accent-color:#d97706;height:4px;margin-top:8px}
+.calc-slider-labels{display:flex;justify-content:space-between;font-size:12px;color:#637280;margin-top:4px}
+.calc-right-card{background:linear-gradient(145deg,#b45309,#166534);border-radius:16px;padding:40px;color:#fff;position:sticky;top:88px}
+.calc-result-label{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:12px}
+.calc-result-val{font-size:clamp(36px,5vw,56px);font-weight:800;line-height:1;margin-bottom:8px}
+.calc-result-sub{font-size:14px;color:rgba(255,255,255,.7);margin-bottom:32px;line-height:1.5}
+.calc-result-breakdown{background:rgba(0,0,0,.15);border-radius:10px;padding:20px;margin-bottom:28px}
+.calc-breakdown-row{display:flex;justify-content:space-between;font-size:14px;color:rgba(255,255,255,.8);padding:6px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.calc-breakdown-row:last-child{border:none;font-weight:700;color:#fff}
+.calc-cta-btn{display:block;text-align:center;background:#fff;color:#b45309;font-size:15px;font-weight:700;padding:14px 24px;border-radius:8px;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.calc-cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.2)}
+@media(max-width:768px){.calc-inner{grid-template-columns:1fr}.calc-right-card{position:static}}
+.calc-tabs{display:flex;gap:6px;margin-bottom:28px;background:#edf2ec;border-radius:10px;padding:4px}
+.calc-tab{flex:1;padding:10px 14px;border-radius:7px;border:none;background:transparent;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:600;color:#637280;cursor:pointer;transition:all .2s}
+.calc-tab.active{background:#fff;color:#d97706;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+
+/* ── CTA FINALE ── */
+.cta-finale-wrap{width:100vw;position:relative;left:50%;margin-left:-50vw;box-sizing:border-box;background:#0c1a2e;padding:96px 24px}
+.cta-finale-wrap::before{content:'';display:block;position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,#d97706 30%,#15803d 70%,transparent)}
+.cta-finale-inner{max-width:740px;margin:0 auto;text-align:center}
+.cta-finale-inner h2{font-size:clamp(30px,4.5vw,48px);font-weight:700;line-height:1.2;color:#fff;margin:0 0 16px}
+.cta-finale-inner h2 span{background:linear-gradient(135deg,#fbbf24,#15803d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.cta-finale-inner p{font-size:17px;line-height:1.7;color:rgba(255,255,255,.6);margin:0 0 40px}
+.cta-finale-btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-bottom:40px}
+.cta-fin-primary{position:relative;overflow:hidden;font-size:15px;font-weight:700;padding:15px 36px;border-radius:8px;color:#fff;background:#fff;text-decoration:none;display:inline-block;transition:transform .2s}
+.cta-fin-primary::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#d97706,#15803d)}
+.cta-fin-primary span{position:relative;z-index:1;color:#fff}
+.cta-fin-primary:hover{transform:translateY(-2px)}
+.cta-fin-secondary{font-size:15px;font-weight:600;padding:15px 36px;border-radius:8px;border:1.5px solid rgba(255,255,255,.15);color:rgba(255,255,255,.8);text-decoration:none;display:inline-block;transition:border-color .2s,color .2s}
+.cta-fin-secondary:hover{border-color:rgba(255,255,255,.4);color:#fff}
+.cta-trust-row{display:flex;flex-wrap:wrap;justify-content:center;gap:24px}
+.cta-trust-item{font-size:14px;color:rgba(255,255,255,.72);display:flex;align-items:center;gap:8px}
+.cta-trust-item::before{content:'';width:16px;height:16px;border-radius:50%;border:1.5px solid rgba(34,197,94,.5);background:rgba(34,197,94,.1);flex-shrink:0}
+
+/* ── FOOTER ── */
+.footer-wrap{width:100vw;position:relative;left:50%;margin-left:-50vw;box-sizing:border-box;background:#060f1e;padding:72px 24px 0}
+.footer-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:64px;padding-bottom:64px}
+.footer-brand-logo{font-size:18px;font-weight:800;color:#fff;letter-spacing:-.02em;margin-bottom:14px;display:block;text-decoration:none}
+.footer-brand-logo span{background:linear-gradient(135deg,#fbbf24,#15803d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.footer-brand p{font-size:14px;line-height:1.7;color:rgba(255,255,255,.65);margin:0 0 20px;max-width:280px}
+.footer-brand-link{font-size:14px;font-weight:600;color:#fbbf24;text-decoration:none;position:relative;padding-bottom:1px}
+.footer-brand-link::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:#fbbf24;transition:width .25s}
+.footer-brand-link:hover::after{width:100%}
+.footer-col h4{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:20px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-col ul a{font-size:14px;color:rgba(255,255,255,.72);text-decoration:none;transition:color .2s}
+.footer-col ul a:hover{color:#fff}
+.footer-bar{max-width:1100px;margin:0 auto;padding:24px 0;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-bar p{font-size:13px;color:rgba(255,255,255,.45)}
+.footer-bar a{font-size:13px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .2s}
+.footer-bar a:hover{color:rgba(255,255,255,.5)}
+@media(max-width:768px){.footer-grid{grid-template-columns:1fr;gap:40px}.footer-bar{flex-direction:column;text-align:center}}
+
+/* ── GHL INLINE: shared critical CSS ── */
+html{scroll-behavior:smooth}
+.cta-micro{font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:500;margin-top:14px;letter-spacing:.01em;color:rgba(255,255,255,.45);text-align:center}
+.svc-light .cta-micro,.svc-lav .cta-micro,.cs-cta .cta-micro,.calc-wrap .cta-micro,.home-svc-wrap .cta-micro,.stats-wrap .cta-micro,.story-wrap .cta-micro{color:rgba(61,74,86,.65)!important}
+@keyframes ctaIdle{0%,65%{box-shadow:0 0 0 0 rgba(217,119,6,.45)}100%{box-shadow:0 0 0 18px rgba(217,119,6,0)}}
+.cta-pulse{animation:ctaIdle 2.6s ease-out infinite;animation-delay:3s}
+.sticky-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:90;padding:12px 14px calc(12px + env(safe-area-inset-bottom));background:rgba(12,26,46,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-top:1px solid rgba(255,255,255,.08);transform:translateY(110%);transition:transform .4s cubic-bezier(.16,1,.3,1)}
+.sticky-cta.visible{transform:translateY(0)}
+.sticky-cta-btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:15px 20px;border-radius:10px;background:linear-gradient(135deg,#d97706,#15803d);color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:700;text-decoration:none;letter-spacing:-.01em;box-shadow:0 8px 32px rgba(217,119,6,.4)}
+.sticky-cta-btn .arrow{display:inline-block;transition:transform .2s}
+.sticky-cta-btn:active .arrow{transform:translateX(4px)}
+.sticky-cta-sub{text-align:center;font-size:11px;color:rgba(255,255,255,.5);margin-top:6px;font-weight:500;letter-spacing:.02em}
+@media(max-width:768px){body[data-page]:not([data-page="calendar"]) .sticky-cta{display:block}body[data-page]:not([data-page="calendar"]) .footer-wrap{padding-bottom:96px}}
+@media(max-width:768px){.stats-inner{flex-wrap:nowrap!important;overflow-x:auto!important;justify-content:flex-start!important;padding:4px 0 12px!important;gap:8px!important;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity}.stats-inner::-webkit-scrollbar{display:none}.stat-pill{flex-shrink:0;scroll-snap-align:start}}
+@media(max-width:768px){.svc-inner.flip{direction:ltr!important}.svc-inner.flip>*{direction:ltr!important}}
+.cs-card-img{font-size:42px!important;background:linear-gradient(145deg,#0a1628,#0c1a2e)!important;position:relative}
+.cs-card:nth-child(1) .cs-card-img::before,.cs-card:nth-child(4) .cs-card-img::before{background:rgba(217,119,6,.35)!important}
+.cs-card:nth-child(2) .cs-card-img::before,.cs-card:nth-child(5) .cs-card-img::before{background:rgba(14,165,233,.2)!important}
+.cs-card:nth-child(3) .cs-card-img::before,.cs-card:nth-child(6) .cs-card-img::before{background:rgba(21,128,61,.25)!important}
+.cs-card-img .cs-emoji{position:relative;z-index:2;filter:drop-shadow(0 0 18px rgba(251,191,36,.6))}
+.cs-card-img::before{content:'';position:absolute;width:90px;height:90px;border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);z-index:1;border:1px solid rgba(255,255,255,.08)}
+@media(max-width:768px){.cs-filters{flex-wrap:nowrap!important;overflow-x:auto!important;justify-content:flex-start!important;padding:16px 20px!important;gap:6px!important;-webkit-overflow-scrolling:touch}.cs-filters::-webkit-scrollbar{display:none}.cs-filter-btn{flex-shrink:0}}
+@media(max-width:768px){.about-hero-wrap{padding-top:100px!important}.svc-hero{padding-top:100px!important}.cs-hero{padding-top:100px!important}.cal-hero{padding-top:100px!important}.demo-hero{padding-top:100px!important}}
+.hero-text h1{text-wrap:balance}
+@media(max-width:768px){.cmp-table{font-size:12px}.cmp-table thead tr th,.cmp-table tbody td{padding:12px 10px}.cmp-table thead tr th:nth-child(2),.cmp-table tbody td:nth-child(2){display:none}}
+@media(max-width:768px){.footer-grid{grid-template-columns:1fr 1fr!important;gap:32px 24px!important}.footer-brand{grid-column:1/-1}}
+.calc-left h2{text-wrap:balance}
+.svc-icon{width:48px!important;height:48px!important;border-radius:12px!important}
+.svc-card,.cs-card,.demo-info-card,.cal-step-card{transition:box-shadow .25s ease,transform .25s ease!important}
+@media(max-width:768px){.hero-wrap{padding:100px 20px 60px!important}.hero-text h1{font-size:clamp(32px,8vw,44px)!important}.hero-text p{font-size:15px!important;margin-bottom:36px!important}.hero-btns{flex-direction:column!important;gap:10px!important}.hero-btn-primary,.hero-btn-secondary{width:100%!important;text-align:center!important;box-sizing:border-box!important}.hero-btn-primary::before{opacity:1!important}.hero-btn-secondary{border-color:rgba(255,255,255,.28)!important}}
+@media(max-width:768px){.svc-light,.svc-lav,.svc-dark{padding:64px 20px!important}.svc-inner{gap:36px!important}}
+@media(min-width:600px) and (max-width:900px){.cs-grid{grid-template-columns:repeat(2,1fr)!important}}
+.stats-wrap{padding:32px 24px!important}.stat-pill{padding:10px 20px!important;gap:10px!important}
+@media(max-width:768px){.h-scroll{display:flex!important;overflow-x:auto!important;scroll-snap-type:x mandatory;gap:14px!important;padding-bottom:20px!important;grid-template-columns:unset!important;-webkit-overflow-scrolling:touch}.h-scroll>*{flex:0 0 83vw!important;scroll-snap-align:start}.h-scroll::-webkit-scrollbar{display:none}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav" id="siteNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Amplo <span>Labs</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="case-studies.html">Case Studies</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="calendar.html" class="nav-cta"><span>Book a Call</span></a>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav-mobile" id="navMobile">
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="about.html">About</a>
+  <a href="case-studies.html">Case Studies</a>
+  <a href="contact.html">Contact</a>
+  <a href="calendar.html" class="nav-mobile-cta">Book a Call</a>
+</div>
+
+<!-- HERO -->
+<div class="hero-wrap">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-badge"><span class="hero-badge-dot"></span>AI Automation Agency</div>
+      <h1>Stop losing leads to <span>slow follow-up</span></h1>
+      <p>Amplo Labs deploys AI systems that respond to enquiries in seconds, fill your calendar overnight, and protect your reputation — while you sleep.</p>
+      <div class="hero-btns">
+        <a href="calendar.html" class="hero-btn-primary"><span>Book a Free Strategy Call</span></a>
+        <a href="services.html" class="hero-btn-secondary">See how it works</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-phone">
+        <div class="hero-phone-notch"></div>
+        <div class="hero-phone-screen">
+          <div class="hero-phone-row w75"></div>
+          <div class="hero-phone-row w55 accent" style="margin-top:16px"></div>
+          <div class="hero-phone-row w90" style="margin-top:16px"></div>
+          <div class="hero-phone-row w75"></div>
+          <div class="hero-phone-row w55 accent" style="margin-top:16px"></div>
+          <div class="hero-phone-row w90" style="margin-top:16px"></div>
+          <div class="hero-phone-row w75"></div>
+        </div>
+      </div>
+      <div class="hero-float-card">
+        <div class="hero-float-label">Avg. response time</div>
+        <div class="hero-float-val"><span>47s</span></div>
+        <div class="hero-float-sub">was 4 hours</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STATS BAR -->
+<div class="stats-wrap">
+  <div class="stats-inner">
+    <div class="stat-pill"><span class="stat-pill-val">47s</span><span class="stat-pill-label">Average lead response time</span></div>
+    <div class="stat-pill"><span class="stat-pill-val">3×</span><span class="stat-pill-label">More leads contacted</span></div>
+    <div class="stat-pill"><span class="stat-pill-val">£22k</span><span class="stat-pill-label">Average added revenue / mo</span></div>
+    <div class="stat-pill"><span class="stat-pill-val">94%</span><span class="stat-pill-label">Appointment fill rate</span></div>
+    <div class="stat-pill"><span class="stat-pill-val">24/7</span><span class="stat-pill-label">Always-on coverage</span></div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<div class="home-svc-wrap">
+  <div class="home-svc-inner">
+    <div class="section-head">
+      <div class="eyebrow">What we build</div>
+      <h2>Five AI systems. <span>One revenue engine.</span></h2>
+      <p>Each system targets a specific revenue leak. Together, they form a complete automation stack that keeps your pipeline full around the clock.</p>
+    </div>
+    <div class="home-svc-grid">
+      <div class="svc-card">
+        <div class="svc-icon">⚡</div>
+        <h3>Revenue Recovery</h3>
+        <p>Re-engages dormant leads already in your pipeline — the ones that enquired, went quiet, and were written off. Brings them back before they close elsewhere.</p>
+        <a href="services.html#revenue-recovery" class="svc-card-link">Learn more</a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">📅</div>
+        <h3>First Response</h3>
+        <p>Responds to every new inbound lead within seconds. Every minute without a reply is a lead going colder — First Response ensures you're always first to the conversation.</p>
+        <a href="services.html#first-response" class="svc-card-link">Learn more</a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">🌙</div>
+        <h3>Night Shift</h3>
+        <p>Captures and qualifies every enquiry that arrives outside business hours — no voicemail, no missed opportunity.</p>
+        <a href="services.html#night-shift" class="svc-card-link">Learn more</a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">⭐</div>
+        <h3>Reputation Builder</h3>
+        <p>Turns happy customers into public five-star reviews automatically, building a reputation that converts browsers into buyers.</p>
+        <a href="services.html#reputation-builder" class="svc-card-link">Learn more</a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">🛒</div>
+        <h3>Cart Recovery</h3>
+        <p>Recovers lost e-commerce revenue with perfectly-timed personalised follow-up sequences — no code, no fuss.</p>
+        <a href="services.html#cart-recovery" class="svc-card-link">Learn more</a>
+      </div>
+      <div class="svc-card" style="background:linear-gradient(145deg,#edf2ec,#d8e8d8);border-color:#c4dcc4">
+        <div class="svc-icon" style="background:rgba(217,119,6,.15)">🔧</div>
+        <h3>Full Stack Bundle</h3>
+        <p>Deploy Revenue Recovery, First Response, Night Shift, Reputation Builder, and Cart Recovery together — businesses that run the full stack see 4–5× more revenue captured.</p>
+        <a href="contact.html" class="svc-card-link">Get a custom quote</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RESULTS BANNER -->
+<div class="results-wrap">
+  <div class="results-inner">
+    <h2>The numbers don't lie</h2>
+    <p>Across all active clients in the last 12 months</p>
+    <div class="results-grid">
+      <div class="result-item">
+        <div class="result-val">£2.4M</div>
+        <div class="result-label">Revenue recovered for clients</div>
+      </div>
+      <div class="result-item">
+        <div class="result-val">47s</div>
+        <div class="result-label">Average first-response time</div>
+      </div>
+      <div class="result-item">
+        <div class="result-val">340%</div>
+        <div class="result-label">Average ROI in first 90 days</div>
+      </div>
+      <div class="result-item">
+        <div class="result-val">24/7</div>
+        <div class="result-label">Hours of coverage — every client</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CALCULATOR -->
+<div class="calc-wrap">
+  <div class="calc-inner">
+    <div class="calc-left">
+      <div class="eyebrow">Revenue calculator</div>
+      <h2>How much are you <span>leaving on the table?</span></h2>
+      <p id="calcIntro">Most businesses have hundreds of dormant leads already in their pipeline — enquired, gone quiet, written off. Find out what yours are worth.</p>
+      <div class="calc-tabs">
+        <button class="calc-tab active" data-tab="rr">Revenue Recovery</button>
+        <button class="calc-tab" data-tab="fr">First Response</button>
+      </div>
+      <div class="calc-field">
+        <label id="calcLeadsLabel">Dormant leads in your pipeline</label>
+        <input type="number" id="calcLeads" value="500" min="1" max="100000">
+      </div>
+      <div class="calc-field">
+        <label>Average deal value (£)</label>
+        <input type="number" id="calcDeal" value="500" min="1">
+      </div>
+      <div class="calc-field">
+        <label><span id="calcRateText">Current reactivation rate</span>: <span id="calcRateLabel">4%</span></label>
+        <input type="range" id="calcRate" min="1" max="30" value="4">
+        <div class="calc-slider-labels"><span id="calcRateMin">1%</span><span id="calcRateMax">30%</span></div>
+      </div>
+      <div class="calc-field">
+        <label><span id="calcConvText">Close rate on reactivated leads</span>: <span id="calcConvLabel">20%</span></label>
+        <input type="range" id="calcConv" min="5" max="60" value="20">
+        <div class="calc-slider-labels"><span>5%</span><span>60%</span></div>
+      </div>
+    </div>
+    <div class="calc-right-card">
+      <div class="calc-result-label" id="calcResultLabel">Revenue in your dormant pipeline</div>
+      <div class="calc-result-val" id="calcResult">£0</div>
+      <div class="calc-result-sub" id="calcResultSub">Based on the gap between your current reactivation rate and the AI-assisted 34% benchmark.</div>
+      <div class="calc-result-breakdown">
+        <div class="calc-breakdown-row"><span id="calcCurrentLabel">Currently recovering</span><span id="calcCurrent">£0</span></div>
+        <div class="calc-breakdown-row"><span id="calcPotentialLabel">Potential with AI (34% reactivation)</span><span id="calcPotential">£0</span></div>
+        <div class="calc-breakdown-row"><span id="calcGapLabel">Total revenue gap</span><span id="calcGap">£0</span></div>
+        <div class="calc-breakdown-row" id="calcAnnualRow" style="display:none"><span>Annualised opportunity</span><span id="calcAnnual">£0</span></div>
+      </div>
+      <a href="calendar.html" class="calc-cta-btn">Book a free call to reclaim this</a>
+    </div>
+  </div>
+</div>
+
+<!-- CTA FINALE -->
+<div class="cta-finale-wrap">
+  <div class="cta-finale-inner">
+    <div class="eyebrow" style="justify-content:center;color:#fbbf24">Get started</div>
+    <h2>Your competitors are already <span>using this</span></h2>
+    <p>Every day without AI follow-up is a day your leads are being picked up by someone faster. Book a free 30-minute call and we'll show you exactly what's possible for your business.</p>
+    <div class="cta-finale-btns">
+      <a href="calendar.html" class="cta-fin-primary"><span>Book a Free Strategy Call</span></a>
+      <a href="case-studies.html" class="cta-fin-secondary">See case studies</a>
+    </div>
+    <div class="cta-trust-row">
+      <div class="cta-trust-item">No long-term contracts</div>
+      <div class="cta-trust-item">Live in under 2 weeks</div>
+      <div class="cta-trust-item">Month-one ROI guaranteed</div>
+      <div class="cta-trust-item">Cancel anytime</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer-wrap">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="footer-brand-logo">Amplo <span>Labs</span></a>
+      <p>AI automation systems that recover lost revenue, protect your reputation, and keep your pipeline full — without adding headcount.</p>
+      <a href="calendar.html" class="footer-brand-link">Book a strategy call →</a>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="services.html#revenue-recovery">Revenue Recovery</a></li>
+        <li><a href="services.html#first-response">First Response</a></li>
+        <li><a href="services.html#night-shift">Night Shift</a></li>
+        <li><a href="services.html#reputation-builder">Reputation Builder</a></li>
+        <li><a href="services.html#cart-recovery">Cart Recovery</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="case-studies.html">Case Studies</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="calendar.html">Book a Call</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bar">
+    <p>© 2025 Amplo Labs. All rights reserved.</p>
+    <div style="display:flex;gap:24px">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Nav scroll
+const nav = document.getElementById('siteNav');
+window.addEventListener('scroll', () => nav.classList.toggle('is-scrolled', window.scrollY > 20), {passive:true});
+nav.classList.add('is-scrolled'); // always dark for preview
+
+// Hamburger
+const ham = document.getElementById('navHamburger');
+const mob = document.getElementById('navMobile');
+ham.addEventListener('click', () => { ham.classList.toggle('open'); mob.classList.toggle('open'); });
+
+// Calculator
+const calcModes = {
+  rr: {
+    intro: 'Most businesses have thousands of dormant leads already in their pipeline — enquired, gone quiet, written off. Find out what yours are worth.',
+    leadsLabel: 'Dormant leads in your pipeline', leadsDefault: 10000,
+    rateText: 'Current reactivation rate', rateMin: 1, rateMax: 30, rateDefault: 4,
+    convText: 'Close rate on reactivated leads',
+    resultLabel: 'Revenue in your dormant pipeline',
+    resultSub: 'Based on the gap between your current reactivation rate and the AI-assisted 34% benchmark.',
+    currentLabel: 'Currently recovering', potentialLabel: 'Potential with AI (34% reactivation)',
+    gapLabel: 'Total revenue gap', showAnnual: false,
+    benchmark: 0.34
+  },
+  fr: {
+    intro: 'Every minute a new lead waits without a response, the chance of conversion drops. Find out how much slow follow-up is costing you each month.',
+    leadsLabel: 'Monthly new inbound leads', leadsDefault: 1000,
+    rateText: 'Current contact rate', rateMin: 10, rateMax: 90, rateDefault: 40,
+    convText: 'Conversion rate (contacted → sale)',
+    resultLabel: 'Monthly revenue lost to slow response',
+    resultSub: 'Based on the gap between your current contact rate and the AI-assisted 85% benchmark.',
+    currentLabel: 'Current monthly revenue', potentialLabel: 'Potential with AI (85% contact)',
+    gapLabel: 'Revenue gap per month', showAnnual: true,
+    benchmark: 0.85
+  }
+};
+let calcMode = 'rr';
+
+function setCalcMode(mode) {
+  calcMode = mode;
+  const m = calcModes[mode];
+  document.getElementById('calcIntro').textContent = m.intro;
+  document.getElementById('calcLeadsLabel').textContent = m.leadsLabel;
+  document.getElementById('calcLeads').value = m.leadsDefault;
+  document.getElementById('calcRateText').textContent = m.rateText;
+  const rateEl = document.getElementById('calcRate');
+  rateEl.min = m.rateMin; rateEl.max = m.rateMax; rateEl.value = m.rateDefault;
+  document.getElementById('calcRateMin').textContent = m.rateMin + '%';
+  document.getElementById('calcRateMax').textContent = m.rateMax + '%';
+  document.getElementById('calcConvText').textContent = m.convText;
+  document.getElementById('calcResultLabel').textContent = m.resultLabel;
+  document.getElementById('calcResultSub').textContent = m.resultSub;
+  document.getElementById('calcCurrentLabel').textContent = m.currentLabel;
+  document.getElementById('calcPotentialLabel').textContent = m.potentialLabel;
+  document.getElementById('calcGapLabel').textContent = m.gapLabel;
+  document.getElementById('calcAnnualRow').style.display = m.showAnnual ? '' : 'none';
+  calcUpdate();
+}
+
+function calcUpdate() {
+  const leads = parseInt(document.getElementById('calcLeads').value) || 0;
+  const deal = parseInt(document.getElementById('calcDeal').value) || 0;
+  const rate = parseInt(document.getElementById('calcRate').value);
+  const conv = parseInt(document.getElementById('calcConv').value);
+  document.getElementById('calcRateLabel').textContent = rate + '%';
+  document.getElementById('calcConvLabel').textContent = conv + '%';
+  const m = calcModes[calcMode];
+  const current   = Math.round(leads * (rate/100) * (conv/100) * deal);
+  const potential = Math.round(leads * m.benchmark * (conv/100) * deal);
+  const gap       = Math.max(0, potential - current);
+  document.getElementById('calcCurrent').textContent   = '£' + current.toLocaleString();
+  document.getElementById('calcPotential').textContent = '£' + potential.toLocaleString();
+  document.getElementById('calcGap').textContent       = '£' + gap.toLocaleString();
+  document.getElementById('calcAnnual').textContent    = '£' + (gap * 12).toLocaleString();
+  document.getElementById('calcResult').textContent    = '£' + gap.toLocaleString();
+}
+
+document.querySelectorAll('.calc-tab').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.calc-tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    setCalcMode(btn.dataset.tab);
+  });
+});
+['calcLeads','calcDeal','calcRate','calcConv'].forEach(id => document.getElementById(id).addEventListener('input', calcUpdate));
+setCalcMode('rr');
+</script>
+
+<script>
+(()=>{'use strict';
+const cm={'Book a Call':'Get My Free Call','Book a Free Strategy Call':'Get My Free Strategy Call','Book a Free 30-Min Session':'Get My Free 30-Min Session','Get Your Free Strategy Call':'Get My Free Strategy Call','Book a free 30-min session →':'Get my free 30-min session →','Book a strategy call →':'Get a free strategy call →'};
+document.querySelectorAll('.nav-cta span,.nav-mobile-cta,.hero-btn-primary span,.cta-fin-primary span,.about-cta-primary span,.about-hero-btn-p span,.svc-hero-btn span,.cs-cta-btn span,.about-cta-btn span,.footer-brand-link').forEach(el=>{const t=el.textContent.trim();if(cm[t])el.textContent=cm[t];});
+[{sel:'.hero-btns',txt:'No pitch · No pressure · 30 mins'},{sel:'.cta-finale-btns',txt:'⭐ 4.9 from 247 calls · £50 time guarantee · 30 mins'},{sel:'.about-hero-btns',txt:'No pitch · No pressure · 30 mins'},{sel:'.about-cta-btns',txt:'⭐ 4.9 from 247 calls · £50 time guarantee'}].forEach(({sel,txt})=>{document.querySelectorAll(sel).forEach(c=>{if(c.nextElementSibling?.classList.contains('cta-micro'))return;const m=document.createElement('p');m.className='cta-micro';m.textContent=txt;c.parentNode.insertBefore(m,c.nextSibling);});});
+document.querySelectorAll('.calc-cta-btn').forEach(b=>{if(b.nextElementSibling?.classList.contains('cta-micro'))return;const m=document.createElement('p');m.className='cta-micro';m.style.color='rgba(255,255,255,.75)';m.textContent='No pitch · 30 mins · £50 time guarantee';b.parentNode.insertBefore(m,b.nextSibling);});
+document.querySelectorAll('.cs-cta-btn').forEach(b=>{if(b.nextElementSibling?.classList.contains('cta-micro'))return;const m=document.createElement('p');m.className='cta-micro';m.style.color='rgba(61,74,86,.65)';m.textContent='No pitch · 30 mins · £50 time guarantee if not a fit';b.parentNode.insertBefore(m,b.nextSibling);});
+document.querySelectorAll('.hero-btn-primary,.cta-fin-primary,.about-cta-primary,.cs-cta-btn').forEach(el=>el.classList.add('cta-pulse'));
+if(!document.body.dataset.page){const p=location.pathname.split('/').pop().replace('.html','')||'index';document.body.dataset.page=p;}
+if(document.body.dataset.page!=='calendar'){const s=document.createElement('div');s.className='sticky-cta';s.innerHTML=`<a href="calendar.html" class="sticky-cta-btn"><span>Get my free 30-min strategy call</span><span class="arrow">→</span></a><div class="sticky-cta-sub">⭐ 4.9 · £50 time guarantee · No pitch</div>`;document.body.appendChild(s);const r=()=>{if(window.scrollY>600){s.classList.add('visible');window.removeEventListener('scroll',r);}};window.addEventListener('scroll',r,{passive:true});}
+const bolt=`<svg width="22" height="30" viewBox="0 0 22 30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M13.5 0L2 17h9.5L8 30 22 13h-9.5L16 0z" fill="#4ADE80"/></svg>`;
+const li=`${bolt}<span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:17px;letter-spacing:-.01em;color:#fff;line-height:1">AMPLO LABS</span>`;
+document.querySelectorAll('.nav-logo,.footer-brand-logo').forEach(el=>{el.style.cssText+=';display:flex;align-items:center;gap:9px;';el.innerHTML=li;});
+if(window.innerWidth<=768){const g=document.querySelector('.cs-grid');if(g)g.classList.add('h-scroll');}
+const sv=[`<svg viewBox="0 0 24 24" width="22" height="22" fill="none"><path d="M13 2L4 14h8.5L9 22l11-13h-8.5L13 2z" fill="#d97706"/></svg>`,`<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#d97706" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 9h18M8 2v4M16 2v4M8 13h.01M12 13h.01M16 13h.01M8 17h.01M12 17h.01"/></svg>`,`<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#d97706" stroke-width="1.5" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>`,`<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#d97706" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`,`<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#d97706" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6L18 2z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>`,`<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#d97706" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>`];
+document.querySelectorAll('.home-svc-grid .svc-icon').forEach((el,i)=>{if(sv[i])el.innerHTML=sv[i];});
+})();
+</script>
+</body>
+</html>
