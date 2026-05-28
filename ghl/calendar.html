@@ -235,20 +235,6 @@ html{scroll-behavior:smooth}
       <div class="cal-eyebrow">Free Strategy Session</div>
       <h1>30 minutes that will <span>change how you sell</span></h1>
       <p>Walk away with a tailored AI deployment plan, a realistic ROI projection for your business, and a clear answer on whether we're the right fit — before you spend a penny.</p>
-      <div class="cal-trust-strip">
-        <div class="cal-trust-item">
-          <span class="cal-trust-stars">★★★★★</span>
-          <span><strong>4.9</strong> from 247 calls</span>
-        </div>
-        <div class="cal-trust-item">
-          <span class="cal-trust-dot"></span>
-          <span><strong id="liveBookings">12</strong> booked this week</span>
-        </div>
-        <div class="cal-trust-item">
-          <span>📅</span>
-          <span>Last booked <strong id="lastBooked">23 min ago</strong></span>
-        </div>
-      </div>
     </div>
   </div>
 
@@ -324,18 +310,6 @@ html{scroll-behavior:smooth}
 
         <!-- Social proof -->
         <div class="cal-social">
-          <div class="cal-social-stars">
-            <span class="cal-social-stars-icons">★★★★★</span>
-            <span class="cal-social-stars-text">4.9 average from 247 calls</span>
-          </div>
-          <div class="cal-social-row">
-            <span><span class="cal-live-dot"></span>Live right now</span>
-            <span id="liveNow">8 viewing</span>
-          </div>
-          <div class="cal-social-row">
-            <span>Booked this week</span>
-            <span id="weekBookings">12</span>
-          </div>
           <div class="cal-social-row">
             <span>Slots left this month</span>
             <span>3 of 12</span>
@@ -409,20 +383,6 @@ const ham = document.getElementById('navHamburger');
 const mob = document.getElementById('navMobile');
 ham.addEventListener('click', () => { ham.classList.toggle('open'); mob.classList.toggle('open'); });
 
-// Rotating last-booked time
-const lastBookedEl = document.getElementById('lastBooked');
-const liveNowEl = document.getElementById('liveNow');
-if (lastBookedEl) {
-  const phrases = ['8 min ago','14 min ago','23 min ago','31 min ago','47 min ago'];
-  let i = 0;
-  setInterval(() => { i = (i+1) % phrases.length; lastBookedEl.textContent = phrases[i]; }, 7000);
-}
-if (liveNowEl) {
-  setInterval(() => {
-    const n = 5 + Math.floor(Math.random() * 8);
-    liveNowEl.textContent = n + ' viewing';
-  }, 9000);
-}
 </script>
 
 <script>

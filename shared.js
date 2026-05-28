@@ -26,9 +26,9 @@
   // ── CRE: MICRO-COPY UNDER PRIMARY CTAs ───────────────────────────────────
   const microTargets = [
     {sel:'.hero-btns',            txt:'No pitch · No pressure · 30 mins'},
-    {sel:'.cta-finale-btns',      txt:'⭐ 4.9 from 247 calls · 30 mins'},
+    {sel:'.cta-finale-btns',      txt:'No pitch · 30 mins'},
     {sel:'.about-hero-btns',      txt:'No pitch · No pressure · 30 mins'},
-    {sel:'.about-cta-btns',       txt:'⭐ 4.9 from 247 calls'},
+    {sel:'.about-cta-btns',       txt:'No pitch · 30 mins'},
   ];
   microTargets.forEach(({sel,txt}) => {
     document.querySelectorAll(sel).forEach(c => {
@@ -77,7 +77,7 @@
         <span>Get my free 30-min strategy call</span>
         <span class="arrow">→</span>
       </a>
-      <div class="sticky-cta-sub">⭐ 4.9 · No pitch · 30 mins</div>
+      <div class="sticky-cta-sub">No pitch · 30 mins · Free this month</div>
     `;
     document.body.appendChild(sticky);
     // Reveal after first scroll
