@@ -73,10 +73,9 @@ html,body{overflow-x:hidden;font-family:'Plus Jakarta Sans',sans-serif;backgroun
 .cs-cta h2 span{background:linear-gradient(135deg,#d97706,#15803d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .cs-cta p{font-size:16px;line-height:1.7;color:#3d4a56;margin:0 0 32px}
 .cs-cta-btn{position:relative;overflow:hidden;font-size:15px;font-weight:700;padding:15px 36px;border-radius:8px;color:#fff;background:#0c1a2e;border:1.5px solid rgba(255,255,255,.15);text-decoration:none;display:inline-block;transition:transform .2s}
-.cs-cta-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#d97706,#15803d);opacity:0;transition:opacity .25s}
+.cs-cta-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#d97706,#15803d);opacity:1}
 .cs-cta-btn span{position:relative;z-index:1}
-.cs-cta-btn:hover::before{opacity:1}
-.cs-cta-btn:hover{transform:translateY(-2px)}
+.cs-cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(217,119,6,.4)}
 @media(max-width:768px){.cs-grid{grid-template-columns:1fr}}
 @media(min-width:769px) and (max-width:1024px){.cs-grid{grid-template-columns:repeat(2,1fr)}}
 
