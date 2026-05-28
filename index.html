@@ -148,9 +148,10 @@ html,body{overflow-x:hidden;font-family:'Plus Jakarta Sans',sans-serif;backgroun
 .cta-finale-inner h2 span{background:linear-gradient(135deg,#fbbf24,#15803d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .cta-finale-inner p{font-size:17px;line-height:1.7;color:rgba(255,255,255,.82);margin:0 0 40px}
 .cta-finale-btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-bottom:40px}
-.cta-fin-primary{position:relative;overflow:hidden;font-size:15px;font-weight:700;padding:15px 36px;border-radius:8px;color:#fff;background:#fff;text-decoration:none;display:inline-block;transition:transform .2s}
-.cta-fin-primary::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#d97706,#15803d)}
-.cta-fin-primary span{position:relative;z-index:1;color:#fff}
+.cta-fin-primary{position:relative;overflow:hidden;font-size:15px;font-weight:700;padding:15px 36px;border-radius:8px;color:#fff;background:#0c1a2e;border:1.5px solid rgba(255,255,255,.15);text-decoration:none;display:inline-block;transition:transform .2s}
+.cta-fin-primary::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#d97706,#15803d);opacity:0;transition:opacity .25s}
+.cta-fin-primary span{position:relative;z-index:1}
+.cta-fin-primary:hover::before{opacity:1}
 .cta-fin-primary:hover{transform:translateY(-2px)}
 .cta-fin-secondary{font-size:15px;font-weight:600;padding:15px 36px;border-radius:8px;border:1.5px solid rgba(255,255,255,.15);color:rgba(255,255,255,.8);text-decoration:none;display:inline-block;transition:border-color .2s,color .2s}
 .cta-fin-secondary:hover{border-color:rgba(255,255,255,.4);color:#fff}
