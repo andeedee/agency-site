@@ -26,9 +26,9 @@
   // ── CRE: MICRO-COPY UNDER PRIMARY CTAs ───────────────────────────────────
   const microTargets = [
     {sel:'.hero-btns',            txt:'No pitch · No pressure · 30 mins'},
-    {sel:'.cta-finale-btns',      txt:'⭐ 4.9 from 247 calls · £50 time guarantee · 30 mins'},
+    {sel:'.cta-finale-btns',      txt:'⭐ 4.9 from 247 calls · 30 mins'},
     {sel:'.about-hero-btns',      txt:'No pitch · No pressure · 30 mins'},
-    {sel:'.about-cta-btns',       txt:'⭐ 4.9 from 247 calls · £50 time guarantee'},
+    {sel:'.about-cta-btns',       txt:'⭐ 4.9 from 247 calls'},
   ];
   microTargets.forEach(({sel,txt}) => {
     document.querySelectorAll(sel).forEach(c => {
@@ -45,7 +45,7 @@
     const m = document.createElement('p');
     m.className = 'cta-micro';
     m.style.color = 'rgba(255,255,255,0.75)';
-    m.textContent = 'No pitch · 30 mins · £50 time guarantee';
+    m.textContent = 'No pitch · 30 mins';
     b.parentNode.insertBefore(m, b.nextSibling);
   });
   // Case studies CTA
@@ -54,7 +54,7 @@
     const m = document.createElement('p');
     m.className = 'cta-micro';
     m.style.color = 'rgba(61,74,86,0.65)';
-    m.textContent = 'No pitch · 30 mins · £50 time guarantee if not a fit';
+    m.textContent = 'No pitch · 30 mins';
     b.parentNode.insertBefore(m, b.nextSibling);
   });
 
@@ -77,7 +77,7 @@
         <span>Get my free 30-min strategy call</span>
         <span class="arrow">→</span>
       </a>
-      <div class="sticky-cta-sub">⭐ 4.9 · £50 time guarantee · No pitch</div>
+      <div class="sticky-cta-sub">⭐ 4.9 · No pitch · 30 mins</div>
     `;
     document.body.appendChild(sticky);
     // Reveal after first scroll
