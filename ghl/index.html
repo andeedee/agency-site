@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Amplo Labs — AI Automation for Growing Businesses</title>
+<title>Stop Losing Leads | AI-Powered Revenue Recovery for B2B Sales Teams</title>
+<meta name="description" content="Five AI agents that follow up, qualify, and close your leads 24/7. Recover lost revenue and fill your pipeline — automatically.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
@@ -45,7 +46,8 @@ html,body{overflow-x:hidden;font-family:'Plus Jakarta Sans',sans-serif;backgroun
 .hero-badge-dot{width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,#d97706,#15803d);flex-shrink:0}
 .hero-text h1{font-size:clamp(36px,5vw,58px);font-weight:800;line-height:1.1;color:#fff;margin:0 0 20px;letter-spacing:-.02em}
 .hero-text h1 span{background:linear-gradient(135deg,#fbbf24,#15803d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero-text p{font-size:18px;line-height:1.7;color:rgba(255,255,255,.82);margin:0 0 40px;max-width:480px}
+.hero-text p{font-size:18px;line-height:1.7;color:rgba(255,255,255,.82);margin:0 0 16px;max-width:480px}
+.hero-support{font-size:14px!important;color:rgba(255,255,255,.5)!important;margin:0 0 36px!important;font-style:italic}
 .hero-btns{display:flex;flex-wrap:wrap;gap:12px}
 .hero-btn-primary{position:relative;overflow:hidden;font-size:15px;font-weight:700;padding:15px 32px;border-radius:8px;border:none;cursor:pointer;color:#fff;background:#0c1a2e;text-decoration:none;display:inline-block;transition:transform .2s;border:1.5px solid rgba(255,255,255,.15)}
 .hero-btn-primary::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#d97706,#15803d);opacity:1}
@@ -124,16 +126,30 @@ html,body{overflow-x:hidden;font-family:'Plus Jakarta Sans',sans-serif;backgroun
 @media(max-width:768px){.home-svc-grid{grid-template-columns:1fr}}
 @media(min-width:769px) and (max-width:1024px){.home-svc-grid{grid-template-columns:repeat(2,1fr)}}
 
-/* ── RESULTS BANNER ── */
+/* ── SOCIAL PROOF ── */
 .results-wrap{width:100vw;position:relative;left:50%;margin-left:-50vw;box-sizing:border-box;background:linear-gradient(135deg,#b45309,#166534);padding:80px 24px}
 .results-inner{max-width:1000px;margin:0 auto;text-align:center}
-.results-inner h2{font-size:clamp(24px,3.5vw,38px);font-weight:700;color:#fff;margin:0 0 12px}
-.results-inner p{font-size:16px;color:rgba(255,255,255,.88);margin:0 0 48px}
-.results-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.results-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:20px}
+.results-eyebrow::before{content:'';display:block;width:18px;height:2px;background:rgba(255,255,255,.5);border-radius:2px}
+.results-inner h2{font-size:clamp(24px,3.5vw,38px);font-weight:700;color:#fff;margin:0 0 48px}
+.results-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-bottom:64px}
 .result-item{text-align:center}
 .result-val{font-size:clamp(32px,4vw,48px);font-weight:800;color:#fff;line-height:1;margin-bottom:8px}
 .result-label{font-size:14px;color:rgba(255,255,255,.7);line-height:1.4}
-@media(max-width:768px){.results-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){.results-grid{grid-template-columns:repeat(1,1fr)}}
+.testimonial-main{background:rgba(0,0,0,.2);border-radius:16px;padding:40px;text-align:left;border:1px solid rgba(255,255,255,.1);margin-bottom:24px}
+.testimonial-quote{font-size:17px;font-style:italic;line-height:1.7;color:rgba(255,255,255,.92);margin:0 0 24px;position:relative}
+.testimonial-quote::before{content:'\201C';font-size:48px;color:rgba(251,191,36,.5);font-style:normal;font-family:Georgia,serif;line-height:0;vertical-align:-20px;margin-right:4px}
+.testimonial-attr{display:flex;align-items:center;gap:14px}
+.testimonial-avatar{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:#fff;flex-shrink:0}
+.testimonial-name{font-size:14px;font-weight:700;color:#fff}
+.testimonial-role{font-size:13px;color:rgba(255,255,255,.65)}
+.testimonial-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.testimonial-card{background:rgba(0,0,0,.15);border-radius:12px;padding:24px;border:1px solid rgba(255,255,255,.08);text-align:left}
+.testimonial-card p{font-size:14px;font-style:italic;line-height:1.65;color:rgba(255,255,255,.85);margin:0 0 16px}
+.testimonial-card p::before{content:'\201C';color:rgba(251,191,36,.5);font-style:normal;font-family:Georgia,serif}
+.testimonial-card-attr{font-size:12px;color:rgba(255,255,255,.55);font-weight:600}
+@media(max-width:768px){.testimonial-grid{grid-template-columns:1fr}}
 
 /* ── CALCULATOR ── */
 .calc-wrap{width:100vw;position:relative;left:50%;margin-left:-50vw;box-sizing:border-box;background:#f5f0e8;padding:96px 24px}
@@ -178,6 +194,25 @@ html,body{overflow-x:hidden;font-family:'Plus Jakarta Sans',sans-serif;backgroun
 .cta-trust-row{display:flex;flex-wrap:wrap;justify-content:center;gap:24px}
 .cta-trust-item{font-size:14px;color:rgba(255,255,255,.88);display:flex;align-items:center;gap:8px}
 .cta-trust-item::before{content:'';width:16px;height:16px;border-radius:50%;border:1.5px solid rgba(34,197,94,.5);background:rgba(34,197,94,.1);flex-shrink:0}
+.cta-scarcity{margin-top:20px;font-size:13px;color:rgba(251,191,36,.85);font-weight:600;letter-spacing:.02em}
+.cta-reassure{margin-top:32px;display:flex;flex-wrap:wrap;justify-content:center;gap:10px 28px}
+.cta-reassure-item{font-size:13px;color:rgba(255,255,255,.7);display:flex;align-items:center;gap:6px}
+.cta-reassure-item::before{content:'✓';color:#22c55e;font-weight:700;font-size:13px}
+
+/* ── HOW IT WORKS ── */
+.hiw-wrap{width:100vw;position:relative;left:50%;margin-left:-50vw;box-sizing:border-box;background:#0c1a2e;padding:96px 24px}
+.hiw-wrap::before{content:'';display:block;position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,#d97706 30%,#15803d 70%,transparent)}
+.hiw-inner{max-width:900px;margin:0 auto;text-align:center}
+.hiw-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#fbbf24;margin-bottom:20px}
+.hiw-eyebrow::before{content:'';display:block;width:18px;height:2px;background:linear-gradient(90deg,#d97706,#15803d);border-radius:2px}
+.hiw-inner h2{font-size:clamp(26px,3.5vw,40px);font-weight:700;color:#fff;margin:0 0 60px;line-height:1.2}
+.hiw-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;position:relative}
+.hiw-steps::before{content:'';position:absolute;top:28px;left:calc(16.67% + 28px);right:calc(16.67% + 28px);height:1px;background:linear-gradient(90deg,rgba(217,119,6,.5),rgba(21,128,61,.5));z-index:0}
+.hiw-step{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 24px;position:relative;z-index:1}
+.hiw-num{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#d97706,#15803d);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;color:#fff;margin-bottom:20px;box-shadow:0 0 24px rgba(217,119,6,.3)}
+.hiw-step h3{font-size:16px;font-weight:700;color:#fff;margin:0 0 10px}
+.hiw-step p{font-size:14px;line-height:1.7;color:rgba(255,255,255,.65)}
+@media(max-width:768px){.hiw-steps{grid-template-columns:1fr;gap:40px}.hiw-steps::before{display:none}}
 
 /* ── FOOTER ── */
 .footer-wrap{width:100vw;position:relative;left:50%;margin-left:-50vw;box-sizing:border-box;background:#060f1e;padding:72px 24px 0}
@@ -267,8 +302,9 @@ html{scroll-behavior:smooth}
   <div class="hero-inner">
     <div class="hero-text">
       <div class="hero-badge"><span class="hero-badge-dot"></span>AI Automation Agency</div>
-      <h1>Stop losing leads to <span>slow follow-up</span></h1>
-      <p>Amplo Labs deploys AI systems that respond to enquiries in seconds, fill your calendar overnight, and protect your reputation — while you sleep.</p>
+      <h1>Stop Losing Revenue to <span>Slow Follow-Up</span></h1>
+      <p>AI that qualifies, responds, and closes your leads — 24/7 — while your team sleeps.</p>
+      <p class="hero-support">Built for B2B sales teams generating £50K–£500K/month who are tired of chasing cold leads.</p>
       <div class="hero-btns">
         <a href="calendar.html" class="hero-btn-primary"><span>Book a Free Strategy Call</span></a>
         <a href="services.html" class="hero-btn-secondary">See how it works</a>
@@ -308,86 +344,11 @@ html{scroll-behavior:smooth}
 <!-- STATS BAR -->
 <div class="stats-wrap">
   <div class="stats-inner">
-    <div class="stat-pill"><span class="stat-pill-val">47s</span><span class="stat-pill-label">Average lead response time</span></div>
-    <div class="stat-pill"><span class="stat-pill-val">3×</span><span class="stat-pill-label">More leads contacted</span></div>
-    <div class="stat-pill"><span class="stat-pill-val">£22k</span><span class="stat-pill-label">Average added revenue / mo</span></div>
-    <div class="stat-pill"><span class="stat-pill-val">94%</span><span class="stat-pill-label">Appointment fill rate</span></div>
+    <div class="stat-pill"><span class="stat-pill-val">£2.4M</span><span class="stat-pill-label">Revenue recovered for clients</span></div>
+    <div class="stat-pill"><span class="stat-pill-val">338%</span><span class="stat-pill-label">Average pipeline increase</span></div>
+    <div class="stat-pill"><span class="stat-pill-val">246</span><span class="stat-pill-label">Leads reactivated</span></div>
+    <div class="stat-pill"><span class="stat-pill-val">47s</span><span class="stat-pill-label">Average response time</span></div>
     <div class="stat-pill"><span class="stat-pill-val">24/7</span><span class="stat-pill-label">Always-on coverage</span></div>
-  </div>
-</div>
-
-<!-- SERVICES -->
-<div class="home-svc-wrap">
-  <div class="home-svc-inner">
-    <div class="section-head">
-      <div class="eyebrow">What we build</div>
-      <h2>Five AI systems. <span>One revenue engine.</span></h2>
-      <p>Each system targets a specific revenue leak. Together, they form a complete automation stack that keeps your pipeline full around the clock.</p>
-    </div>
-    <div class="home-svc-grid">
-      <div class="svc-card">
-        <div class="svc-icon">⚡</div>
-        <h3>Revenue Recovery</h3>
-        <p>Re-engages dormant leads already in your pipeline — the ones that enquired, went quiet, and were written off. Brings them back before they close elsewhere.</p>
-        <a href="services.html#revenue-recovery" class="svc-card-link">Learn more</a>
-      </div>
-      <div class="svc-card">
-        <div class="svc-icon">📅</div>
-        <h3>First Response</h3>
-        <p>Responds to every new inbound lead within seconds. Every minute without a reply is a lead going colder — First Response ensures you're always first to the conversation.</p>
-        <a href="services.html#first-response" class="svc-card-link">Learn more</a>
-      </div>
-      <div class="svc-card">
-        <div class="svc-icon">🌙</div>
-        <h3>Night Shift</h3>
-        <p>Captures and qualifies every enquiry that arrives outside business hours — no voicemail, no missed opportunity.</p>
-        <a href="services.html#night-shift" class="svc-card-link">Learn more</a>
-      </div>
-      <div class="svc-card">
-        <div class="svc-icon">⭐</div>
-        <h3>Reputation Builder</h3>
-        <p>Turns happy customers into public five-star reviews automatically, building a reputation that converts browsers into buyers.</p>
-        <a href="services.html#reputation-builder" class="svc-card-link">Learn more</a>
-      </div>
-      <div class="svc-card">
-        <div class="svc-icon">🛒</div>
-        <h3>Cart Recovery</h3>
-        <p>Recovers lost e-commerce revenue with perfectly-timed personalised follow-up sequences — no code, no fuss.</p>
-        <a href="services.html#cart-recovery" class="svc-card-link">Learn more</a>
-      </div>
-      <div class="svc-card" style="background:linear-gradient(145deg,#edf2ec,#d8e8d8);border-color:#c4dcc4">
-        <div class="svc-icon" style="background:rgba(217,119,6,.15)">🔧</div>
-        <h3>Full Stack Bundle</h3>
-        <p>Deploy Revenue Recovery, First Response, Night Shift, Reputation Builder, and Cart Recovery together — businesses that run the full stack see 4–5× more revenue captured.</p>
-        <a href="contact.html" class="svc-card-link">Get a custom quote</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- RESULTS BANNER -->
-<div class="results-wrap">
-  <div class="results-inner">
-    <h2>The numbers don't lie</h2>
-    <p>Across all active clients in the last 12 months</p>
-    <div class="results-grid">
-      <div class="result-item">
-        <div class="result-val">£2.4M</div>
-        <div class="result-label">Revenue recovered for clients</div>
-      </div>
-      <div class="result-item">
-        <div class="result-val">47s</div>
-        <div class="result-label">Average first-response time</div>
-      </div>
-      <div class="result-item">
-        <div class="result-val">340%</div>
-        <div class="result-label">Average ROI in first 90 days</div>
-      </div>
-      <div class="result-item">
-        <div class="result-val">24/7</div>
-        <div class="result-label">Hours of coverage — every client</div>
-      </div>
-    </div>
   </div>
 </div>
 
@@ -395,43 +356,143 @@ html{scroll-behavior:smooth}
 <div class="calc-wrap">
   <div class="calc-inner">
     <div class="calc-left">
-      <div class="eyebrow">Revenue calculator</div>
-      <h2>How much are you <span>leaving on the table?</span></h2>
-      <p id="calcIntro">Most businesses have hundreds of dormant leads already in their pipeline — enquired, gone quiet, written off. Find out what yours are worth.</p>
-      <div class="calc-tabs">
-        <button class="calc-tab active" data-tab="rr">Revenue Recovery</button>
-        <button class="calc-tab" data-tab="fr">First Response</button>
-      </div>
+      <div class="eyebrow">See your number</div>
+      <h2>How much revenue are you <span>leaving on the table?</span></h2>
+      <p>Answer 3 quick questions. Get your personalised revenue recovery estimate instantly.</p>
       <div class="calc-field">
-        <label id="calcLeadsLabel">Dormant leads in your pipeline</label>
-        <input type="number" id="calcLeads" value="500" min="1" max="100000">
+        <label>Monthly leads into your pipeline</label>
+        <input type="number" id="calcLeads" value="150" min="1" max="100000">
       </div>
       <div class="calc-field">
         <label>Average deal value (£)</label>
-        <input type="number" id="calcDeal" value="500" min="1">
+        <input type="number" id="calcDeal" value="2000" min="1">
       </div>
       <div class="calc-field">
-        <label><span id="calcRateText">Current reactivation rate</span>: <span id="calcRateLabel">4%</span></label>
-        <input type="range" id="calcRate" min="1" max="30" value="4">
-        <div class="calc-slider-labels"><span id="calcRateMin">1%</span><span id="calcRateMax">30%</span></div>
-      </div>
-      <div class="calc-field">
-        <label><span id="calcConvText">Close rate on reactivated leads</span>: <span id="calcConvLabel">20%</span></label>
-        <input type="range" id="calcConv" min="5" max="60" value="20">
-        <div class="calc-slider-labels"><span>5%</span><span>60%</span></div>
+        <label>Current lead-to-close rate: <span id="calcRateLabel">15%</span></label>
+        <input type="range" id="calcRate" min="1" max="60" value="15">
+        <div class="calc-slider-labels"><span>1%</span><span>60%</span></div>
       </div>
     </div>
     <div class="calc-right-card">
-      <div class="calc-result-label" id="calcResultLabel">Revenue in your dormant pipeline</div>
+      <div class="calc-result-label">You're leaving on the table every month</div>
       <div class="calc-result-val" id="calcResult">£0</div>
-      <div class="calc-result-sub" id="calcResultSub">Based on the gap between your current reactivation rate and the AI-assisted 34% benchmark.</div>
+      <div class="calc-result-sub">Our clients recover an average of 38% of that — starting in week one.</div>
       <div class="calc-result-breakdown">
-        <div class="calc-breakdown-row"><span id="calcCurrentLabel">Currently recovering</span><span id="calcCurrent">£0</span></div>
-        <div class="calc-breakdown-row"><span id="calcPotentialLabel">Potential with AI (34% reactivation)</span><span id="calcPotential">£0</span></div>
-        <div class="calc-breakdown-row"><span id="calcGapLabel">Total revenue gap</span><span id="calcGap">£0</span></div>
-        <div class="calc-breakdown-row" id="calcAnnualRow" style="display:none"><span>Annualised opportunity</span><span id="calcAnnual">£0</span></div>
+        <div class="calc-breakdown-row"><span>Revenue not captured</span><span id="calcCurrent">£0</span></div>
+        <div class="calc-breakdown-row"><span>Recoverable (38% avg)</span><span id="calcPotential">£0</span></div>
+        <div class="calc-breakdown-row"><span>Annualised opportunity</span><span id="calcAnnual">£0</span></div>
       </div>
-      <a href="calendar.html" class="calc-cta-btn">Book a free call to reclaim this</a>
+      <a href="calendar.html" class="calc-cta-btn">Show Me How to Recover It →</a>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="hiw-wrap">
+  <div class="hiw-inner">
+    <div class="hiw-eyebrow">The process</div>
+    <h2>Up and running in 24 hours. No dev work. No disruption.</h2>
+    <div class="hiw-steps">
+      <div class="hiw-step">
+        <div class="hiw-num">1</div>
+        <h3>Connect</h3>
+        <p>Plug in your CRM or lead source in minutes. We support HubSpot, Salesforce, GoHighLevel, and more.</p>
+      </div>
+      <div class="hiw-step">
+        <div class="hiw-num">2</div>
+        <h3>Activate</h3>
+        <p>Your five AI agents go live within 24 hours — trained on your offer, your tone, your pipeline.</p>
+      </div>
+      <div class="hiw-step">
+        <div class="hiw-num">3</div>
+        <h3>Watch it work</h3>
+        <p>Leads get followed up instantly, around the clock. You get the ones who are ready to buy.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<div class="home-svc-wrap">
+  <div class="home-svc-inner">
+    <div class="section-head">
+      <div class="eyebrow">What's inside</div>
+      <h2>Five AI systems. <span>One revenue engine.</span></h2>
+      <p>Each agent runs a specific job in your pipeline — so nothing falls through the cracks.</p>
+    </div>
+    <div class="home-svc-grid">
+      <div class="svc-card">
+        <div class="svc-icon">💰</div>
+        <h3>Revenue Recovery</h3>
+        <p>Re-engages every lead that went quiet. Sends the right message at the right time — automatically — to bring cold prospects back into your pipeline.</p>
+        <a href="services.html#revenue-recovery" class="svc-card-link">Learn more</a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">⚡</div>
+        <h3>First Response</h3>
+        <p>Responds to new enquiries in under 60 seconds — even at midnight. First to respond wins the deal. Now that's always you.</p>
+        <a href="services.html#first-response" class="svc-card-link">Learn more</a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">🌙</div>
+        <h3>Night Shift</h3>
+        <p>Your AI sales agent doesn't clock off. It qualifies, nurtures, and books calls while your team is offline — so you wake up to booked meetings.</p>
+        <a href="services.html#night-shift" class="svc-card-link">Learn more</a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">⭐</div>
+        <h3>Reputation Builder</h3>
+        <p>Automates review collection from your happiest clients — building the social proof that converts future leads before they even speak to you.</p>
+        <a href="services.html#reputation-builder" class="svc-card-link">Learn more</a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">🔁</div>
+        <h3>Cart &amp; Lead Recovery</h3>
+        <p>Follows up on abandoned enquiries, uncompleted forms, and dropped-off prospects. Recovers revenue that most businesses never knew they lost.</p>
+        <a href="services.html#cart-recovery" class="svc-card-link">Learn more</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SOCIAL PROOF -->
+<div class="results-wrap">
+  <div class="results-inner">
+    <div class="results-eyebrow">Client Results</div>
+    <h2>The numbers don't lie.</h2>
+    <div class="results-grid">
+      <div class="result-item">
+        <div class="result-val">£2.4M</div>
+        <div class="result-label">Revenue Recovered</div>
+      </div>
+      <div class="result-item">
+        <div class="result-val">338%</div>
+        <div class="result-label">Pipeline Increase</div>
+      </div>
+      <div class="result-item">
+        <div class="result-val">246</div>
+        <div class="result-label">Leads Reactivated</div>
+      </div>
+    </div>
+    <div class="testimonial-main">
+      <p class="testimonial-quote">We were losing deals simply because we weren't fast enough. Within two weeks of switching on the AI, our response time dropped from 6 hours to under 2 minutes. We closed £140K in that first month that would have walked out the door.</p>
+      <div class="testimonial-attr">
+        <div class="testimonial-avatar">S</div>
+        <div>
+          <div class="testimonial-name">Sarah M.</div>
+          <div class="testimonial-role">Head of Sales, B2B SaaS</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <p>I didn't think AI could sound like us. It does. Our leads can't tell the difference.</p>
+        <div class="testimonial-card-attr">— James R., Agency Owner</div>
+      </div>
+      <div class="testimonial-card">
+        <p>Best ROI decision we made this year. Paid for itself in the first 10 days.</p>
+        <div class="testimonial-card-attr">— Tom K., Sales Director</div>
+      </div>
     </div>
   </div>
 </div>
@@ -439,18 +500,20 @@ html{scroll-behavior:smooth}
 <!-- CTA FINALE -->
 <div class="cta-finale-wrap">
   <div class="cta-finale-inner">
-    <div class="eyebrow" style="justify-content:center;color:#fbbf24">Get started</div>
+    <div class="eyebrow" style="justify-content:center;color:#fbbf24">One thing to consider</div>
     <h2>Your competitors are already <span>using this</span></h2>
-    <p>Every day without AI follow-up is a day your leads are being picked up by someone faster. Book a free 30-minute call and we'll show you exactly what's possible for your business.</p>
+    <p>Every day you wait, leads that could have been yours are being closed by faster, AI-powered competitors. The gap compounds — and it's getting harder to close.</p>
+    <p style="font-size:15px;color:rgba(255,255,255,.65);margin-top:-24px;margin-bottom:40px">We work with a small number of clients each month to ensure results. Right now, we have limited onboarding capacity for June.</p>
     <div class="cta-finale-btns">
-      <a href="calendar.html" class="cta-fin-primary"><span>Book a Free Strategy Call</span></a>
+      <a href="calendar.html" class="cta-fin-primary"><span>Claim Your Spot Before It's Gone</span></a>
       <a href="case-studies.html" class="cta-fin-secondary">See case studies</a>
     </div>
-    <div class="cta-trust-row">
-      <div class="cta-trust-item">No long-term contracts</div>
-      <div class="cta-trust-item">Live in under 2 weeks</div>
-      <div class="cta-trust-item">Month-one ROI guaranteed</div>
-      <div class="cta-trust-item">Cancel anytime</div>
+    <div class="cta-scarcity">We onboard a maximum of 4 new clients per month. 1 spot remaining in June.</div>
+    <div class="cta-reassure">
+      <div class="cta-reassure-item">No pitch. No pressure.</div>
+      <div class="cta-reassure-item">30 minutes.</div>
+      <div class="cta-reassure-item">We'll identify your biggest revenue leak — guaranteed.</div>
+      <div class="cta-reassure-item">Month-to-month. Cancel anytime.</div>
     </div>
   </div>
 </div>
@@ -504,80 +567,20 @@ const mob = document.getElementById('navMobile');
 ham.addEventListener('click', () => { ham.classList.toggle('open'); mob.classList.toggle('open'); });
 
 // Calculator
-const calcModes = {
-  rr: {
-    intro: 'Most businesses have thousands of dormant leads already in their pipeline — enquired, gone quiet, written off. Find out what yours are worth.',
-    leadsLabel: 'Dormant leads in your pipeline', leadsDefault: 10000,
-    rateText: 'Current reactivation rate', rateMin: 1, rateMax: 30, rateDefault: 4,
-    convText: 'Close rate on reactivated leads',
-    resultLabel: 'Revenue in your dormant pipeline',
-    resultSub: 'Based on the gap between your current reactivation rate and the AI-assisted 34% benchmark.',
-    currentLabel: 'Currently recovering', potentialLabel: 'Potential with AI (34% reactivation)',
-    gapLabel: 'Total revenue gap', showAnnual: false,
-    benchmark: 0.34
-  },
-  fr: {
-    intro: 'Every minute a new lead waits without a response, the chance of conversion drops. Find out how much slow follow-up is costing you each month.',
-    leadsLabel: 'Monthly new inbound leads', leadsDefault: 1000,
-    rateText: 'Current contact rate', rateMin: 10, rateMax: 90, rateDefault: 40,
-    convText: 'Conversion rate (contacted → sale)',
-    resultLabel: 'Monthly revenue lost to slow response',
-    resultSub: 'Based on the gap between your current contact rate and the AI-assisted 85% benchmark.',
-    currentLabel: 'Current monthly revenue', potentialLabel: 'Potential with AI (85% contact)',
-    gapLabel: 'Revenue gap per month', showAnnual: true,
-    benchmark: 0.85
-  }
-};
-let calcMode = 'rr';
-
-function setCalcMode(mode) {
-  calcMode = mode;
-  const m = calcModes[mode];
-  document.getElementById('calcIntro').textContent = m.intro;
-  document.getElementById('calcLeadsLabel').textContent = m.leadsLabel;
-  document.getElementById('calcLeads').value = m.leadsDefault;
-  document.getElementById('calcRateText').textContent = m.rateText;
-  const rateEl = document.getElementById('calcRate');
-  rateEl.min = m.rateMin; rateEl.max = m.rateMax; rateEl.value = m.rateDefault;
-  document.getElementById('calcRateMin').textContent = m.rateMin + '%';
-  document.getElementById('calcRateMax').textContent = m.rateMax + '%';
-  document.getElementById('calcConvText').textContent = m.convText;
-  document.getElementById('calcResultLabel').textContent = m.resultLabel;
-  document.getElementById('calcResultSub').textContent = m.resultSub;
-  document.getElementById('calcCurrentLabel').textContent = m.currentLabel;
-  document.getElementById('calcPotentialLabel').textContent = m.potentialLabel;
-  document.getElementById('calcGapLabel').textContent = m.gapLabel;
-  document.getElementById('calcAnnualRow').style.display = m.showAnnual ? '' : 'none';
-  calcUpdate();
-}
-
 function calcUpdate() {
   const leads = parseInt(document.getElementById('calcLeads').value) || 0;
-  const deal = parseInt(document.getElementById('calcDeal').value) || 0;
-  const rate = parseInt(document.getElementById('calcRate').value);
-  const conv = parseInt(document.getElementById('calcConv').value);
+  const deal  = parseInt(document.getElementById('calcDeal').value)  || 0;
+  const rate  = parseInt(document.getElementById('calcRate').value);
   document.getElementById('calcRateLabel').textContent = rate + '%';
-  document.getElementById('calcConvLabel').textContent = conv + '%';
-  const m = calcModes[calcMode];
-  const current   = Math.round(leads * (rate/100) * (conv/100) * deal);
-  const potential = Math.round(leads * m.benchmark * (conv/100) * deal);
-  const gap       = Math.max(0, potential - current);
-  document.getElementById('calcCurrent').textContent   = '£' + current.toLocaleString();
-  document.getElementById('calcPotential').textContent = '£' + potential.toLocaleString();
-  document.getElementById('calcGap').textContent       = '£' + gap.toLocaleString();
-  document.getElementById('calcAnnual').textContent    = '£' + (gap * 12).toLocaleString();
-  document.getElementById('calcResult').textContent    = '£' + gap.toLocaleString();
+  const leftOnTable = Math.round(leads * (1 - rate/100) * deal);
+  const recoverable = Math.round(leftOnTable * 0.38);
+  document.getElementById('calcResult').textContent    = '£' + leftOnTable.toLocaleString();
+  document.getElementById('calcCurrent').textContent   = '£' + leftOnTable.toLocaleString();
+  document.getElementById('calcPotential').textContent = '£' + recoverable.toLocaleString();
+  document.getElementById('calcAnnual').textContent    = '£' + (recoverable * 12).toLocaleString();
 }
-
-document.querySelectorAll('.calc-tab').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.calc-tab').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    setCalcMode(btn.dataset.tab);
-  });
-});
-['calcLeads','calcDeal','calcRate','calcConv'].forEach(id => document.getElementById(id).addEventListener('input', calcUpdate));
-setCalcMode('rr');
+['calcLeads','calcDeal','calcRate'].forEach(id => document.getElementById(id).addEventListener('input', calcUpdate));
+calcUpdate();
 
 /* ── HERO CHAT ANIMATION ── */
 (function(){
