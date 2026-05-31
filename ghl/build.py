@@ -71,6 +71,9 @@ for fname in FILES:
     # Remove external shared.css link
     html = re.sub(r'\n?<link rel="stylesheet" href="shared\.css">\n?', '\n', html)
 
+    # Inject noindex meta into <head>
+    html = html.replace('<head>', '<head>\n<meta name="robots" content="noindex, nofollow">', 1)
+
     # Inject critical CSS before closing </style>
     html = html.replace('</style>', CRITICAL_CSS + '\n</style>', 1)
 
