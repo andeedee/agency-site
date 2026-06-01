@@ -175,10 +175,6 @@ html,body{overflow-x:hidden;font-family:'Plus Jakarta Sans',sans-serif;backgroun
 .calc-cta-btn{display:block;text-align:center;background:#fff;color:#b45309;font-size:15px;font-weight:700;padding:14px 24px;border-radius:8px;text-decoration:none;transition:transform .2s,box-shadow .2s}
 .calc-cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.2)}
 @media(max-width:768px){.calc-inner{grid-template-columns:1fr}.calc-right-card{position:static}}
-.calc-tabs{display:flex;gap:6px;margin-bottom:28px;background:#edf2ec;border-radius:10px;padding:4px}
-.calc-tab{flex:1;padding:10px 14px;border-radius:7px;border:none;background:transparent;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:600;color:#637280;cursor:pointer;transition:all .2s}
-.calc-tab.active{background:#fff;color:#d97706;box-shadow:0 2px 8px rgba(0,0,0,.08)}
-
 /* ── CTA FINALE ── */
 .cta-finale-wrap{width:100vw;position:relative;left:50%;margin-left:-50vw;box-sizing:border-box;background:#0c1a2e;padding:96px 24px}
 .cta-finale-wrap::before{content:'';display:block;position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,#d97706 30%,#15803d 70%,transparent)}
@@ -193,9 +189,6 @@ html,body{overflow-x:hidden;font-family:'Plus Jakarta Sans',sans-serif;backgroun
 .cta-fin-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(217,119,6,.4)}
 .cta-fin-secondary{font-size:15px;font-weight:600;padding:15px 36px;border-radius:8px;border:1.5px solid rgba(255,255,255,.15);color:rgba(255,255,255,.8);text-decoration:none;display:inline-block;transition:border-color .2s,color .2s}
 .cta-fin-secondary:hover{border-color:rgba(255,255,255,.4);color:#fff}
-.cta-trust-row{display:flex;flex-wrap:wrap;justify-content:center;gap:24px}
-.cta-trust-item{font-size:14px;color:rgba(255,255,255,.88);display:flex;align-items:center;gap:8px}
-.cta-trust-item::before{content:'';width:16px;height:16px;border-radius:50%;border:1.5px solid rgba(34,197,94,.5);background:rgba(34,197,94,.1);flex-shrink:0}
 .cta-scarcity{margin-top:20px;font-size:13px;color:rgba(251,191,36,.85);font-weight:600;letter-spacing:.02em}
 .cta-reassure{margin-top:32px;display:flex;flex-wrap:wrap;justify-content:center;gap:10px 28px}
 .cta-reassure-item{font-size:13px;color:rgba(255,255,255,.7);display:flex;align-items:center;gap:6px}
@@ -341,9 +334,9 @@ html,body{overflow-x:hidden;font-family:'Plus Jakarta Sans',sans-serif;backgroun
       </div>
     </div>
     <div class="calc-right-card">
-      <div class="calc-result-label">You're leaving on the table every month</div>
+      <div class="calc-result-label">You could be recovering every month</div>
       <div class="calc-result-val" id="calcResult">£0</div>
-      <div class="calc-result-sub">Our clients recover an average of 38% of that — starting in week one.</div>
+      <div class="calc-result-sub">Based on the 38% average our clients recover — starting in week one.</div>
       <div class="calc-result-breakdown">
         <div class="calc-breakdown-row"><span>Revenue not captured</span><span id="calcCurrent">£0</span></div>
         <div class="calc-breakdown-row"><span>Recoverable (38% avg)</span><span id="calcPotential">£0</span></div>
@@ -541,7 +534,7 @@ function calcUpdate() {
   document.getElementById('calcRateLabel').textContent = rate + '%';
   const leftOnTable = Math.round(leads * (1 - rate/100) * deal);
   const recoverable = Math.round(leftOnTable * 0.38);
-  document.getElementById('calcResult').textContent    = '£' + leftOnTable.toLocaleString();
+  document.getElementById('calcResult').textContent    = '£' + recoverable.toLocaleString();
   document.getElementById('calcCurrent').textContent   = '£' + leftOnTable.toLocaleString();
   document.getElementById('calcPotential').textContent = '£' + recoverable.toLocaleString();
   document.getElementById('calcAnnual').textContent    = '£' + (recoverable * 12).toLocaleString();
@@ -564,6 +557,9 @@ calcUpdate();
   ];
   var timing=[[700,1100],[400,650],[500,950],[400,600],[500,950],[400,600]];
   var i=0;
+  var tids=[];
+  function schedule(fn,delay){var id=setTimeout(fn,delay);tids.push(id);return id;}
+  function cancelAll(){tids.forEach(clearTimeout);tids=[];}
   function addBubble(side,text){
     var b=document.createElement('div');
     b.className='chat-bubble '+side;
@@ -580,23 +576,28 @@ calcUpdate();
     return d;
   }
   function next(){
+    if(document.hidden)return;
     if(i>=msgs.length){
-      setTimeout(function(){Q.classList.add('show');setTimeout(reset,4500);},600);
+      schedule(function(){Q.classList.add('show');schedule(reset,4500);},600);
       return;
     }
     var m=msgs[i],tm=timing[i];
-    setTimeout(function(){
+    schedule(function(){
       var typ=addTyping();
-      setTimeout(function(){typ.remove();addBubble(m.s,m.t);i++;next();},tm[1]);
+      schedule(function(){typ.remove();addBubble(m.s,m.t);i++;next();},tm[1]);
     },tm[0]);
   }
   function reset(){
+    cancelAll();
     C.innerHTML='';
     Q.classList.remove('show');
     i=0;
-    setTimeout(next,1400);
+    schedule(next,1400);
   }
-  setTimeout(next,900);
+  document.addEventListener('visibilitychange',function(){
+    if(!document.hidden&&i===0&&C.children.length===0)schedule(next,900);
+  });
+  schedule(next,900);
 })();
 </script>
 <script src="shared.js"></script>

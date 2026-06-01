@@ -9,7 +9,6 @@
     'Get Your Free Strategy Call': 'Get My Free Strategy Call',
     'Book a free 30-min session →': 'Get my free 30-min session →',
     'Book a strategy call →': 'Get a free strategy call →',
-    'Book a Free Strategy Call': 'Get My Free Strategy Call',
   };
   const textTargets = [
     '.nav-cta span', '.nav-mobile-cta',
@@ -211,6 +210,7 @@
 
   document.querySelectorAll(countSelectors).forEach(el => {
     const raw = el.textContent.trim();
+    if (raw.includes('/')) return;
     const numeric = raw.replace(/[^0-9.]/g, '');
     if (!numeric || parseFloat(numeric) < 1) return;
     const prefix = raw.match(/^[^0-9]*/)[0];
