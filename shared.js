@@ -9,7 +9,6 @@
     'Get Your Free Strategy Call': 'Get My Free Strategy Call',
     'Book a free 30-min session →': 'Get my free 30-min session →',
     'Book a strategy call →': 'Get a free strategy call →',
-    'Book a Free Strategy Call': 'Get My Free Strategy Call',
   };
   const textTargets = [
     '.nav-cta span', '.nav-mobile-cta',
@@ -25,10 +24,10 @@
 
   // ── CRE: MICRO-COPY UNDER PRIMARY CTAs ───────────────────────────────────
   const microTargets = [
-    {sel:'.hero-btns',            txt:'No pitch · No pressure · 30 mins'},
-    {sel:'.cta-finale-btns',      txt:'⭐ 4.9 from 247 calls · £50 time guarantee · 30 mins'},
+    {sel:'.hero-btns',            txt:'No pitch. 30 minutes. We\'ll show you exactly what you\'re leaving on the table.'},
+    {sel:'.cta-finale-btns',      txt:'No pitch · 30 mins'},
     {sel:'.about-hero-btns',      txt:'No pitch · No pressure · 30 mins'},
-    {sel:'.about-cta-btns',       txt:'⭐ 4.9 from 247 calls · £50 time guarantee'},
+    {sel:'.about-cta-btns',       txt:'No pitch · 30 mins'},
   ];
   microTargets.forEach(({sel,txt}) => {
     document.querySelectorAll(sel).forEach(c => {
@@ -45,7 +44,7 @@
     const m = document.createElement('p');
     m.className = 'cta-micro';
     m.style.color = 'rgba(255,255,255,0.75)';
-    m.textContent = 'No pitch · 30 mins · £50 time guarantee';
+    m.textContent = 'No pitch · 30 mins';
     b.parentNode.insertBefore(m, b.nextSibling);
   });
   // Case studies CTA
@@ -54,7 +53,7 @@
     const m = document.createElement('p');
     m.className = 'cta-micro';
     m.style.color = 'rgba(61,74,86,0.65)';
-    m.textContent = 'No pitch · 30 mins · £50 time guarantee if not a fit';
+    m.textContent = 'No pitch · 30 mins';
     b.parentNode.insertBefore(m, b.nextSibling);
   });
 
@@ -77,7 +76,7 @@
         <span>Get my free 30-min strategy call</span>
         <span class="arrow">→</span>
       </a>
-      <div class="sticky-cta-sub">⭐ 4.9 · £50 time guarantee · No pitch</div>
+      <div class="sticky-cta-sub">No pitch · 30 mins · Free this month</div>
     `;
     document.body.appendChild(sticky);
     // Reveal after first scroll
@@ -211,6 +210,7 @@
 
   document.querySelectorAll(countSelectors).forEach(el => {
     const raw = el.textContent.trim();
+    if (raw.includes('/')) return;
     const numeric = raw.replace(/[^0-9.]/g, '');
     if (!numeric || parseFloat(numeric) < 1) return;
     const prefix = raw.match(/^[^0-9]*/)[0];
@@ -280,18 +280,16 @@
 
   // ── SVG ICONS FOR HOME SERVICE CARDS ────────────────────────────────────
   const svcSVGs = [
-    // DBR — lightning
+    // Revenue Recovery — coin/money
+    `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#d97706" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v1m0 8v1M9.5 9.5C9.5 8.4 10.6 7.5 12 7.5s2.5.9 2.5 2-.9 1.5-2.5 2-2.5 1-2.5 2 1.1 2 2.5 2 2.5-.9 2.5-2"/></svg>`,
+    // First Response — lightning
     `<svg viewBox="0 0 24 24" width="22" height="22" fill="none"><path d="M13 2L4 14h8.5L9 22l11-13h-8.5L13 2z" fill="#d97706"/></svg>`,
-    // S2L — calendar
-    `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#d97706" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 9h18M8 2v4M16 2v4M8 13h.01M12 13h.01M16 13h.01M8 17h.01M12 17h.01"/></svg>`,
-    // OOH — moon
+    // Night Shift — moon
     `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#d97706" stroke-width="1.5" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>`,
-    // Reviews — star
+    // Reputation Builder — star
     `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#d97706" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`,
-    // Cart — shopping bag
-    `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#d97706" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6L18 2z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>`,
-    // Full Stack — layers
-    `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#d97706" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>`,
+    // Cart & Lead Recovery — refresh/loop
+    `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#d97706" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><polyline points="23 20 23 14 17 14"/><path d="M20.49 9A9 9 0 005.64 5.64L1 10M23 14l-4.64 4.36A9 9 0 013.51 15"/></svg>`,
   ];
   document.querySelectorAll('.home-svc-grid .svc-icon').forEach((el, i) => {
     if (svcSVGs[i]) el.innerHTML = svcSVGs[i];

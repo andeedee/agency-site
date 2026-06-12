@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta name="robots" content="noindex, nofollow">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Book a Call — Amplo Labs</title>
@@ -20,10 +21,9 @@ html,body{overflow-x:hidden;font-family:'Plus Jakarta Sans',sans-serif;backgroun
 .nav-links a:hover{color:#fff}
 .nav-links a:hover::after{width:100%}
 .nav-cta{position:relative;overflow:hidden;font-size:14px;font-weight:600;padding:10px 22px;border-radius:8px;color:#fff;background:#0f2040;text-decoration:none;transition:transform .2s;display:inline-block}
-.nav-cta::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#d97706,#15803d);opacity:0;transition:opacity .25s}
+.nav-cta::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#d97706,#15803d);opacity:1}
 .nav-cta span{position:relative;z-index:1}
-.nav-cta:hover::before{opacity:1}
-.nav-cta:hover{transform:translateY(-1px)}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(217,119,6,.4)}
 .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
 .nav-hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:transform .3s,opacity .3s}
 .nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
@@ -235,20 +235,6 @@ html{scroll-behavior:smooth}
       <div class="cal-eyebrow">Free Strategy Session</div>
       <h1>30 minutes that will <span>change how you sell</span></h1>
       <p>Walk away with a tailored AI deployment plan, a realistic ROI projection for your business, and a clear answer on whether we're the right fit — before you spend a penny.</p>
-      <div class="cal-trust-strip">
-        <div class="cal-trust-item">
-          <span class="cal-trust-stars">★★★★★</span>
-          <span><strong>4.9</strong> from 247 calls</span>
-        </div>
-        <div class="cal-trust-item">
-          <span class="cal-trust-dot"></span>
-          <span><strong id="liveBookings">12</strong> booked this week</span>
-        </div>
-        <div class="cal-trust-item">
-          <span>📅</span>
-          <span>Last booked <strong id="lastBooked">23 min ago</strong></span>
-        </div>
-      </div>
     </div>
   </div>
 
@@ -309,20 +295,6 @@ html{scroll-behavior:smooth}
           </div>
         </div>
 
-        <!-- £50 Guarantee -->
-        <div class="cal-guarantee">
-          <div class="cal-guarantee-badge">
-            <svg viewBox="0 0 32 32" fill="none">
-              <path d="M16 2L20 7l6 1-2 6 2 6-6 1-4 5-4-5-6-1 2-6-2-6 6-1 4-5z" stroke="#fbbf24" stroke-width="1.5" stroke-linejoin="round"/>
-              <path d="M12 16l3 3 6-6" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <div class="cal-guarantee-content">
-            <h4>The £50 Time Guarantee</h4>
-            <p>If you don't leave this call with a <strong>clear, actionable AI plan you'd happily pay for</strong> — we'll send you £50 for your time. That's how confident we are. We've never had to pay it out.</p>
-          </div>
-        </div>
-
       </div>
 
       <!-- RIGHT: founder + social + testimonial + objection -->
@@ -338,22 +310,6 @@ html{scroll-behavior:smooth}
 
         <!-- Social proof -->
         <div class="cal-social">
-          <div class="cal-social-stars">
-            <span class="cal-social-stars-icons">★★★★★</span>
-            <span class="cal-social-stars-text">4.9 average from 247 calls</span>
-          </div>
-          <div class="cal-social-row">
-            <span><span class="cal-live-dot"></span>Live right now</span>
-            <span id="liveNow">8 viewing</span>
-          </div>
-          <div class="cal-social-row">
-            <span>Booked this week</span>
-            <span id="weekBookings">12</span>
-          </div>
-          <div class="cal-social-row">
-            <span>Slots left this month</span>
-            <span>3 of 12</span>
-          </div>
           <div class="cal-social-row">
             <span>Avg. month-one ROI</span>
             <span>340%</span>
@@ -413,7 +369,7 @@ html{scroll-behavior:smooth}
     </div>
   </div>
   <div class="footer-bar">
-    <p>© 2025 Amplo Labs. All rights reserved.</p>
+    <p>© 2026 Amplo Labs. All rights reserved.</p>
     <div style="display:flex;gap:24px"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
   </div>
 </footer>
@@ -423,32 +379,18 @@ const ham = document.getElementById('navHamburger');
 const mob = document.getElementById('navMobile');
 ham.addEventListener('click', () => { ham.classList.toggle('open'); mob.classList.toggle('open'); });
 
-// Rotating last-booked time
-const lastBookedEl = document.getElementById('lastBooked');
-const liveNowEl = document.getElementById('liveNow');
-if (lastBookedEl) {
-  const phrases = ['8 min ago','14 min ago','23 min ago','31 min ago','47 min ago'];
-  let i = 0;
-  setInterval(() => { i = (i+1) % phrases.length; lastBookedEl.textContent = phrases[i]; }, 7000);
-}
-if (liveNowEl) {
-  setInterval(() => {
-    const n = 5 + Math.floor(Math.random() * 8);
-    liveNowEl.textContent = n + ' viewing';
-  }, 9000);
-}
 </script>
 
 <script>
 (()=>{'use strict';
 const cm={'Book a Call':'Get My Free Call','Book a Free Strategy Call':'Get My Free Strategy Call','Book a Free 30-Min Session':'Get My Free 30-Min Session','Get Your Free Strategy Call':'Get My Free Strategy Call','Book a free 30-min session →':'Get my free 30-min session →','Book a strategy call →':'Get a free strategy call →'};
 document.querySelectorAll('.nav-cta span,.nav-mobile-cta,.hero-btn-primary span,.cta-fin-primary span,.about-cta-primary span,.about-hero-btn-p span,.svc-hero-btn span,.cs-cta-btn span,.about-cta-btn span,.footer-brand-link').forEach(el=>{const t=el.textContent.trim();if(cm[t])el.textContent=cm[t];});
-[{sel:'.hero-btns',txt:'No pitch · No pressure · 30 mins'},{sel:'.cta-finale-btns',txt:'⭐ 4.9 from 247 calls · £50 time guarantee · 30 mins'},{sel:'.about-hero-btns',txt:'No pitch · No pressure · 30 mins'},{sel:'.about-cta-btns',txt:'⭐ 4.9 from 247 calls · £50 time guarantee'}].forEach(({sel,txt})=>{document.querySelectorAll(sel).forEach(c=>{if(c.nextElementSibling?.classList.contains('cta-micro'))return;const m=document.createElement('p');m.className='cta-micro';m.textContent=txt;c.parentNode.insertBefore(m,c.nextSibling);});});
-document.querySelectorAll('.calc-cta-btn').forEach(b=>{if(b.nextElementSibling?.classList.contains('cta-micro'))return;const m=document.createElement('p');m.className='cta-micro';m.style.color='rgba(255,255,255,.75)';m.textContent='No pitch · 30 mins · £50 time guarantee';b.parentNode.insertBefore(m,b.nextSibling);});
-document.querySelectorAll('.cs-cta-btn').forEach(b=>{if(b.nextElementSibling?.classList.contains('cta-micro'))return;const m=document.createElement('p');m.className='cta-micro';m.style.color='rgba(61,74,86,.65)';m.textContent='No pitch · 30 mins · £50 time guarantee if not a fit';b.parentNode.insertBefore(m,b.nextSibling);});
+[{sel:'.hero-btns',txt:'No pitch · No pressure · 30 mins'},{sel:'.cta-finale-btns',txt:'⭐ 4.9 from 247 calls · 30 mins'},{sel:'.about-hero-btns',txt:'No pitch · No pressure · 30 mins'},{sel:'.about-cta-btns',txt:'⭐ 4.9 from 247 calls'}].forEach(({sel,txt})=>{document.querySelectorAll(sel).forEach(c=>{if(c.nextElementSibling?.classList.contains('cta-micro'))return;const m=document.createElement('p');m.className='cta-micro';m.textContent=txt;c.parentNode.insertBefore(m,c.nextSibling);});});
+document.querySelectorAll('.calc-cta-btn').forEach(b=>{if(b.nextElementSibling?.classList.contains('cta-micro'))return;const m=document.createElement('p');m.className='cta-micro';m.style.color='rgba(255,255,255,.75)';m.textContent='No pitch · 30 mins';b.parentNode.insertBefore(m,b.nextSibling);});
+document.querySelectorAll('.cs-cta-btn').forEach(b=>{if(b.nextElementSibling?.classList.contains('cta-micro'))return;const m=document.createElement('p');m.className='cta-micro';m.style.color='rgba(61,74,86,.65)';m.textContent='No pitch · 30 mins';b.parentNode.insertBefore(m,b.nextSibling);});
 document.querySelectorAll('.hero-btn-primary,.cta-fin-primary,.about-cta-primary,.cs-cta-btn').forEach(el=>el.classList.add('cta-pulse'));
 if(!document.body.dataset.page){const p=location.pathname.split('/').pop().replace('.html','')||'index';document.body.dataset.page=p;}
-if(document.body.dataset.page!=='calendar'){const s=document.createElement('div');s.className='sticky-cta';s.innerHTML=`<a href="calendar.html" class="sticky-cta-btn"><span>Get my free 30-min strategy call</span><span class="arrow">→</span></a><div class="sticky-cta-sub">⭐ 4.9 · £50 time guarantee · No pitch</div>`;document.body.appendChild(s);const r=()=>{if(window.scrollY>600){s.classList.add('visible');window.removeEventListener('scroll',r);}};window.addEventListener('scroll',r,{passive:true});}
+if(document.body.dataset.page!=='calendar'){const s=document.createElement('div');s.className='sticky-cta';s.innerHTML=`<a href="calendar.html" class="sticky-cta-btn"><span>Get my free 30-min strategy call</span><span class="arrow">→</span></a><div class="sticky-cta-sub">⭐ 4.9 · No pitch · 30 mins</div>`;document.body.appendChild(s);const r=()=>{if(window.scrollY>600){s.classList.add('visible');window.removeEventListener('scroll',r);}};window.addEventListener('scroll',r,{passive:true});}
 const bolt=`<svg width="22" height="30" viewBox="0 0 22 30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M13.5 0L2 17h9.5L8 30 22 13h-9.5L16 0z" fill="#4ADE80"/></svg>`;
 const li=`${bolt}<span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:17px;letter-spacing:-.01em;color:#fff;line-height:1">AMPLO LABS</span>`;
 document.querySelectorAll('.nav-logo,.footer-brand-logo').forEach(el=>{el.style.cssText+=';display:flex;align-items:center;gap:9px;';el.innerHTML=li;});

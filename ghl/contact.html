@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta name="robots" content="noindex, nofollow">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact — Amplo Labs</title>
@@ -20,10 +21,9 @@ html,body{overflow-x:hidden;font-family:'Plus Jakarta Sans',sans-serif;backgroun
 .nav-links a:hover{color:#fff}
 .nav-links a:hover::after{width:100%}
 .nav-cta{position:relative;overflow:hidden;font-size:14px;font-weight:600;padding:10px 22px;border-radius:8px;color:#fff;background:#0f2040;text-decoration:none;transition:transform .2s;display:inline-block}
-.nav-cta::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#d97706,#15803d);opacity:0;transition:opacity .25s}
+.nav-cta::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#d97706,#15803d);opacity:1}
 .nav-cta span{position:relative;z-index:1}
-.nav-cta:hover::before{opacity:1}
-.nav-cta:hover{transform:translateY(-1px)}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(217,119,6,.4)}
 .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
 .nav-hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:transform .3s,opacity .3s}
 .nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
@@ -225,7 +225,7 @@ html{scroll-behavior:smooth}
     </div>
   </div>
   <div class="footer-bar">
-    <p>© 2025 Amplo Labs. All rights reserved.</p>
+    <p>© 2026 Amplo Labs. All rights reserved.</p>
     <div style="display:flex;gap:24px"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
   </div>
 </footer>
@@ -240,12 +240,12 @@ ham.addEventListener('click', () => { ham.classList.toggle('open'); mob.classLis
 (()=>{'use strict';
 const cm={'Book a Call':'Get My Free Call','Book a Free Strategy Call':'Get My Free Strategy Call','Book a Free 30-Min Session':'Get My Free 30-Min Session','Get Your Free Strategy Call':'Get My Free Strategy Call','Book a free 30-min session →':'Get my free 30-min session →','Book a strategy call →':'Get a free strategy call →'};
 document.querySelectorAll('.nav-cta span,.nav-mobile-cta,.hero-btn-primary span,.cta-fin-primary span,.about-cta-primary span,.about-hero-btn-p span,.svc-hero-btn span,.cs-cta-btn span,.about-cta-btn span,.footer-brand-link').forEach(el=>{const t=el.textContent.trim();if(cm[t])el.textContent=cm[t];});
-[{sel:'.hero-btns',txt:'No pitch · No pressure · 30 mins'},{sel:'.cta-finale-btns',txt:'⭐ 4.9 from 247 calls · £50 time guarantee · 30 mins'},{sel:'.about-hero-btns',txt:'No pitch · No pressure · 30 mins'},{sel:'.about-cta-btns',txt:'⭐ 4.9 from 247 calls · £50 time guarantee'}].forEach(({sel,txt})=>{document.querySelectorAll(sel).forEach(c=>{if(c.nextElementSibling?.classList.contains('cta-micro'))return;const m=document.createElement('p');m.className='cta-micro';m.textContent=txt;c.parentNode.insertBefore(m,c.nextSibling);});});
-document.querySelectorAll('.calc-cta-btn').forEach(b=>{if(b.nextElementSibling?.classList.contains('cta-micro'))return;const m=document.createElement('p');m.className='cta-micro';m.style.color='rgba(255,255,255,.75)';m.textContent='No pitch · 30 mins · £50 time guarantee';b.parentNode.insertBefore(m,b.nextSibling);});
-document.querySelectorAll('.cs-cta-btn').forEach(b=>{if(b.nextElementSibling?.classList.contains('cta-micro'))return;const m=document.createElement('p');m.className='cta-micro';m.style.color='rgba(61,74,86,.65)';m.textContent='No pitch · 30 mins · £50 time guarantee if not a fit';b.parentNode.insertBefore(m,b.nextSibling);});
+[{sel:'.hero-btns',txt:'No pitch · No pressure · 30 mins'},{sel:'.cta-finale-btns',txt:'⭐ 4.9 from 247 calls · 30 mins'},{sel:'.about-hero-btns',txt:'No pitch · No pressure · 30 mins'},{sel:'.about-cta-btns',txt:'⭐ 4.9 from 247 calls'}].forEach(({sel,txt})=>{document.querySelectorAll(sel).forEach(c=>{if(c.nextElementSibling?.classList.contains('cta-micro'))return;const m=document.createElement('p');m.className='cta-micro';m.textContent=txt;c.parentNode.insertBefore(m,c.nextSibling);});});
+document.querySelectorAll('.calc-cta-btn').forEach(b=>{if(b.nextElementSibling?.classList.contains('cta-micro'))return;const m=document.createElement('p');m.className='cta-micro';m.style.color='rgba(255,255,255,.75)';m.textContent='No pitch · 30 mins';b.parentNode.insertBefore(m,b.nextSibling);});
+document.querySelectorAll('.cs-cta-btn').forEach(b=>{if(b.nextElementSibling?.classList.contains('cta-micro'))return;const m=document.createElement('p');m.className='cta-micro';m.style.color='rgba(61,74,86,.65)';m.textContent='No pitch · 30 mins';b.parentNode.insertBefore(m,b.nextSibling);});
 document.querySelectorAll('.hero-btn-primary,.cta-fin-primary,.about-cta-primary,.cs-cta-btn').forEach(el=>el.classList.add('cta-pulse'));
 if(!document.body.dataset.page){const p=location.pathname.split('/').pop().replace('.html','')||'index';document.body.dataset.page=p;}
-if(document.body.dataset.page!=='calendar'){const s=document.createElement('div');s.className='sticky-cta';s.innerHTML=`<a href="calendar.html" class="sticky-cta-btn"><span>Get my free 30-min strategy call</span><span class="arrow">→</span></a><div class="sticky-cta-sub">⭐ 4.9 · £50 time guarantee · No pitch</div>`;document.body.appendChild(s);const r=()=>{if(window.scrollY>600){s.classList.add('visible');window.removeEventListener('scroll',r);}};window.addEventListener('scroll',r,{passive:true});}
+if(document.body.dataset.page!=='calendar'){const s=document.createElement('div');s.className='sticky-cta';s.innerHTML=`<a href="calendar.html" class="sticky-cta-btn"><span>Get my free 30-min strategy call</span><span class="arrow">→</span></a><div class="sticky-cta-sub">⭐ 4.9 · No pitch · 30 mins</div>`;document.body.appendChild(s);const r=()=>{if(window.scrollY>600){s.classList.add('visible');window.removeEventListener('scroll',r);}};window.addEventListener('scroll',r,{passive:true});}
 const bolt=`<svg width="22" height="30" viewBox="0 0 22 30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M13.5 0L2 17h9.5L8 30 22 13h-9.5L16 0z" fill="#4ADE80"/></svg>`;
 const li=`${bolt}<span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:17px;letter-spacing:-.01em;color:#fff;line-height:1">AMPLO LABS</span>`;
 document.querySelectorAll('.nav-logo,.footer-brand-logo').forEach(el=>{el.style.cssText+=';display:flex;align-items:center;gap:9px;';el.innerHTML=li;});
